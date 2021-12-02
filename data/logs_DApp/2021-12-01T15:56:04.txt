@@ -1,0 +1,79 @@
+--------make-runnable-error--------
+TypeError: CloudAuction.methods.checkSLAViolation is not a function
+    at Object.checkSLAViolation (/Users/zeshunshi/Documents/SCTesting/API/app.js:233:46)
+    at runFuncWithArgs (/Users/zeshunshi/node_modules/make-runnable/engine.js:58:26)
+    at module.exports (/Users/zeshunshi/node_modules/make-runnable/engine.js:79:11)
+    at Object.<anonymous> (/Users/zeshunshi/node_modules/make-runnable/index.js:1:20)
+    at Module._compile (internal/modules/cjs/loader.js:1063:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
+    at Module.load (internal/modules/cjs/loader.js:928:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:769:14)
+    at Module.require (internal/modules/cjs/loader.js:952:19)
+    at require (internal/modules/cjs/helpers.js:88:18)
+    at Object.<anonymous> (/Users/zeshunshi/Documents/SCTesting/API/app.js:292:1)
+    at Module._compile (internal/modules/cjs/loader.js:1063:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
+    at Module.load (internal/modules/cjs/loader.js:928:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:769:14)
+    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)
+------------------------------------
+[15:56:04.159] => [15:56:10.759]; Function name is checkSLAViolation; Player number is 1
+--------make-runnable-error--------
+TypeError: CloudAuction.methods.checkSLAViolation is not a function
+    at Object.checkSLAViolation (/Users/zeshunshi/Documents/SCTesting/API/app.js:233:46)
+    at runFuncWithArgs (/Users/zeshunshi/node_modules/make-runnable/engine.js:58:26)
+    at module.exports (/Users/zeshunshi/node_modules/make-runnable/engine.js:79:11)
+    at Object.<anonymous> (/Users/zeshunshi/node_modules/make-runnable/index.js:1:20)
+    at Module._compile (internal/modules/cjs/loader.js:1063:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
+    at Module.load (internal/modules/cjs/loader.js:928:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:769:14)
+    at Module.require (internal/modules/cjs/loader.js:952:19)
+    at require (internal/modules/cjs/helpers.js:88:18)
+    at Object.<anonymous> (/Users/zeshunshi/Documents/SCTesting/API/app.js:292:1)
+    at Module._compile (internal/modules/cjs/loader.js:1063:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
+    at Module.load (internal/modules/cjs/loader.js:928:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:769:14)
+    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)
+------------------------------------
+[15:56:10.762] => [15:56:15.341]; Function name is checkSLAViolation; Player number is 1
+--------make-runnable-error--------
+TypeError: CloudAuction.methods.checkSLAViolation is not a function
+    at Object.checkSLAViolation (/Users/zeshunshi/Documents/SCTesting/API/app.js:233:46)
+    at runFuncWithArgs (/Users/zeshunshi/node_modules/make-runnable/engine.js:58:26)
+    at module.exports (/Users/zeshunshi/node_modules/make-runnable/engine.js:79:11)
+    at Object.<anonymous> (/Users/zeshunshi/node_modules/make-runnable/index.js:1:20)
+    at Module._compile (internal/modules/cjs/loader.js:1063:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
+    at Module.load (internal/modules/cjs/loader.js:928:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:769:14)
+    at Module.require (internal/modules/cjs/loader.js:952:19)
+    at require (internal/modules/cjs/helpers.js:88:18)
+    at Object.<anonymous> (/Users/zeshunshi/Documents/SCTesting/API/app.js:292:1)
+    at Module._compile (internal/modules/cjs/loader.js:1063:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
+    at Module.load (internal/modules/cjs/loader.js:928:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:769:14)
+    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)
+------------------------------------
+[15:56:15.343] => [15:56:19.458]; Function name is checkSLAViolation; Player number is 1
+--------make-runnable-error--------
+TypeError: CloudAuction.methods.checkSLAViolation is not a function
+    at Object.checkSLAViolation (/Users/zeshunshi/Documents/SCTesting/API/app.js:233:46)
+    at runFuncWithArgs (/Users/zeshunshi/node_modules/make-runnable/engine.js:58:26)
+    at module.exports (/Users/zeshunshi/node_modules/make-runnable/engine.js:79:11)
+    at Object.<anonymous> (/Users/zeshunshi/node_modules/make-runnable/index.js:1:20)
+    at Module._compile (internal/modules/cjs/loader.js:1063:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
+    at Module.load (internal/modules/cjs/loader.js:928:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:769:14)
+    at Module.require (internal/modules/cjs/loader.js:952:19)
+    at require (internal/modules/cjs/helpers.js:88:18)
+    at Object.<anonymous> (/Users/zeshunshi/Documents/SCTesting/API/app.js:292:1)
+    at Module._compile (internal/modules/cjs/loader.js:1063:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
+    at Module.load (internal/modules/cjs/loader.js:928:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:769:14)
+    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)
+------------------------------------

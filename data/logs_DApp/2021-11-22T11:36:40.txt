@@ -1,0 +1,22 @@
+--------make-runnable-error--------
+Error: Returned error: VM Exception while processing transaction: invalid opcode
+    at Object.ErrorResponse (/Users/zeshunshi/node_modules/web3-core-helpers/lib/errors.js:28:19)
+    at /Users/zeshunshi/node_modules/web3-core-requestmanager/lib/index.js:302:36
+    at XMLHttpRequest.request.onreadystatechange (/Users/zeshunshi/node_modules/web3-providers-http/lib/index.js:98:13)
+    at XMLHttpRequestEventTarget.dispatchEvent (/Users/zeshunshi/node_modules/xhr2-cookies/dist/xml-http-request-event-target.js:34:22)
+    at XMLHttpRequest._setReadyState (/Users/zeshunshi/node_modules/xhr2-cookies/dist/xml-http-request.js:208:14)
+    at XMLHttpRequest._onHttpResponseEnd (/Users/zeshunshi/node_modules/xhr2-cookies/dist/xml-http-request.js:318:14)
+    at IncomingMessage.<anonymous> (/Users/zeshunshi/node_modules/xhr2-cookies/dist/xml-http-request.js:289:61)
+    at IncomingMessage.emit (events.js:326:22)
+    at endReadableNT (_stream_readable.js:1252:12)
+    at processTicksAndRejections (internal/process/task_queues.js:80:21) {
+  data: {
+    '0xad50a0393aa9de7c46eeef37c815ec0307900a8b63ef4b58dae733bfe651b8eb': { error: 'invalid opcode', program_counter: 16243, return: '0x' },
+    stack: 'RuntimeError: VM Exception while processing transaction: invalid opcode\n' +
+      '    at Function.RuntimeError.fromResults (/Applications/Ganache.app/Contents/Resources/static/node/node_modules/ganache-core/lib/utils/runtimeerror.js:94:13)\n' +
+      '    at BlockchainDouble.processBlock (/Applications/Ganache.app/Contents/Resources/static/node/node_modules/ganache-core/lib/blockchain_double.js:627:24)\n' +
+      '    at processTicksAndRejections (internal/process/task_queues.js:93:5)',
+    name: 'RuntimeError'
+  }
+}
+------------------------------------

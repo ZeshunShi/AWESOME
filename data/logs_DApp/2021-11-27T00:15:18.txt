@@ -1,0 +1,121 @@
+--------make-runnable-error--------
+Error: Provided address x3Ad438090D6CA3c26f2e4C4c2E7833066B87e709 is invalid, the capitalization checksum test failed, or it's an indirect IBAN address which can't be converted.
+    at inputAddressFormatter (/Users/zeshunshi/node_modules/web3-core-helpers/lib/formatters.js:414:11)
+    at _txInputFormatter (/Users/zeshunshi/node_modules/web3-core-helpers/lib/formatters.js:120:22)
+    at Object.inputCallFormatter (/Users/zeshunshi/node_modules/web3-core-helpers/lib/formatters.js:157:15)
+    at signed (/Users/zeshunshi/node_modules/web3-eth-accounts/lib/index.js:157:50)
+    at /Users/zeshunshi/node_modules/web3-eth-accounts/lib/index.js:245:16
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async Object.setupAuction (/Users/zeshunshi/Documents/SCTesting/API/app.js:55:33)
+------------------------------------
+[00:15:18.707] => [00:15:23.171]; Function name is setupAuction; Player number is 10
+--------make-runnable-error--------
+Error: Provided address x3Ad438090D6CA3c26f2e4C4c2E7833066B87e709 is invalid, the capitalization checksum test failed, or it's an indirect IBAN address which can't be converted.
+    at inputAddressFormatter (/Users/zeshunshi/node_modules/web3-core-helpers/lib/formatters.js:414:11)
+    at _txInputFormatter (/Users/zeshunshi/node_modules/web3-core-helpers/lib/formatters.js:120:22)
+    at Object.inputCallFormatter (/Users/zeshunshi/node_modules/web3-core-helpers/lib/formatters.js:157:15)
+    at signed (/Users/zeshunshi/node_modules/web3-eth-accounts/lib/index.js:157:50)
+    at /Users/zeshunshi/node_modules/web3-eth-accounts/lib/index.js:245:16
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async Object.bidderRegister (/Users/zeshunshi/Documents/SCTesting/API/app.js:64:33)
+------------------------------------
+[00:15:23.173] => [00:15:27.638]; Function name is bidderRegister; Player number is 10
+--------make-runnable-error--------
+Error: Provided address x3Ad438090D6CA3c26f2e4C4c2E7833066B87e709 is invalid, the capitalization checksum test failed, or it's an indirect IBAN address which can't be converted.
+    at inputAddressFormatter (/Users/zeshunshi/node_modules/web3-core-helpers/lib/formatters.js:414:11)
+    at _txInputFormatter (/Users/zeshunshi/node_modules/web3-core-helpers/lib/formatters.js:120:22)
+    at Object.inputCallFormatter (/Users/zeshunshi/node_modules/web3-core-helpers/lib/formatters.js:157:15)
+    at signed (/Users/zeshunshi/node_modules/web3-eth-accounts/lib/index.js:157:50)
+    at /Users/zeshunshi/node_modules/web3-eth-accounts/lib/index.js:245:16
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async Object.checkProviderNumber (/Users/zeshunshi/Documents/SCTesting/API/app.js:73:33)
+------------------------------------
+[00:15:27.640] => [00:15:32.173]; Function name is checkProviderNumber; Player number is 10
+--------make-runnable-error--------
+Error: Provided address x3Ad438090D6CA3c26f2e4C4c2E7833066B87e709 is invalid, the capitalization checksum test failed, or it's an indirect IBAN address which can't be converted.
+    at inputAddressFormatter (/Users/zeshunshi/node_modules/web3-core-helpers/lib/formatters.js:414:11)
+    at _txInputFormatter (/Users/zeshunshi/node_modules/web3-core-helpers/lib/formatters.js:120:22)
+    at Object.inputCallFormatter (/Users/zeshunshi/node_modules/web3-core-helpers/lib/formatters.js:157:15)
+    at signed (/Users/zeshunshi/node_modules/web3-eth-accounts/lib/index.js:157:50)
+    at /Users/zeshunshi/node_modules/web3-eth-accounts/lib/index.js:245:16
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async Object.submitBids (/Users/zeshunshi/Documents/SCTesting/API/app.js:82:33)
+------------------------------------
+[00:15:32.175] => [00:15:36.881]; Function name is submitBids; Player number is 10
+--------make-runnable-error--------
+Error: Provided address x3Ad438090D6CA3c26f2e4C4c2E7833066B87e709 is invalid, the capitalization checksum test failed, or it's an indirect IBAN address which can't be converted.
+    at inputAddressFormatter (/Users/zeshunshi/node_modules/web3-core-helpers/lib/formatters.js:414:11)
+    at _txInputFormatter (/Users/zeshunshi/node_modules/web3-core-helpers/lib/formatters.js:120:22)
+    at Object.inputCallFormatter (/Users/zeshunshi/node_modules/web3-core-helpers/lib/formatters.js:157:15)
+    at signed (/Users/zeshunshi/node_modules/web3-eth-accounts/lib/index.js:157:50)
+    at /Users/zeshunshi/node_modules/web3-eth-accounts/lib/index.js:245:16
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async Object.revealReservePrice (/Users/zeshunshi/Documents/SCTesting/API/app.js:91:33)
+------------------------------------
+[00:15:36.883] => [00:15:41.333]; Function name is revealReservePrice; Player number is 10
+--------make-runnable-error--------
+Error: Provided address x3Ad438090D6CA3c26f2e4C4c2E7833066B87e709 is invalid, the capitalization checksum test failed, or it's an indirect IBAN address which can't be converted.
+    at inputAddressFormatter (/Users/zeshunshi/node_modules/web3-core-helpers/lib/formatters.js:414:11)
+    at _txInputFormatter (/Users/zeshunshi/node_modules/web3-core-helpers/lib/formatters.js:120:22)
+    at Object.inputCallFormatter (/Users/zeshunshi/node_modules/web3-core-helpers/lib/formatters.js:157:15)
+    at signed (/Users/zeshunshi/node_modules/web3-eth-accounts/lib/index.js:157:50)
+    at /Users/zeshunshi/node_modules/web3-eth-accounts/lib/index.js:245:16
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async Object.revealBids (/Users/zeshunshi/Documents/SCTesting/API/app.js:100:33)
+------------------------------------
+[00:15:41.335] => [00:15:45.962]; Function name is revealBids; Player number is 10
+--------make-runnable-error--------
+Error: Provided address x3Ad438090D6CA3c26f2e4C4c2E7833066B87e709 is invalid, the capitalization checksum test failed, or it's an indirect IBAN address which can't be converted.
+    at inputAddressFormatter (/Users/zeshunshi/node_modules/web3-core-helpers/lib/formatters.js:414:11)
+    at _txInputFormatter (/Users/zeshunshi/node_modules/web3-core-helpers/lib/formatters.js:120:22)
+    at Object.inputCallFormatter (/Users/zeshunshi/node_modules/web3-core-helpers/lib/formatters.js:157:15)
+    at signed (/Users/zeshunshi/node_modules/web3-eth-accounts/lib/index.js:157:50)
+    at /Users/zeshunshi/node_modules/web3-eth-accounts/lib/index.js:245:16
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async Object.placeBids (/Users/zeshunshi/Documents/SCTesting/API/app.js:126:33)
+------------------------------------
+[00:15:45.964] => [00:15:50.807]; Function name is placeBids; Player number is 10
+--------make-runnable-error--------
+Error: Provided address x3Ad438090D6CA3c26f2e4C4c2E7833066B87e709 is invalid, the capitalization checksum test failed, or it's an indirect IBAN address which can't be converted.
+    at inputAddressFormatter (/Users/zeshunshi/node_modules/web3-core-helpers/lib/formatters.js:414:11)
+    at _txInputFormatter (/Users/zeshunshi/node_modules/web3-core-helpers/lib/formatters.js:120:22)
+    at Object.inputCallFormatter (/Users/zeshunshi/node_modules/web3-core-helpers/lib/formatters.js:157:15)
+    at signed (/Users/zeshunshi/node_modules/web3-eth-accounts/lib/index.js:157:50)
+    at /Users/zeshunshi/node_modules/web3-eth-accounts/lib/index.js:245:16
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async Object.providerWithdrawWitnessFee (/Users/zeshunshi/Documents/SCTesting/API/app.js:135:33)
+------------------------------------
+[00:15:50.809] => [00:15:56.189]; Function name is providerWithdrawWitnessFee; Player number is 10
+--------make-runnable-error--------
+Error: Provided address x3Ad438090D6CA3c26f2e4C4c2E7833066B87e709 is invalid, the capitalization checksum test failed, or it's an indirect IBAN address which can't be converted.
+    at inputAddressFormatter (/Users/zeshunshi/node_modules/web3-core-helpers/lib/formatters.js:414:11)
+    at _txInputFormatter (/Users/zeshunshi/node_modules/web3-core-helpers/lib/formatters.js:120:22)
+    at Object.inputCallFormatter (/Users/zeshunshi/node_modules/web3-core-helpers/lib/formatters.js:157:15)
+    at signed (/Users/zeshunshi/node_modules/web3-eth-accounts/lib/index.js:157:50)
+    at /Users/zeshunshi/node_modules/web3-eth-accounts/lib/index.js:245:16
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async Object.customerWithdrawWitnessFee (/Users/zeshunshi/Documents/SCTesting/API/app.js:144:33)
+------------------------------------
+[00:15:56.191] => [00:16:01.068]; Function name is customerWithdrawWitnessFee; Player number is 10
+--------make-runnable-error--------
+Error: Returned error: VM Exception while processing transaction: invalid opcode
+    at Object.ErrorResponse (/Users/zeshunshi/node_modules/web3-core-helpers/lib/errors.js:28:19)
+    at /Users/zeshunshi/node_modules/web3-core-requestmanager/lib/index.js:302:36
+    at XMLHttpRequest.request.onreadystatechange (/Users/zeshunshi/node_modules/web3-providers-http/lib/index.js:98:13)
+    at XMLHttpRequestEventTarget.dispatchEvent (/Users/zeshunshi/node_modules/xhr2-cookies/dist/xml-http-request-event-target.js:34:22)
+    at XMLHttpRequest._setReadyState (/Users/zeshunshi/node_modules/xhr2-cookies/dist/xml-http-request.js:208:14)
+    at XMLHttpRequest._onHttpResponseEnd (/Users/zeshunshi/node_modules/xhr2-cookies/dist/xml-http-request.js:318:14)
+    at IncomingMessage.<anonymous> (/Users/zeshunshi/node_modules/xhr2-cookies/dist/xml-http-request.js:289:61)
+    at IncomingMessage.emit (events.js:326:22)
+    at endReadableNT (_stream_readable.js:1252:12)
+    at processTicksAndRejections (internal/process/task_queues.js:80:21) {
+  data: {
+    '0x7c72a07c296abcd12e4bf9fb1edc3e64e31b19eab06af712b523f3345c3c03e7': { error: 'invalid opcode', program_counter: 16203, return: '0x' },
+    stack: 'c: VM Exception while processing transaction: invalid opcode\n' +
+      '    at Function.c.fromResults (/usr/local/lib/node_modules/ganache-cli/build/ganache-core.node.cli.js:4:192416)\n' +
+      '    at w.processBlock (/usr/local/lib/node_modules/ganache-cli/build/ganache-core.node.cli.js:42:50915)\n' +
+      '    at processTicksAndRejections (internal/process/task_queues.js:93:5)',
+    name: 'c'
+  }
+}
+------------------------------------

@@ -1,0 +1,95 @@
+--------make-runnable-error--------
+Error: Returned error: VM Exception while processing transaction: invalid opcode
+    at Object.ErrorResponse (/Users/zeshunshi/node_modules/web3-core-helpers/lib/errors.js:28:19)
+    at /Users/zeshunshi/node_modules/web3-core-requestmanager/lib/index.js:302:36
+    at XMLHttpRequest.request.onreadystatechange (/Users/zeshunshi/node_modules/web3-providers-http/lib/index.js:98:13)
+    at XMLHttpRequestEventTarget.dispatchEvent (/Users/zeshunshi/node_modules/xhr2-cookies/dist/xml-http-request-event-target.js:34:22)
+    at XMLHttpRequest._setReadyState (/Users/zeshunshi/node_modules/xhr2-cookies/dist/xml-http-request.js:208:14)
+    at XMLHttpRequest._onHttpResponseEnd (/Users/zeshunshi/node_modules/xhr2-cookies/dist/xml-http-request.js:318:14)
+    at IncomingMessage.<anonymous> (/Users/zeshunshi/node_modules/xhr2-cookies/dist/xml-http-request.js:289:61)
+    at IncomingMessage.emit (events.js:326:22)
+    at endReadableNT (_stream_readable.js:1252:12)
+    at processTicksAndRejections (internal/process/task_queues.js:80:21) {
+  data: {
+    '0x7e06fce5dcc1c36eb546f94c42f0878c6e74e9b1aa8102c5a2a9e8896975a0b4': { error: 'invalid opcode', program_counter: 8235, return: '0x' },
+    stack: 'RuntimeError: VM Exception while processing transaction: invalid opcode\n' +
+      '    at Function.RuntimeError.fromResults (/Applications/Ganache.app/Contents/Resources/static/node/node_modules/ganache-core/lib/utils/runtimeerror.js:94:13)\n' +
+      '    at BlockchainDouble.processBlock (/Applications/Ganache.app/Contents/Resources/static/node/node_modules/ganache-core/lib/blockchain_double.js:627:24)\n' +
+      '    at runMicrotasks (<anonymous>)\n' +
+      '    at processTicksAndRejections (internal/process/task_queues.js:93:5)',
+    name: 'RuntimeError'
+  }
+}
+------------------------------------
+[19:56:20.094] => [19:56:24.404]; Function name is checkSLAViolation; Player number is 1
+--------make-runnable-error--------
+Error: Returned error: VM Exception while processing transaction: invalid opcode
+    at Object.ErrorResponse (/Users/zeshunshi/node_modules/web3-core-helpers/lib/errors.js:28:19)
+    at /Users/zeshunshi/node_modules/web3-core-requestmanager/lib/index.js:302:36
+    at XMLHttpRequest.request.onreadystatechange (/Users/zeshunshi/node_modules/web3-providers-http/lib/index.js:98:13)
+    at XMLHttpRequestEventTarget.dispatchEvent (/Users/zeshunshi/node_modules/xhr2-cookies/dist/xml-http-request-event-target.js:34:22)
+    at XMLHttpRequest._setReadyState (/Users/zeshunshi/node_modules/xhr2-cookies/dist/xml-http-request.js:208:14)
+    at XMLHttpRequest._onHttpResponseEnd (/Users/zeshunshi/node_modules/xhr2-cookies/dist/xml-http-request.js:318:14)
+    at IncomingMessage.<anonymous> (/Users/zeshunshi/node_modules/xhr2-cookies/dist/xml-http-request.js:289:61)
+    at IncomingMessage.emit (events.js:326:22)
+    at endReadableNT (_stream_readable.js:1252:12)
+    at processTicksAndRejections (internal/process/task_queues.js:80:21) {
+  data: {
+    '0x3866086c276410ac2f831d5359d6870f3d017188847b0743ef08e48952d18264': { error: 'invalid opcode', program_counter: 8235, return: '0x' },
+    stack: 'RuntimeError: VM Exception while processing transaction: invalid opcode\n' +
+      '    at Function.RuntimeError.fromResults (/Applications/Ganache.app/Contents/Resources/static/node/node_modules/ganache-core/lib/utils/runtimeerror.js:94:13)\n' +
+      '    at BlockchainDouble.processBlock (/Applications/Ganache.app/Contents/Resources/static/node/node_modules/ganache-core/lib/blockchain_double.js:627:24)\n' +
+      '    at runMicrotasks (<anonymous>)\n' +
+      '    at processTicksAndRejections (internal/process/task_queues.js:93:5)',
+    name: 'RuntimeError'
+  }
+}
+------------------------------------
+[19:56:24.406] => [19:56:28.635]; Function name is checkSLAViolation; Player number is 20
+--------make-runnable-error--------
+Error: Returned error: VM Exception while processing transaction: invalid opcode
+    at Object.ErrorResponse (/Users/zeshunshi/node_modules/web3-core-helpers/lib/errors.js:28:19)
+    at /Users/zeshunshi/node_modules/web3-core-requestmanager/lib/index.js:302:36
+    at XMLHttpRequest.request.onreadystatechange (/Users/zeshunshi/node_modules/web3-providers-http/lib/index.js:98:13)
+    at XMLHttpRequestEventTarget.dispatchEvent (/Users/zeshunshi/node_modules/xhr2-cookies/dist/xml-http-request-event-target.js:34:22)
+    at XMLHttpRequest._setReadyState (/Users/zeshunshi/node_modules/xhr2-cookies/dist/xml-http-request.js:208:14)
+    at XMLHttpRequest._onHttpResponseEnd (/Users/zeshunshi/node_modules/xhr2-cookies/dist/xml-http-request.js:318:14)
+    at IncomingMessage.<anonymous> (/Users/zeshunshi/node_modules/xhr2-cookies/dist/xml-http-request.js:289:61)
+    at IncomingMessage.emit (events.js:326:22)
+    at endReadableNT (_stream_readable.js:1252:12)
+    at processTicksAndRejections (internal/process/task_queues.js:80:21) {
+  data: {
+    '0x3a615244ceb95aede325c6837f5f4698ee36293758893754c470ffca9fb37bac': { error: 'invalid opcode', program_counter: 8235, return: '0x' },
+    stack: 'RuntimeError: VM Exception while processing transaction: invalid opcode\n' +
+      '    at Function.RuntimeError.fromResults (/Applications/Ganache.app/Contents/Resources/static/node/node_modules/ganache-core/lib/utils/runtimeerror.js:94:13)\n' +
+      '    at BlockchainDouble.processBlock (/Applications/Ganache.app/Contents/Resources/static/node/node_modules/ganache-core/lib/blockchain_double.js:627:24)\n' +
+      '    at runMicrotasks (<anonymous>)\n' +
+      '    at processTicksAndRejections (internal/process/task_queues.js:93:5)',
+    name: 'RuntimeError'
+  }
+}
+------------------------------------
+[19:56:28.637] => [19:56:32.809]; Function name is checkSLAViolation; Player number is 40
+--------make-runnable-error--------
+Error: Returned error: VM Exception while processing transaction: invalid opcode
+    at Object.ErrorResponse (/Users/zeshunshi/node_modules/web3-core-helpers/lib/errors.js:28:19)
+    at /Users/zeshunshi/node_modules/web3-core-requestmanager/lib/index.js:302:36
+    at XMLHttpRequest.request.onreadystatechange (/Users/zeshunshi/node_modules/web3-providers-http/lib/index.js:98:13)
+    at XMLHttpRequestEventTarget.dispatchEvent (/Users/zeshunshi/node_modules/xhr2-cookies/dist/xml-http-request-event-target.js:34:22)
+    at XMLHttpRequest._setReadyState (/Users/zeshunshi/node_modules/xhr2-cookies/dist/xml-http-request.js:208:14)
+    at XMLHttpRequest._onHttpResponseEnd (/Users/zeshunshi/node_modules/xhr2-cookies/dist/xml-http-request.js:318:14)
+    at IncomingMessage.<anonymous> (/Users/zeshunshi/node_modules/xhr2-cookies/dist/xml-http-request.js:289:61)
+    at IncomingMessage.emit (events.js:326:22)
+    at endReadableNT (_stream_readable.js:1252:12)
+    at processTicksAndRejections (internal/process/task_queues.js:80:21) {
+  data: {
+    '0x146cd4e4b3d56c2a48a2164278595245749eb91b74ea804f8df645ced3321e2d': { error: 'invalid opcode', program_counter: 8235, return: '0x' },
+    stack: 'RuntimeError: VM Exception while processing transaction: invalid opcode\n' +
+      '    at Function.RuntimeError.fromResults (/Applications/Ganache.app/Contents/Resources/static/node/node_modules/ganache-core/lib/utils/runtimeerror.js:94:13)\n' +
+      '    at BlockchainDouble.processBlock (/Applications/Ganache.app/Contents/Resources/static/node/node_modules/ganache-core/lib/blockchain_double.js:627:24)\n' +
+      '    at runMicrotasks (<anonymous>)\n' +
+      '    at processTicksAndRejections (internal/process/task_queues.js:93:5)',
+    name: 'RuntimeError'
+  }
+}
+------------------------------------

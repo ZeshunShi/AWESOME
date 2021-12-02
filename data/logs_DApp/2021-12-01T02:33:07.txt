@@ -1,0 +1,89 @@
+--------make-runnable-error--------
+One of the following must be specified as an argument, to run/print the corresponding function/property:
+
+setupAuction,bidderRegister,checkProviderNumber,submitBids,revealReservePrice,revealBids,placeBids,providerWithdrawWitnessFee,customerWithdrawWitnessFee,test1,acceptSLA,witnessRegister,checkAuctionSettled,submitMessages,revealMessages,calculateWitnessFee,witnessWithdraw,checkSLAViolation,customerWithdrawServiceFee,providerWithdrawServiceFee,resetSLA
+
+Example:
+	node API/app.js setupAuction xyz → module.exports.setupAuction("xyz")
+------------------------------------
+[02:33:07.054] => [02:33:12.510]; Function name is publishService; Player number is 1
+--------make-runnable-error--------
+One of the following must be specified as an argument, to run/print the corresponding function/property:
+
+setupAuction,bidderRegister,checkProviderNumber,submitBids,revealReservePrice,revealBids,placeBids,providerWithdrawWitnessFee,customerWithdrawWitnessFee,test1,acceptSLA,witnessRegister,checkAuctionSettled,submitMessages,revealMessages,calculateWitnessFee,witnessWithdraw,checkSLAViolation,customerWithdrawServiceFee,providerWithdrawServiceFee,resetSLA
+
+Example:
+	node API/app.js setupAuction xyz → module.exports.setupAuction("xyz")
+------------------------------------
+[02:33:12.511] => [02:33:17.846]; Function name is publishService; Player number is 1
+--------make-runnable-error--------
+One of the following must be specified as an argument, to run/print the corresponding function/property:
+
+setupAuction,bidderRegister,checkProviderNumber,submitBids,revealReservePrice,revealBids,placeBids,providerWithdrawWitnessFee,customerWithdrawWitnessFee,test1,acceptSLA,witnessRegister,checkAuctionSettled,submitMessages,revealMessages,calculateWitnessFee,witnessWithdraw,checkSLAViolation,customerWithdrawServiceFee,providerWithdrawServiceFee,resetSLA
+
+Example:
+	node API/app.js setupAuction xyz → module.exports.setupAuction("xyz")
+------------------------------------
+[02:33:17.848] => [02:33:22.572]; Function name is publishService; Player number is 1
+--------make-runnable-error--------
+One of the following must be specified as an argument, to run/print the corresponding function/property:
+
+setupAuction,bidderRegister,checkProviderNumber,submitBids,revealReservePrice,revealBids,placeBids,providerWithdrawWitnessFee,customerWithdrawWitnessFee,test1,acceptSLA,witnessRegister,checkAuctionSettled,submitMessages,revealMessages,calculateWitnessFee,witnessWithdraw,checkSLAViolation,customerWithdrawServiceFee,providerWithdrawServiceFee,resetSLA
+
+Example:
+	node API/app.js setupAuction xyz → module.exports.setupAuction("xyz")
+------------------------------------
+[02:33:22.574] => [02:33:27.238]; Function name is publishService; Player number is 1
+--------make-runnable-error--------
+One of the following must be specified as an argument, to run/print the corresponding function/property:
+
+setupAuction,bidderRegister,checkProviderNumber,submitBids,revealReservePrice,revealBids,placeBids,providerWithdrawWitnessFee,customerWithdrawWitnessFee,test1,acceptSLA,witnessRegister,checkAuctionSettled,submitMessages,revealMessages,calculateWitnessFee,witnessWithdraw,checkSLAViolation,customerWithdrawServiceFee,providerWithdrawServiceFee,resetSLA
+
+Example:
+	node API/app.js setupAuction xyz → module.exports.setupAuction("xyz")
+------------------------------------
+[02:33:27.240] => [02:33:33.276]; Function name is publishService; Player number is 1
+--------make-runnable-error--------
+One of the following must be specified as an argument, to run/print the corresponding function/property:
+
+setupAuction,bidderRegister,checkProviderNumber,submitBids,revealReservePrice,revealBids,placeBids,providerWithdrawWitnessFee,customerWithdrawWitnessFee,test1,acceptSLA,witnessRegister,checkAuctionSettled,submitMessages,revealMessages,calculateWitnessFee,witnessWithdraw,checkSLAViolation,customerWithdrawServiceFee,providerWithdrawServiceFee,resetSLA
+
+Example:
+	node API/app.js setupAuction xyz → module.exports.setupAuction("xyz")
+------------------------------------
+[02:33:33.278] => [02:33:39.291]; Function name is publishService; Player number is 20
+--------make-runnable-error--------
+One of the following must be specified as an argument, to run/print the corresponding function/property:
+
+setupAuction,bidderRegister,checkProviderNumber,submitBids,revealReservePrice,revealBids,placeBids,providerWithdrawWitnessFee,customerWithdrawWitnessFee,test1,acceptSLA,witnessRegister,checkAuctionSettled,submitMessages,revealMessages,calculateWitnessFee,witnessWithdraw,checkSLAViolation,customerWithdrawServiceFee,providerWithdrawServiceFee,resetSLA
+
+Example:
+	node API/app.js setupAuction xyz → module.exports.setupAuction("xyz")
+------------------------------------
+[02:33:39.293] => [02:33:44.513]; Function name is publishService; Player number is 20
+--------make-runnable-error--------
+One of the following must be specified as an argument, to run/print the corresponding function/property:
+
+setupAuction,bidderRegister,checkProviderNumber,submitBids,revealReservePrice,revealBids,placeBids,providerWithdrawWitnessFee,customerWithdrawWitnessFee,test1,acceptSLA,witnessRegister,checkAuctionSettled,submitMessages,revealMessages,calculateWitnessFee,witnessWithdraw,checkSLAViolation,customerWithdrawServiceFee,providerWithdrawServiceFee,resetSLA
+
+Example:
+	node API/app.js setupAuction xyz → module.exports.setupAuction("xyz")
+------------------------------------
+[02:33:44.515] => [02:33:50.069]; Function name is publishService; Player number is 20
+--------make-runnable-error--------
+One of the following must be specified as an argument, to run/print the corresponding function/property:
+
+setupAuction,bidderRegister,checkProviderNumber,submitBids,revealReservePrice,revealBids,placeBids,providerWithdrawWitnessFee,customerWithdrawWitnessFee,test1,acceptSLA,witnessRegister,checkAuctionSettled,submitMessages,revealMessages,calculateWitnessFee,witnessWithdraw,checkSLAViolation,customerWithdrawServiceFee,providerWithdrawServiceFee,resetSLA
+
+Example:
+	node API/app.js setupAuction xyz → module.exports.setupAuction("xyz")
+------------------------------------
+[02:33:50.071] => [02:33:55.376]; Function name is publishService; Player number is 20
+--------make-runnable-error--------
+One of the following must be specified as an argument, to run/print the corresponding function/property:
+
+setupAuction,bidderRegister,checkProviderNumber,submitBids,revealReservePrice,revealBids,placeBids,providerWithdrawWitnessFee,customerWithdrawWitnessFee,test1,acceptSLA,witnessRegister,checkAuctionSettled,submitMessages,revealMessages,calculateWitnessFee,witnessWithdraw,checkSLAViolation,customerWithdrawServiceFee,providerWithdrawServiceFee,resetSLA
+
+Example:
+	node API/app.js setupAuction xyz → module.exports.setupAuction("xyz")
+------------------------------------

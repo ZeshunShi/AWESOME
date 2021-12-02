@@ -1,0 +1,228 @@
+The customer 0xa1eF58670368eCCB27EdC6609dea0fEFC5884f09 place bids. Tx successfull with hash: 0x2b8b859133e54ed75e2a5ef3bdcb407cac58f6d647186ee5a16490c5e2560518
+--------make-runnable-output--------
+undefined
+------------------------------------
+[17:53:55.474] => [17:54:03.806]; Function name is placeBids; Player number is 1
+The customer 0xa1eF58670368eCCB27EdC6609dea0fEFC5884f09 place bids. Tx successfull with hash: 0x630c293aa9edf453948c4402e7f4b5d9a1adbfa734b034a885689f5a0d6b0059
+--------make-runnable-output--------
+undefined
+------------------------------------
+[17:54:03.808] => [17:54:10.518]; Function name is placeBids; Player number is 1
+The customer 0xa1eF58670368eCCB27EdC6609dea0fEFC5884f09 place bids. Tx successfull with hash: 0xa6816d0ec93aeab36511917c6e95b6d19c5d67fe61d3930ee58e866d25a829d5
+--------make-runnable-output--------
+undefined
+------------------------------------
+[17:54:10.520] => [17:54:17.039]; Function name is placeBids; Player number is 1
+The customer 0xa1eF58670368eCCB27EdC6609dea0fEFC5884f09 place bids. Tx successfull with hash: 0xb3b2fe68878434345d771e134e900e881005dd0509385ae6bb43424be57669fc
+--------make-runnable-output--------
+undefined
+------------------------------------
+[17:54:17.041] => [17:54:23.452]; Function name is placeBids; Player number is 1
+The customer 0xa1eF58670368eCCB27EdC6609dea0fEFC5884f09 place bids. Tx successfull with hash: 0x3be83ce5f5dcac4812b34d7f990f1b7a31b8546d440327172e99c6154c7e2163
+--------make-runnable-output--------
+undefined
+------------------------------------
+[17:54:23.454] => [17:54:31.800]; Function name is placeBids; Player number is 1
+The customer 0xa1eF58670368eCCB27EdC6609dea0fEFC5884f09 place bids. Tx successfull with hash: 0x6df9d495d25b5de0870ad30897682f647a333dcf7358df88445ebe670f08be99
+The customer 0xc2A3cB7d4BF24e456051E3a710057ac61f5dB133 place bids. Tx successfull with hash: 0xa68159539ce66c9a77b31a2ab3c5d9444885e66c26b602ea7db70f5d0aca3cb5
+--------make-runnable-error--------
+Error: Failed to check for transaction receipt:
+{}
+    at Object._fireError (/Users/zeshunshi/node_modules/web3-utils/lib/index.js:49:17)
+    at /Users/zeshunshi/node_modules/web3-core-method/lib/index.js:244:23
+------------------------------------
+[17:54:31.802] => [17:54:50.291]; Function name is placeBids; Player number is 20
+The customer 0xa1eF58670368eCCB27EdC6609dea0fEFC5884f09 place bids. Tx successfull with hash: 0x96c7968aba3ad5e32238fafa5b163e299575f732a52880f71b0073354b5b17f0
+--------make-runnable-error--------
+Error: Failed to check for transaction receipt:
+{}
+    at Object._fireError (/Users/zeshunshi/node_modules/web3-utils/lib/index.js:49:17)
+    at /Users/zeshunshi/node_modules/web3-core-method/lib/index.js:244:23
+------------------------------------
+[17:54:50.293] => [17:55:03.342]; Function name is placeBids; Player number is 20
+The customer 0xa1eF58670368eCCB27EdC6609dea0fEFC5884f09 place bids. Tx successfull with hash: 0x75ea98a12e05d1f344133eecdc8aed7c30217793e673e12f392db634a32203a0
+--------make-runnable-error--------
+Error: Failed to check for transaction receipt:
+{}
+    at Object._fireError (/Users/zeshunshi/node_modules/web3-utils/lib/index.js:49:17)
+    at /Users/zeshunshi/node_modules/web3-core-method/lib/index.js:244:23
+------------------------------------
+[17:55:03.344] => [17:55:16.758]; Function name is placeBids; Player number is 20
+The customer 0xa1eF58670368eCCB27EdC6609dea0fEFC5884f09 place bids. Tx successfull with hash: 0x6efdddc35f1eb6e7e9486e18dd6c4748149d6ac3b2b8393a28f75df58b6158ae
+--------make-runnable-error--------
+Error: Failed to check for transaction receipt:
+{}
+    at Object._fireError (/Users/zeshunshi/node_modules/web3-utils/lib/index.js:49:17)
+    at /Users/zeshunshi/node_modules/web3-core-method/lib/index.js:244:23
+------------------------------------
+[17:55:16.760] => [17:55:30.250]; Function name is placeBids; Player number is 20
+The customer 0xa1eF58670368eCCB27EdC6609dea0fEFC5884f09 place bids. Tx successfull with hash: 0xc0d44b5c9b0708c04c09641780e1ab0c8ddd651e4333748676acf968c1afc905
+--------make-runnable-error--------
+Error: Failed to check for transaction receipt:
+{}
+    at Object._fireError (/Users/zeshunshi/node_modules/web3-utils/lib/index.js:49:17)
+    at /Users/zeshunshi/node_modules/web3-core-method/lib/index.js:244:23
+------------------------------------
+[17:55:30.252] => [17:55:43.553]; Function name is placeBids; Player number is 20
+The customer 0xa1eF58670368eCCB27EdC6609dea0fEFC5884f09 place bids. Tx successfull with hash: 0xc3adcb12ea38e66bec420a9cc65162fe852bc6e10dcae636f8b26b31fd0db1ad
+The customer 0xc2A3cB7d4BF24e456051E3a710057ac61f5dB133 place bids. Tx successfull with hash: 0xc8f20356eb10987cc70497ad5e3713743ab4b889244aae2ac23a39037b9b4260
+The customer 0xA99E938CC3Be7c94bB88DDB6B788Fa8A0DC540E0 place bids. Tx successfull with hash: 0x435da3114cb48fbda5e245331e60c62657666ec6cc608598c08b4818c34f5b8d
+The customer 0xf318EDEe6c856606814C0DC3d971dceA82bF071c place bids. Tx successfull with hash: 0x2390bf8cb3d55ca0542e3bc5691c3a195b52345213cb76407ae39ddf764da170
+--------make-runnable-error--------
+Error: Failed to check for transaction receipt:
+{}
+    at Object._fireError (/Users/zeshunshi/node_modules/web3-utils/lib/index.js:49:17)
+    at /Users/zeshunshi/node_modules/web3-core-method/lib/index.js:244:23
+------------------------------------
+[17:55:43.555] => [17:56:17.023]; Function name is placeBids; Player number is 40
+The customer 0xa1eF58670368eCCB27EdC6609dea0fEFC5884f09 place bids. Tx successfull with hash: 0x8395c0a498c337888f5d54cfaf0ee65b3ec04c7af6e739df2e4d4107afada91c
+--------make-runnable-error--------
+Error: Failed to check for transaction receipt:
+{}
+    at Object._fireError (/Users/zeshunshi/node_modules/web3-utils/lib/index.js:49:17)
+    at /Users/zeshunshi/node_modules/web3-core-method/lib/index.js:244:23
+------------------------------------
+[17:56:17.025] => [17:56:30.800]; Function name is placeBids; Player number is 40
+The customer 0xa1eF58670368eCCB27EdC6609dea0fEFC5884f09 place bids. Tx successfull with hash: 0xa72b14d71f38918f413ffbaf1a39ac691846acbaa10cd7788fcfcf61f0d8a585
+The customer 0xc2A3cB7d4BF24e456051E3a710057ac61f5dB133 place bids. Tx successfull with hash: 0x5730174eddce10daf49c3703537c1e4ee254621e4fa186b7f016dff68a7f58fe
+The customer 0xA99E938CC3Be7c94bB88DDB6B788Fa8A0DC540E0 place bids. Tx successfull with hash: 0x6f4ea8470cc7e32a38bfe2c87e5642af05544d51cf4ae3a6889042d5729cd3e6
+--------make-runnable-error--------
+Error: Failed to check for transaction receipt:
+{}
+    at Object._fireError (/Users/zeshunshi/node_modules/web3-utils/lib/index.js:49:17)
+    at /Users/zeshunshi/node_modules/web3-core-method/lib/index.js:244:23
+------------------------------------
+[17:56:30.802] => [17:56:57.775]; Function name is placeBids; Player number is 40
+The customer 0xa1eF58670368eCCB27EdC6609dea0fEFC5884f09 place bids. Tx successfull with hash: 0xd70c8d6d46059f18891cf6f8c99e77d00a19cf50d82136e94a878a62c43b924d
+--------make-runnable-error--------
+Error: Failed to check for transaction receipt:
+{}
+    at Object._fireError (/Users/zeshunshi/node_modules/web3-utils/lib/index.js:49:17)
+    at /Users/zeshunshi/node_modules/web3-core-method/lib/index.js:244:23
+------------------------------------
+[17:56:57.777] => [17:57:11.532]; Function name is placeBids; Player number is 40
+The customer 0xa1eF58670368eCCB27EdC6609dea0fEFC5884f09 place bids. Tx successfull with hash: 0x1c8c63b7036c1029c3337a58d5b1e72e41585f64798eb2c26489edfe55381687
+--------make-runnable-error--------
+Error: Failed to check for transaction receipt:
+{}
+    at Object._fireError (/Users/zeshunshi/node_modules/web3-utils/lib/index.js:49:17)
+    at /Users/zeshunshi/node_modules/web3-core-method/lib/index.js:244:23
+------------------------------------
+[17:57:11.534] => [17:57:25.560]; Function name is placeBids; Player number is 40
+--------make-runnable-error--------
+Error: Failed to check for transaction receipt:
+{}
+    at Object._fireError (/Users/zeshunshi/node_modules/web3-utils/lib/index.js:49:17)
+    at /Users/zeshunshi/node_modules/web3-core-method/lib/index.js:244:23
+------------------------------------
+[17:57:25.562] => [17:57:34.239]; Function name is placeBids; Player number is 60
+The customer 0xa1eF58670368eCCB27EdC6609dea0fEFC5884f09 place bids. Tx successfull with hash: 0x0e5f7b5c4d46c2748d7f3f9fd8ab0c4291990e34064116b9b779f74a02b18384
+--------make-runnable-error--------
+Error: Failed to check for transaction receipt:
+{}
+    at Object._fireError (/Users/zeshunshi/node_modules/web3-utils/lib/index.js:49:17)
+    at /Users/zeshunshi/node_modules/web3-core-method/lib/index.js:244:23
+------------------------------------
+[17:57:34.240] => [17:57:46.363]; Function name is placeBids; Player number is 60
+--------make-runnable-error--------
+Error: Failed to check for transaction receipt:
+{}
+    at Object._fireError (/Users/zeshunshi/node_modules/web3-utils/lib/index.js:49:17)
+    at /Users/zeshunshi/node_modules/web3-core-method/lib/index.js:244:23
+------------------------------------
+[17:57:46.365] => [17:57:54.582]; Function name is placeBids; Player number is 60
+The customer 0xa1eF58670368eCCB27EdC6609dea0fEFC5884f09 place bids. Tx successfull with hash: 0x7f168c9dc696a9355a993b4070f2c84d04e51c58797e1edb69b7ccd9111e416b
+--------make-runnable-error--------
+Error: Failed to check for transaction receipt:
+{}
+    at Object._fireError (/Users/zeshunshi/node_modules/web3-utils/lib/index.js:49:17)
+    at /Users/zeshunshi/node_modules/web3-core-method/lib/index.js:244:23
+------------------------------------
+[17:57:54.584] => [17:58:06.692]; Function name is placeBids; Player number is 60
+--------make-runnable-error--------
+Error: Failed to check for transaction receipt:
+{}
+    at Object._fireError (/Users/zeshunshi/node_modules/web3-utils/lib/index.js:49:17)
+    at /Users/zeshunshi/node_modules/web3-core-method/lib/index.js:244:23
+------------------------------------
+[17:58:06.694] => [17:58:15.018]; Function name is placeBids; Player number is 60
+The customer 0xa1eF58670368eCCB27EdC6609dea0fEFC5884f09 place bids. Tx successfull with hash: 0x69d46a827a7e6a3cc068a29f485b90f8189a8fe3fd19a129d718f6d097c03f5c
+The customer 0xc2A3cB7d4BF24e456051E3a710057ac61f5dB133 place bids. Tx successfull with hash: 0xa13ee53a066684465650b5fceb1fe6d6093b796a9ed2795f35d89bb50e2336c3
+--------make-runnable-error--------
+Error: Failed to check for transaction receipt:
+{}
+    at Object._fireError (/Users/zeshunshi/node_modules/web3-utils/lib/index.js:49:17)
+    at /Users/zeshunshi/node_modules/web3-core-method/lib/index.js:244:23
+------------------------------------
+[17:58:15.020] => [17:58:34.040]; Function name is placeBids; Player number is 80
+The customer 0xa1eF58670368eCCB27EdC6609dea0fEFC5884f09 place bids. Tx successfull with hash: 0x39da410139cad0b67cac15cce35c8988453b56f7385e372d32a20070c74f75b1
+The customer 0xc2A3cB7d4BF24e456051E3a710057ac61f5dB133 place bids. Tx successfull with hash: 0x30f1a5126294372059c39e1288f261aa8359bf623c95a24ff0dccaafe65b76c5
+--------make-runnable-error--------
+Error: Failed to check for transaction receipt:
+{}
+    at Object._fireError (/Users/zeshunshi/node_modules/web3-utils/lib/index.js:49:17)
+    at /Users/zeshunshi/node_modules/web3-core-method/lib/index.js:244:23
+------------------------------------
+[17:58:34.042] => [17:58:54.666]; Function name is placeBids; Player number is 80
+The customer 0xa1eF58670368eCCB27EdC6609dea0fEFC5884f09 place bids. Tx successfull with hash: 0x831e884244706965c1cbc177bd2add7e56382804e6293bcdcbdc2518b789c886
+--------make-runnable-error--------
+Error: Failed to check for transaction receipt:
+{}
+    at Object._fireError (/Users/zeshunshi/node_modules/web3-utils/lib/index.js:49:17)
+    at /Users/zeshunshi/node_modules/web3-core-method/lib/index.js:244:23
+------------------------------------
+[17:58:54.668] => [17:59:08.496]; Function name is placeBids; Player number is 80
+--------make-runnable-error--------
+Error: Failed to check for transaction receipt:
+{}
+    at Object._fireError (/Users/zeshunshi/node_modules/web3-utils/lib/index.js:49:17)
+    at /Users/zeshunshi/node_modules/web3-core-method/lib/index.js:244:23
+------------------------------------
+[17:59:08.497] => [17:59:17.222]; Function name is placeBids; Player number is 80
+The customer 0xa1eF58670368eCCB27EdC6609dea0fEFC5884f09 place bids. Tx successfull with hash: 0xead5ca249804c85efcce167b5c1d993c3f344221001db05540e2259305b12289
+--------make-runnable-error--------
+Error: Failed to check for transaction receipt:
+{}
+    at Object._fireError (/Users/zeshunshi/node_modules/web3-utils/lib/index.js:49:17)
+    at /Users/zeshunshi/node_modules/web3-core-method/lib/index.js:244:23
+------------------------------------
+[17:59:17.224] => [17:59:29.744]; Function name is placeBids; Player number is 80
+The customer 0xa1eF58670368eCCB27EdC6609dea0fEFC5884f09 place bids. Tx successfull with hash: 0xa43a9116fe3eb5839907d6348c907bfd405fdd86d7a506c08c1a2ec6224c544c
+The customer 0xc2A3cB7d4BF24e456051E3a710057ac61f5dB133 place bids. Tx successfull with hash: 0x2829526d0bc9652bef3a9813b6eb07415f5cd7012a53445f0f900fb9fe73c709
+--------make-runnable-error--------
+Error: Failed to check for transaction receipt:
+{}
+    at Object._fireError (/Users/zeshunshi/node_modules/web3-utils/lib/index.js:49:17)
+    at /Users/zeshunshi/node_modules/web3-core-method/lib/index.js:244:23
+------------------------------------
+[17:59:29.746] => [17:59:50.503]; Function name is placeBids; Player number is 100
+--------make-runnable-error--------
+Error: Failed to check for transaction receipt:
+{}
+    at Object._fireError (/Users/zeshunshi/node_modules/web3-utils/lib/index.js:49:17)
+    at /Users/zeshunshi/node_modules/web3-core-method/lib/index.js:244:23
+------------------------------------
+[17:59:50.505] => [17:59:59.449]; Function name is placeBids; Player number is 100
+The customer 0xa1eF58670368eCCB27EdC6609dea0fEFC5884f09 place bids. Tx successfull with hash: 0xadc5040afb2bc38186b5f72a854160cf31df8688959e26f282db22f4f0f618a0
+--------make-runnable-error--------
+Error: Failed to check for transaction receipt:
+{}
+    at Object._fireError (/Users/zeshunshi/node_modules/web3-utils/lib/index.js:49:17)
+    at /Users/zeshunshi/node_modules/web3-core-method/lib/index.js:244:23
+------------------------------------
+[17:59:59.451] => [18:00:12.009]; Function name is placeBids; Player number is 100
+--------make-runnable-error--------
+Error: Failed to check for transaction receipt:
+{}
+    at Object._fireError (/Users/zeshunshi/node_modules/web3-utils/lib/index.js:49:17)
+    at /Users/zeshunshi/node_modules/web3-core-method/lib/index.js:244:23
+------------------------------------
+[18:00:12.011] => [18:00:20.818]; Function name is placeBids; Player number is 100
+The customer 0xa1eF58670368eCCB27EdC6609dea0fEFC5884f09 place bids. Tx successfull with hash: 0x9028da98ee3b5ecc011b31a82e0a7f875bd9e0138dd89a0300904aaa67c6e729
+--------make-runnable-error--------
+Error: Failed to check for transaction receipt:
+{}
+    at Object._fireError (/Users/zeshunshi/node_modules/web3-utils/lib/index.js:49:17)
+    at /Users/zeshunshi/node_modules/web3-core-method/lib/index.js:244:23
+------------------------------------
+[18:00:20.820] => [18:00:34.027]; Function name is placeBids; Player number is 100

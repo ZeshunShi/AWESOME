@@ -1,0 +1,284 @@
+The user 0xa1eF58670368eCCB27EdC6609dea0fEFC5884f09 setup auction. Tx successfull with hash: 0x1893df3dd7d95558010718cae65dc3fb925c29e843126f9ead514924152d70f5
+The user 0xc2A3cB7d4BF24e456051E3a710057ac61f5dB133 setup auction. Tx successfull with hash: 0x098b70f643091c086bfd5e999ad0760d09f3d1ddbfcf39118ad41cd948a351ac
+The user 0xA99E938CC3Be7c94bB88DDB6B788Fa8A0DC540E0 setup auction. Tx successfull with hash: 0x2f411d738095685e10f6fc1546ace40fdc2ec31abd802254cd2354f2a138bb76
+The user 0xf318EDEe6c856606814C0DC3d971dceA82bF071c setup auction. Tx successfull with hash: 0x3224f4fd90234b0aae9707d961cefc483fe686ffc86febcb5f77e9726ad6bb2d
+The user 0x3dFd8d8C51C300d8296AadD034F70351D89A834e setup auction. Tx successfull with hash: 0x8ad5fabc2ab8ede891f7d4e4e06ee9a8d8bc04998a2eaaa97f216397038cd91e
+The user 0x8B3B79F04232694B5D1c635902f87B45C9b82238 setup auction. Tx successfull with hash: 0x736ff5ddc23c4c323029ca9b992923d090f5d6f0b25ee2271cf726b93608ca6a
+The user 0x3C4F2638D7c12e86249bF32cE0417542533F4eBa setup auction. Tx successfull with hash: 0x128e8583bf20885d9ff92b41103b40c09d58775aa9d38cd4db48b15ed5a527e8
+The user 0x5500fA90D27b7eDCe06E958bD3190b9584F21D3b setup auction. Tx successfull with hash: 0xec67ac893adce42e846787c96dd3c10dcc93a4be7dd6f5c1a7959b730d5a1929
+The user 0x4aAED7cA70d287F2a475aB66D12bc5c0F10ceCBf setup auction. Tx successfull with hash: 0x78f0a04ec5bbe48ea1f3b9f4a2948505c1ab06d1ea6405b32463defb06f02fd6
+The user 0x4b8415542D49726dCd46A30DceAdBaBe73c2392E setup auction. Tx successfull with hash: 0x7a61a0dd0cfd6f2c4b9fb52ab364dfe673762d1d7b6d6c8f5091329c0c48b7bf
+--------make-runnable-output--------
+undefined
+------------------------------------
+[01:25:23.471] => [01:25:28.467]; Function name is setupAuction; Player number is 10
+The bidder 0xa1eF58670368eCCB27EdC6609dea0fEFC5884f09 trys to register. Tx successfull with hash: 0x6106f50342524bebf40e32bc5d7784a7379489f0d13be42209622215afaadf6d
+The bidder 0xc2A3cB7d4BF24e456051E3a710057ac61f5dB133 trys to register. Tx successfull with hash: 0x556b4f60b67fef2be40d0bb368ae6f4022179935c5d96a87edb1d723d2158ec1
+The bidder 0xA99E938CC3Be7c94bB88DDB6B788Fa8A0DC540E0 trys to register. Tx successfull with hash: 0x4ae17dcbf8cc3d3880136737064571e43872e78052d44ff0ff1c5be0d95f4860
+The bidder 0xf318EDEe6c856606814C0DC3d971dceA82bF071c trys to register. Tx successfull with hash: 0x25e932666ec5b2cbcad835dba4069a4c357d216c442d2db558a9ccfa16dee34e
+The bidder 0x3dFd8d8C51C300d8296AadD034F70351D89A834e trys to register. Tx successfull with hash: 0xdecde9b612e4c572091ead7b28b604b2c8ab540139e97f5a00fe2c785f5dbff2
+The bidder 0x8B3B79F04232694B5D1c635902f87B45C9b82238 trys to register. Tx successfull with hash: 0x8eb1b54c6cb3e3ec3b73a226e6faef8d5a2d05853602e585dba5089b136512f6
+The bidder 0x3C4F2638D7c12e86249bF32cE0417542533F4eBa trys to register. Tx successfull with hash: 0x3a8bb60b8db565f624bd2688c851983d401fda41a61935639cd05e443d04aac7
+The bidder 0x5500fA90D27b7eDCe06E958bD3190b9584F21D3b trys to register. Tx successfull with hash: 0x7734e84d118fa6d9d393358b1c73af8b17d0b298064257d6bafb562ff5022818
+The bidder 0x4aAED7cA70d287F2a475aB66D12bc5c0F10ceCBf trys to register. Tx successfull with hash: 0x034b333dfae022508b7ce2402d42154e0b22e172ee192e7a463956c67162ff2a
+The bidder 0x4b8415542D49726dCd46A30DceAdBaBe73c2392E trys to register. Tx successfull with hash: 0x276b51cb2396d9d439636dfb9c094c4427841a010a53f123bbc2f63272384ca1
+--------make-runnable-output--------
+undefined
+------------------------------------
+[01:25:28.468] => [01:25:32.821]; Function name is bidderRegister; Player number is 10
+The customer 0xa1eF58670368eCCB27EdC6609dea0fEFC5884f09 trys to check provder numbers. Tx successfull with hash: 0xb32872d31abd2e3f22d1fca71cfba102ea509aead83340d5e46d02c68d06facb
+The customer 0xc2A3cB7d4BF24e456051E3a710057ac61f5dB133 trys to check provder numbers. Tx successfull with hash: 0x4eaf90cd6a7090892574db9d6284ff6724d510e8cd2d531c47b4694de5e3c064
+The customer 0xA99E938CC3Be7c94bB88DDB6B788Fa8A0DC540E0 trys to check provder numbers. Tx successfull with hash: 0x706530e28e2536fb7110f35ccba4227cefb242f5f544bbc670dc297a9f36e883
+The customer 0xf318EDEe6c856606814C0DC3d971dceA82bF071c trys to check provder numbers. Tx successfull with hash: 0xd218ef7ab6322d0fddde5cb9c5125c03ae5655ec45f6b67798aead61877b72fc
+The customer 0x3dFd8d8C51C300d8296AadD034F70351D89A834e trys to check provder numbers. Tx successfull with hash: 0xfeb7b417be28c7e7ce248ccc66caadee0a01deaa6da5f8dae6a4d6faf0a2d58b
+The customer 0x8B3B79F04232694B5D1c635902f87B45C9b82238 trys to check provder numbers. Tx successfull with hash: 0x23915ce6841d3479835ab7f1ecadaa555a7a998f5ff032529ca075bdd8a00e7b
+The customer 0x3C4F2638D7c12e86249bF32cE0417542533F4eBa trys to check provder numbers. Tx successfull with hash: 0xdd1933f9198466ea0675b46a4d048c916d431c7c926ed7105f8442dc6e583a5a
+The customer 0x5500fA90D27b7eDCe06E958bD3190b9584F21D3b trys to check provder numbers. Tx successfull with hash: 0xb0e631d870090ce72833d73c7b1d87f695616ceb34ae407ab2526d2135dacf7e
+The customer 0x4aAED7cA70d287F2a475aB66D12bc5c0F10ceCBf trys to check provder numbers. Tx successfull with hash: 0x7318e71c4cdfe14e252474e9077873a59f9854ab9ff522271e2406e2497e1338
+The customer 0x4b8415542D49726dCd46A30DceAdBaBe73c2392E trys to check provder numbers. Tx successfull with hash: 0x014bbded4aa2ddbe4428eeb2eed6b874926b1aafb251e37dc39c10d9d3027ccb
+--------make-runnable-output--------
+undefined
+------------------------------------
+[01:25:32.823] => [01:25:37.071]; Function name is checkProviderNumber; Player number is 10
+The bidder 0xa1eF58670368eCCB27EdC6609dea0fEFC5884f09 submit bid. Tx successfull with hash: 0x89097e57ac89ffc762d8e7c92d9f32cfd7165212154fb9ce4a30f0e5916e3468
+The bidder 0xc2A3cB7d4BF24e456051E3a710057ac61f5dB133 submit bid. Tx successfull with hash: 0x8a04ead72be095eb606189c61bbdb558337e35ec572ffa966817767d8e1ad0ea
+The bidder 0xA99E938CC3Be7c94bB88DDB6B788Fa8A0DC540E0 submit bid. Tx successfull with hash: 0xf96cd5de8b8800c33b730a9d55c1880d77ee1ae5a041185cd1371d4e21cdfd4f
+The bidder 0xf318EDEe6c856606814C0DC3d971dceA82bF071c submit bid. Tx successfull with hash: 0x0f19be9e856b144acc183dc7bea9ab81821c3223a738a7194a19cd6a6892f6c1
+The bidder 0x3dFd8d8C51C300d8296AadD034F70351D89A834e submit bid. Tx successfull with hash: 0xd2221635b650f438d49f7b3a67ac6362feca7a426d3574e12316bad1c4e046ce
+The bidder 0x8B3B79F04232694B5D1c635902f87B45C9b82238 submit bid. Tx successfull with hash: 0x8869073d647085db8c67db1e499231a29e6ffb8fa241fa9a3bd942ba20921c35
+The bidder 0x3C4F2638D7c12e86249bF32cE0417542533F4eBa submit bid. Tx successfull with hash: 0x74901b96147e9b6c92c9e8f4afb95ddb937aabafadc36ed185b94a8edf053f81
+The bidder 0x5500fA90D27b7eDCe06E958bD3190b9584F21D3b submit bid. Tx successfull with hash: 0xd0390922f4361aab2860ccab23a040f637980f01d03e419cc0cf11b8f7452a5c
+The bidder 0x4aAED7cA70d287F2a475aB66D12bc5c0F10ceCBf submit bid. Tx successfull with hash: 0xb136f936a68b8eadb621b923774c3d2a338997cd5e8f2a1b91b654278edc804d
+The bidder 0x4b8415542D49726dCd46A30DceAdBaBe73c2392E submit bid. Tx successfull with hash: 0x3440335e0f45b80eeb8d1683c785fed3b06a52a86405393e1d57421d68c6ffa7
+--------make-runnable-output--------
+undefined
+------------------------------------
+[01:25:37.073] => [01:25:41.384]; Function name is submitBids; Player number is 10
+The customer 0xa1eF58670368eCCB27EdC6609dea0fEFC5884f09 reveal reserve price. Tx successfull with hash: 0xc265833d7829937e50ae3b7f170240ca22e74ddadc4a8d21a9b78deca4ddc84c
+The customer 0xc2A3cB7d4BF24e456051E3a710057ac61f5dB133 reveal reserve price. Tx successfull with hash: 0xb4e72509c5a276a2056cd11a087b0093e86ec69e6657587ed695e6af4aa89dc7
+The customer 0xA99E938CC3Be7c94bB88DDB6B788Fa8A0DC540E0 reveal reserve price. Tx successfull with hash: 0x9eeb400654786611c30d71f073191ecc0a273c47098ad0372818ad67a3a2409d
+The customer 0xf318EDEe6c856606814C0DC3d971dceA82bF071c reveal reserve price. Tx successfull with hash: 0x96e501f12e8674f58ed783ef52c8fe251c21af386c8d2fa99b5813426faea909
+The customer 0x3dFd8d8C51C300d8296AadD034F70351D89A834e reveal reserve price. Tx successfull with hash: 0xcee7ea1c69742d1cc9ab7b067d2a059951d3ff229f5df56eeaec8f4bdda507cf
+The customer 0x8B3B79F04232694B5D1c635902f87B45C9b82238 reveal reserve price. Tx successfull with hash: 0x26c0971c2a5a07883858c7737da5ffee93ff0c439d9e77401b6adbbfc89acaed
+The customer 0x3C4F2638D7c12e86249bF32cE0417542533F4eBa reveal reserve price. Tx successfull with hash: 0x892c4a79bc2bc7bc675e0520f7e40a9a340479c2206d1f6591e9a29fdf435115
+The customer 0x5500fA90D27b7eDCe06E958bD3190b9584F21D3b reveal reserve price. Tx successfull with hash: 0x6316cf45ab2372f82a69e48bb02a1f4aef1b3d224f68a3bb3cf200c70cea3345
+The customer 0x4aAED7cA70d287F2a475aB66D12bc5c0F10ceCBf reveal reserve price. Tx successfull with hash: 0x2e8a08754d59b1d5db86fb41f1befc99dd2e8b9000d26d52a55f9242a7cb068e
+The customer 0x4b8415542D49726dCd46A30DceAdBaBe73c2392E reveal reserve price. Tx successfull with hash: 0x711d53964dac721c81e90d174867ed10cb7e0c61e2867d2e0da43a4d1443af40
+--------make-runnable-output--------
+undefined
+------------------------------------
+[01:25:41.386] => [01:25:45.595]; Function name is revealReservePrice; Player number is 10
+The bidder 0xa1eF58670368eCCB27EdC6609dea0fEFC5884f09 reveal bid. Tx successfull with hash: 0xf2c00cbe2a7a489bdf5150520337531050deb73928c9c95eca33bf8e0dfdf16c
+The bidder 0xc2A3cB7d4BF24e456051E3a710057ac61f5dB133 reveal bid. Tx successfull with hash: 0x109da82feb8ae29ff566ba74e2d4bd2b0693e5aad66220e5cd3bd7b9102f9809
+The bidder 0xA99E938CC3Be7c94bB88DDB6B788Fa8A0DC540E0 reveal bid. Tx successfull with hash: 0x2e7e4b80cfee2de56eaa2e2cc6fd95bef764ad01f16a8468670d12aa3149ff58
+The bidder 0xf318EDEe6c856606814C0DC3d971dceA82bF071c reveal bid. Tx successfull with hash: 0x4e1430325029fdacd0f2715ae17e17d3a26fb7b990a137350ba3bf42220488ca
+The bidder 0x3dFd8d8C51C300d8296AadD034F70351D89A834e reveal bid. Tx successfull with hash: 0x3deccb0a7c36d13ab034f2def091efff474bd00ee9818257d76f6b302ceba77b
+The bidder 0x8B3B79F04232694B5D1c635902f87B45C9b82238 reveal bid. Tx successfull with hash: 0x4194cb88efdc2b83da0b95308d26df92f37768652528d7dd09b2a7307d75cf97
+The bidder 0x3C4F2638D7c12e86249bF32cE0417542533F4eBa reveal bid. Tx successfull with hash: 0xbe3c807bfc71e2e04cafe75d91eee23d37f3586230a8ce60d8ff38c8c77bf297
+The bidder 0x5500fA90D27b7eDCe06E958bD3190b9584F21D3b reveal bid. Tx successfull with hash: 0x0a4491b3dfda091dbfd1f1a6765b071b748cd413eae012da736c507e4e07cca2
+The bidder 0x4aAED7cA70d287F2a475aB66D12bc5c0F10ceCBf reveal bid. Tx successfull with hash: 0x2494b5c4c57717f8edbd912982e8560b634621bce5609b9eb1aadde6eaf0854c
+The bidder 0x4b8415542D49726dCd46A30DceAdBaBe73c2392E reveal bid. Tx successfull with hash: 0xbb8ccb524c0ba92d79b64dc34f6a1efbccee226502a31287e569a4ceaa4ad655
+--------make-runnable-output--------
+undefined
+------------------------------------
+[01:25:45.597] => [01:25:50.412]; Function name is revealBids; Player number is 10
+The customer 0xa1eF58670368eCCB27EdC6609dea0fEFC5884f09 place bids. Tx successfull with hash: 0xfa6135c7fa59d36817a45b929ebcacb04fe3f6aa9cd155bc933e4d51f13a393d
+The customer 0xc2A3cB7d4BF24e456051E3a710057ac61f5dB133 place bids. Tx successfull with hash: 0x43bbe13ff7c23fff06e8778148590e7f0d04c380f5dc6d7d9bad04578b632d2d
+The customer 0xA99E938CC3Be7c94bB88DDB6B788Fa8A0DC540E0 place bids. Tx successfull with hash: 0x2c535bbd36ba6efe6d7278864baa7d41ff96acf214b2ad126b47b1bcc45e181b
+The customer 0xf318EDEe6c856606814C0DC3d971dceA82bF071c place bids. Tx successfull with hash: 0x1b49c676d398376c63558cbd1d380e85e75a387c4acf981e011db4ed1a792402
+The customer 0x3dFd8d8C51C300d8296AadD034F70351D89A834e place bids. Tx successfull with hash: 0xfcaa4092441a1f11fd02411e7cc71f750903f4791d1ffd622f056b461b8ac3c5
+The customer 0x8B3B79F04232694B5D1c635902f87B45C9b82238 place bids. Tx successfull with hash: 0xf6653bf83d61f32c67fee7d38c78c63b5faf5e43e52a46c07de64c6db20b28ae
+The customer 0x3C4F2638D7c12e86249bF32cE0417542533F4eBa place bids. Tx successfull with hash: 0x5abc2f3d36ccf8bcec0e66357dc79ac3896360323559c00633e130a333905e23
+The customer 0x5500fA90D27b7eDCe06E958bD3190b9584F21D3b place bids. Tx successfull with hash: 0xb6896fe92e8f51569efc580d48343e90ef4732e2615ab266212e3e687937113f
+The customer 0x4aAED7cA70d287F2a475aB66D12bc5c0F10ceCBf place bids. Tx successfull with hash: 0xf9d670afacce0459df671b31d13783f8e58072522c10ec7fffb838ddeb9eaf1e
+The customer 0x4b8415542D49726dCd46A30DceAdBaBe73c2392E place bids. Tx successfull with hash: 0xefe62e0d63755cecbb9e268f1a0c87a939893d4796fcc0475c822abe49c03ffc
+--------make-runnable-output--------
+undefined
+------------------------------------
+[01:25:50.414] => [01:25:55.784]; Function name is placeBids; Player number is 10
+The loser provider 0xa1eF58670368eCCB27EdC6609dea0fEFC5884f09 withdraw witness fee. Tx successfull with hash: 0x9be54e3df0c66b9f918186fb9dca32c61dbd52c36c134571f5bccee6824894bb
+The loser provider 0xc2A3cB7d4BF24e456051E3a710057ac61f5dB133 withdraw witness fee. Tx successfull with hash: 0x86d9c69f1825ef8ba0467e961e9b5eb4ae4614bff29991b592f5ec01dec8bc6f
+The loser provider 0xA99E938CC3Be7c94bB88DDB6B788Fa8A0DC540E0 withdraw witness fee. Tx successfull with hash: 0xb1de4bd7c7323529e0a3cd100ce646429684c14b53c64bf7569b0f805ede082c
+The loser provider 0xf318EDEe6c856606814C0DC3d971dceA82bF071c withdraw witness fee. Tx successfull with hash: 0x84692a987b843fa7cda928996fbf4d0ec989d7c7491ac629cd48c56f41efe64a
+The loser provider 0x3dFd8d8C51C300d8296AadD034F70351D89A834e withdraw witness fee. Tx successfull with hash: 0x9c2fba5892dba5b32d43ba520e08f673839a78326d25f8f48c724f9a8535a246
+The loser provider 0x8B3B79F04232694B5D1c635902f87B45C9b82238 withdraw witness fee. Tx successfull with hash: 0x26c6f3896c7341c15b64d8eaca7631a4343d9e17a40bca8fd7335e9db6409970
+The loser provider 0x3C4F2638D7c12e86249bF32cE0417542533F4eBa withdraw witness fee. Tx successfull with hash: 0xb17e8ce2f4f5119c5e5cc59aeaf43c3fd00895a7dff9e89c913d6f9f86d9d1a5
+The loser provider 0x5500fA90D27b7eDCe06E958bD3190b9584F21D3b withdraw witness fee. Tx successfull with hash: 0xd585d96735f0116decff31f73892f623abc801b62c55fe05618c4c9b447249a4
+The loser provider 0x4aAED7cA70d287F2a475aB66D12bc5c0F10ceCBf withdraw witness fee. Tx successfull with hash: 0x613282f13579afe37e0922dd9ce7a539ec5ffa31dda69153f92cb408d38925f6
+The loser provider 0x4b8415542D49726dCd46A30DceAdBaBe73c2392E withdraw witness fee. Tx successfull with hash: 0xc44435fce35abe7a312ca5f30f1cb1389f57f56719da052c2b1e575f50ca7180
+--------make-runnable-output--------
+undefined
+------------------------------------
+[01:25:55.786] => [01:26:00.065]; Function name is providerWithdrawWitnessFee; Player number is 10
+The customer 0xa1eF58670368eCCB27EdC6609dea0fEFC5884f09 withdraw witness fee. Tx successfull with hash: 0x0f77636dd58c7fb647ad5ffc5b03e819da54fbf24507dcdc86f22d75f2c43a01
+The customer 0xc2A3cB7d4BF24e456051E3a710057ac61f5dB133 withdraw witness fee. Tx successfull with hash: 0x75e0fe4132ddd0cf1c5c0a918dd91d7ef09c511fbf594ec4d67dfdf3d6a71aba
+The customer 0xA99E938CC3Be7c94bB88DDB6B788Fa8A0DC540E0 withdraw witness fee. Tx successfull with hash: 0x04d5ed09dfb62c7029c47dac791754070a1f11e8617f798d3787f1c13b523fdf
+The customer 0xf318EDEe6c856606814C0DC3d971dceA82bF071c withdraw witness fee. Tx successfull with hash: 0x87a5edd5ac12109b9135ab6ab4aa406bf54267cb370a20e9d35b72e46f8c8755
+The customer 0x3dFd8d8C51C300d8296AadD034F70351D89A834e withdraw witness fee. Tx successfull with hash: 0x168f76aa4062fed82f9cadd4e1757103be7cfc0e01c50164e63dbd03e6521048
+The customer 0x8B3B79F04232694B5D1c635902f87B45C9b82238 withdraw witness fee. Tx successfull with hash: 0xf60bff317f03eb548c6ad41fb8582b3793de33121c40fd4c111f18a8840ea755
+The customer 0x3C4F2638D7c12e86249bF32cE0417542533F4eBa withdraw witness fee. Tx successfull with hash: 0x6414b4b236f6b9e96f874ca89687ef0f0588b271060744dc053e57d961cbb98f
+The customer 0x5500fA90D27b7eDCe06E958bD3190b9584F21D3b withdraw witness fee. Tx successfull with hash: 0x87dcd59e9fbf65a509ecdf20dc6b8808c881e650efe607510e63ca48850e906c
+The customer 0x4aAED7cA70d287F2a475aB66D12bc5c0F10ceCBf withdraw witness fee. Tx successfull with hash: 0xa21227eea496624e0c03102113276148dc4029e90dcc78e589856915ed9da515
+The customer 0x4b8415542D49726dCd46A30DceAdBaBe73c2392E withdraw witness fee. Tx successfull with hash: 0xa969ce14dd7a354133fe7e0a181a39648afbd4a456a6e28299e00ce772f68261
+--------make-runnable-output--------
+undefined
+------------------------------------
+[01:26:00.067] => [01:26:04.693]; Function name is customerWithdrawWitnessFee; Player number is 10
+The address set successfullly. Tx successfull with hash: 0x6b102e67d568191900b2223682eaa0235c008c7f2ef5dfdbd726ddc17b7480b2
+--------make-runnable-output--------
+undefined
+------------------------------------
+The provider 0xa1eF58670368eCCB27EdC6609dea0fEFC5884f09 accept SLA. Tx successfull with hash: 0xa66644d868de30dd9e1d1ae6861ff0bbc2ddf7a580eec0122e6c478231d64fbf
+The provider 0xc2A3cB7d4BF24e456051E3a710057ac61f5dB133 accept SLA. Tx successfull with hash: 0xeac4fdc580541b2f19172af9f5abac3fb90b4da1bb5f4c14f8fd50cc5c4f2d11
+The provider 0xA99E938CC3Be7c94bB88DDB6B788Fa8A0DC540E0 accept SLA. Tx successfull with hash: 0x84fa48779011dcf9c05a8247566e66eb5afdcbf8d26aea2c0005f40da924773b
+The provider 0xf318EDEe6c856606814C0DC3d971dceA82bF071c accept SLA. Tx successfull with hash: 0x298f2f2847978d66e0d3cf2b63d97241a4160eed9e856eb159eddab64218723a
+The provider 0x3dFd8d8C51C300d8296AadD034F70351D89A834e accept SLA. Tx successfull with hash: 0x58929ba57bfed6d62425f9b76dec9f41ea1e6e84501512709815f66ca2df8f1f
+The provider 0x8B3B79F04232694B5D1c635902f87B45C9b82238 accept SLA. Tx successfull with hash: 0xe4595620f7615480169a60241a774f1a6b172e0dbecc6a5e78c2cfa9e9c83f54
+The provider 0x3C4F2638D7c12e86249bF32cE0417542533F4eBa accept SLA. Tx successfull with hash: 0x7f4a7e7e87ee439a2f5048b5269afc973b7513b75c9324156975281f50e2fbd6
+The provider 0x5500fA90D27b7eDCe06E958bD3190b9584F21D3b accept SLA. Tx successfull with hash: 0xc0186671f647f13e838e23128804fa2ae91640172663961e42e0c0b66b054893
+The provider 0x4aAED7cA70d287F2a475aB66D12bc5c0F10ceCBf accept SLA. Tx successfull with hash: 0x69ca7f2fa8f3c9100c2c0b5f3477bb3fef1bfbea1848591fba8d156f93b0f95e
+The provider 0x4b8415542D49726dCd46A30DceAdBaBe73c2392E accept SLA. Tx successfull with hash: 0x33b6dfb86f2d7e5a52c70c503e710bf5229ed3bfda07ffac28ed1edb5849453d
+--------make-runnable-output--------
+undefined
+------------------------------------
+[01:26:08.959] => [01:26:13.173]; Function name is acceptSLA; Player number is 10
+The witness 0xa1eF58670368eCCB27EdC6609dea0fEFC5884f09 trys to register. Tx successfull with hash: 0xdd2b22c5d27f0071b20846903646c4f43f2c3b82153ce22ed148a0e0a381aec1
+The witness 0xc2A3cB7d4BF24e456051E3a710057ac61f5dB133 trys to register. Tx successfull with hash: 0xc611e674070cd910af85d2534a255bae418912de014263ed989b1baee7e03e85
+The witness 0xA99E938CC3Be7c94bB88DDB6B788Fa8A0DC540E0 trys to register. Tx successfull with hash: 0x26b73c7369e66c137e77b054eaf4ed65570aca6b9635bb5296695259983e3edd
+The witness 0xf318EDEe6c856606814C0DC3d971dceA82bF071c trys to register. Tx successfull with hash: 0x3ae2358baaff268409b9e79b98eb0b0e5df16fab55c8f3eefed000aa0c7d3d04
+The witness 0x3dFd8d8C51C300d8296AadD034F70351D89A834e trys to register. Tx successfull with hash: 0xb3d28bf06852c94de04a71c3c8c0e2028c9d43ad7dde065fe05dc1573e6ea5c9
+The witness 0x8B3B79F04232694B5D1c635902f87B45C9b82238 trys to register. Tx successfull with hash: 0xa0d03ba8026616f002f851af8148b79b7c2115a178c0a576968581ddb7fcc01e
+The witness 0x3C4F2638D7c12e86249bF32cE0417542533F4eBa trys to register. Tx successfull with hash: 0x33a916e38de63f46874091f54ee5305ed2e17c8a12b1a07562ef7dfdf9867c88
+The witness 0x5500fA90D27b7eDCe06E958bD3190b9584F21D3b trys to register. Tx successfull with hash: 0x2fb2ed14f113b6dbc3c4bb1a7377ae253cf56e59034bd244b417a8347011b17d
+The witness 0x4aAED7cA70d287F2a475aB66D12bc5c0F10ceCBf trys to register. Tx successfull with hash: 0x19e7cfde7de40b5c3a74dd5129f2d6ac9f5f3f7f69da1ac06482afe60e600e3f
+The witness 0x4b8415542D49726dCd46A30DceAdBaBe73c2392E trys to register. Tx successfull with hash: 0xa6b900be45f1e7f88d2af3d0c65f5c913e140fce96e6787ccc3bd2f686f85193
+--------make-runnable-output--------
+undefined
+------------------------------------
+[01:26:13.175] => [01:26:17.500]; Function name is witnessRegister; Player number is 10
+The customer 0xa1eF58670368eCCB27EdC6609dea0fEFC5884f09 check auction state. Tx successfull with hash: 0xa1a5b0cb8a36964f2de22a5fab64daf78a9ab55369d7929eda5a361bb4734e9e
+The customer 0xc2A3cB7d4BF24e456051E3a710057ac61f5dB133 check auction state. Tx successfull with hash: 0xce58cfec8f3958f944286c3beb309e0a599950b8112aaf01a439e18de50c8714
+The customer 0xA99E938CC3Be7c94bB88DDB6B788Fa8A0DC540E0 check auction state. Tx successfull with hash: 0x49b173e3e0955640416f1bad7004f5b810ac6eff31aa2306fa033b9155a45b35
+The customer 0xf318EDEe6c856606814C0DC3d971dceA82bF071c check auction state. Tx successfull with hash: 0x6786cb82a07f8bff55cd84f5c7bb5f1e5d5825e266dfc4847b864039f81b60b6
+The customer 0x3dFd8d8C51C300d8296AadD034F70351D89A834e check auction state. Tx successfull with hash: 0xa95ce8f536f5d19631264a6b1a8f9bc7a82c21aab7f55a29d95e37dad6dcc808
+The customer 0x8B3B79F04232694B5D1c635902f87B45C9b82238 check auction state. Tx successfull with hash: 0xde1951b817187afb94996928cb7900b70ba0a1254b6193a2fc1e881f4484fa22
+The customer 0x3C4F2638D7c12e86249bF32cE0417542533F4eBa check auction state. Tx successfull with hash: 0x42b568d9bbf542de7e68465174bdf89a6e8b7be232637110e04e7fd8bf2e7e30
+The customer 0x5500fA90D27b7eDCe06E958bD3190b9584F21D3b check auction state. Tx successfull with hash: 0x05a77095ea566daed783710143289818fbe132ffd315f3a99a9ceee79420f188
+The customer 0x4aAED7cA70d287F2a475aB66D12bc5c0F10ceCBf check auction state. Tx successfull with hash: 0x6da008ff1c0ef8fd5ecb86065ba3db88b651a86dbaa1c276feceaf5ad72fe7e5
+The customer 0x4b8415542D49726dCd46A30DceAdBaBe73c2392E check auction state. Tx successfull with hash: 0x137cfe572e2900ca9968a18e1480dfbf52f55bb356fb3c77b151bbadf2b48e87
+--------make-runnable-output--------
+undefined
+------------------------------------
+[01:26:17.502] => [01:26:21.751]; Function name is checkAuctionSettled; Player number is 10
+The witness 0xa1eF58670368eCCB27EdC6609dea0fEFC5884f09 submit message. Tx successfull with hash: 0x1a7e4e247a91967531136d3c16b38acc8ffed28118e85cc6465c14bf9bd42816
+The witness 0xc2A3cB7d4BF24e456051E3a710057ac61f5dB133 submit message. Tx successfull with hash: 0xd2608268c39f92162d330c76efe379ac356a93339d5cda5b2e283753835f0810
+The witness 0xA99E938CC3Be7c94bB88DDB6B788Fa8A0DC540E0 submit message. Tx successfull with hash: 0x8a9a494f3242b5c602b8cb79e31823005206b7709e7aa4051aafa78ed6e0ebfa
+The witness 0xf318EDEe6c856606814C0DC3d971dceA82bF071c submit message. Tx successfull with hash: 0x712742df7c1fb74193698ac6113a07fdae86ff7c900379be02d52a5b52aa0327
+The witness 0x3dFd8d8C51C300d8296AadD034F70351D89A834e submit message. Tx successfull with hash: 0x2baa9ca2194adc026b5767794cfc95f89cd7d5aaa7a05de3c0b3d984127f7946
+The witness 0x8B3B79F04232694B5D1c635902f87B45C9b82238 submit message. Tx successfull with hash: 0x840790e85ae4d3ef653e57dcb78791aea84925306dd26ec2dec1232c5ccc977c
+The witness 0x3C4F2638D7c12e86249bF32cE0417542533F4eBa submit message. Tx successfull with hash: 0xbbeb91aed76e4763b6a5287231f2d173db0793223d52e44ab58e508bb96f0415
+The witness 0x5500fA90D27b7eDCe06E958bD3190b9584F21D3b submit message. Tx successfull with hash: 0x6dfde0127328d1f0a9f221f4627dffa39a744e89e39204b6c857f85f95f26b2b
+The witness 0x4aAED7cA70d287F2a475aB66D12bc5c0F10ceCBf submit message. Tx successfull with hash: 0x419799423ed4d251abe4a6c113e71af6807b6d33406e700ffcff9d7dab97655c
+The witness 0x4b8415542D49726dCd46A30DceAdBaBe73c2392E submit message. Tx successfull with hash: 0xe63b9e83f5c5c6997e65471598f7e713c4a600996fc1eeaf23149d97bcb0dead
+--------make-runnable-output--------
+undefined
+------------------------------------
+[01:26:21.753] => [01:26:25.991]; Function name is submitMessages; Player number is 10
+The witness 0xa1eF58670368eCCB27EdC6609dea0fEFC5884f09 reveal messages. Tx successfull with hash: 0xc57f61ce697dd7ce43be8ecd8ab47b83fd8f3544783e7f53a430109332717ebd
+The witness 0xc2A3cB7d4BF24e456051E3a710057ac61f5dB133 reveal messages. Tx successfull with hash: 0x930864f196c82d11905614b6841293e256620f6f82926e1fe8e049dd37c38641
+The witness 0xA99E938CC3Be7c94bB88DDB6B788Fa8A0DC540E0 reveal messages. Tx successfull with hash: 0xa7a1b5b9fd8574d757a55b462d5f37305f588afb613210718613a6bf37dbc957
+The witness 0xf318EDEe6c856606814C0DC3d971dceA82bF071c reveal messages. Tx successfull with hash: 0x5820487f751955fff31d909925bfb5c4e050799ef334bef7475b578d4b4313ab
+The witness 0x3dFd8d8C51C300d8296AadD034F70351D89A834e reveal messages. Tx successfull with hash: 0x6972f607117e149b057d18f568e3635251a15bddf950a7cfd25e443d45bb9bf5
+The witness 0x8B3B79F04232694B5D1c635902f87B45C9b82238 reveal messages. Tx successfull with hash: 0x57231688d9b01651eaa6990c2aeb8f4932c9e79198b76aa7a1866f9e70930408
+The witness 0x3C4F2638D7c12e86249bF32cE0417542533F4eBa reveal messages. Tx successfull with hash: 0xe7f17b83ef6ccca1166eec495b83be2ba0a95e5ee4725abc4603aaeb4b0d3cf4
+The witness 0x5500fA90D27b7eDCe06E958bD3190b9584F21D3b reveal messages. Tx successfull with hash: 0x665edc26d2069350b318d54d63a574cc5181fbfbc5d7ae38f986c3b9c2bf0e3a
+The witness 0x4aAED7cA70d287F2a475aB66D12bc5c0F10ceCBf reveal messages. Tx successfull with hash: 0x1bffc66378a35a809b45f18e7efe1324a10d6899d2aaa7bae791c52c08b36d3f
+The witness 0x4b8415542D49726dCd46A30DceAdBaBe73c2392E reveal messages. Tx successfull with hash: 0xab6ea63ed5e13a74db64b17f8e89989c7228281f6f18f6228a652a98aa83de2f
+--------make-runnable-output--------
+undefined
+------------------------------------
+[01:26:25.992] => [01:26:30.241]; Function name is revealMessages; Player number is 10
+The customer 0xa1eF58670368eCCB27EdC6609dea0fEFC5884f09 calculate witness fee. Tx successfull with hash: 0x51b9ff5d0e0a7fce438baeb08732e6884f43bdb77cda342dba42b89ceae8b219
+The customer 0xc2A3cB7d4BF24e456051E3a710057ac61f5dB133 calculate witness fee. Tx successfull with hash: 0x1c7dec2d5f3365f32642a0db4a919159f4d74178d4b0f7bbc474aee30125114f
+The customer 0xA99E938CC3Be7c94bB88DDB6B788Fa8A0DC540E0 calculate witness fee. Tx successfull with hash: 0x92605f20011bf669bad0ae5a5d070bac7588037ad128d475ad63351c41649ba6
+The customer 0xf318EDEe6c856606814C0DC3d971dceA82bF071c calculate witness fee. Tx successfull with hash: 0xe94dc5b55b6b0af36f5cc3aeebca80af6e12c9b9b9eb2e7d03e67cd90f2df8cb
+The customer 0x3dFd8d8C51C300d8296AadD034F70351D89A834e calculate witness fee. Tx successfull with hash: 0x71857327160490d327f48621dfae2ebd43801ff56e1a6fffaebc5855ec754976
+The customer 0x8B3B79F04232694B5D1c635902f87B45C9b82238 calculate witness fee. Tx successfull with hash: 0xd9e3ff4f617b59ff97458986f673e18d27de09a2905ad1b480da507d41f7ea75
+The customer 0x3C4F2638D7c12e86249bF32cE0417542533F4eBa calculate witness fee. Tx successfull with hash: 0x91de2a46d86f7be66684664f91992768ac0cfd23b702eeb4a864e082b61743d6
+The customer 0x5500fA90D27b7eDCe06E958bD3190b9584F21D3b calculate witness fee. Tx successfull with hash: 0xc29713a957f491a6d2e98e1d034d2a8ecc18d62823382ad0f15e772ae7167cb1
+The customer 0x4aAED7cA70d287F2a475aB66D12bc5c0F10ceCBf calculate witness fee. Tx successfull with hash: 0x44ad93269a0ec6616e5e6c4bdcdb7a099da8323eb5ce56f1388f1f6d57229225
+The customer 0x4b8415542D49726dCd46A30DceAdBaBe73c2392E calculate witness fee. Tx successfull with hash: 0xba5cf635aa12c601867df9dcff9bd934ac79513f6e5aa5e4cd2c86ca508eaf9b
+--------make-runnable-output--------
+undefined
+------------------------------------
+[01:26:30.243] => [01:26:34.599]; Function name is calculateWitnessFee; Player number is 10
+The witness 0xa1eF58670368eCCB27EdC6609dea0fEFC5884f09 withdraw witness fee. Tx successfull with hash: 0xafe38a87e79be61d523c3799fe35ce2cf6083a90c9aa759a269b98ec82bc3e4d
+The witness 0xc2A3cB7d4BF24e456051E3a710057ac61f5dB133 withdraw witness fee. Tx successfull with hash: 0x2e9c0acdc07a23158251a2d528747c7740db72f68c12cf1922f63be245acaf43
+The witness 0xA99E938CC3Be7c94bB88DDB6B788Fa8A0DC540E0 withdraw witness fee. Tx successfull with hash: 0xa86740a9641d88d7c60f56cd5cdba4e0fd3d414a4bec34c9ddf958e0cdd2e73b
+The witness 0xf318EDEe6c856606814C0DC3d971dceA82bF071c withdraw witness fee. Tx successfull with hash: 0xda89bab5861b552a31baeeaef60163a6105bf74b3571d7cc40ecf75244b90076
+The witness 0x3dFd8d8C51C300d8296AadD034F70351D89A834e withdraw witness fee. Tx successfull with hash: 0xd1f33facc41e84659486e4b8b94fa00a91a0945bc5abf001aaef6f15519384c0
+The witness 0x8B3B79F04232694B5D1c635902f87B45C9b82238 withdraw witness fee. Tx successfull with hash: 0xfb5ef1c7df0000129e4a8d50d35df881d2625d23922b67a5ddbd2e0384a3ff89
+The witness 0x3C4F2638D7c12e86249bF32cE0417542533F4eBa withdraw witness fee. Tx successfull with hash: 0x3f95b01bc20328e0649a2ea13b81295c0d695da00be324ab015e016f1f9b7977
+The witness 0x5500fA90D27b7eDCe06E958bD3190b9584F21D3b withdraw witness fee. Tx successfull with hash: 0xcefb988093c0b46a2116e3afdff20f195fe7aa0d9985842d17a040d1624bb87b
+The witness 0x4aAED7cA70d287F2a475aB66D12bc5c0F10ceCBf withdraw witness fee. Tx successfull with hash: 0xde0c262044144db19f98635adf822bb5247c7447b6fc39fe1a97d434bb6610d8
+The witness 0x4b8415542D49726dCd46A30DceAdBaBe73c2392E withdraw witness fee. Tx successfull with hash: 0xe8d34cd3e5ea217cce6bb657f680d1c86e7f70158a9d611ffe371ff4ca66d3ab
+--------make-runnable-output--------
+undefined
+------------------------------------
+[01:26:34.601] => [01:26:38.872]; Function name is witnessWithdraw; Player number is 10
+The customer 0xa1eF58670368eCCB27EdC6609dea0fEFC5884f09 trys to check provder numbers. Tx successfull with hash: 0x1bacbd15b3961cdc8efa85f63724a1f3253f4d909448108ba4b9ec7f8d0096fc
+The customer 0xc2A3cB7d4BF24e456051E3a710057ac61f5dB133 trys to check provder numbers. Tx successfull with hash: 0x8ec1bb87daf42e36420d4fc71dd16f5bde039857d11064000c23e102aca6dfe8
+The customer 0xA99E938CC3Be7c94bB88DDB6B788Fa8A0DC540E0 trys to check provder numbers. Tx successfull with hash: 0x123a8b9a217055924af07edaca1adcd708d030a8e7115b93d9428e2f8884b61b
+The customer 0xf318EDEe6c856606814C0DC3d971dceA82bF071c trys to check provder numbers. Tx successfull with hash: 0x7bfc6a1ff63b61f4f9eeb6d3d72f4cc7ce9012900edaa572ff5ea313a75c98b3
+The customer 0x3dFd8d8C51C300d8296AadD034F70351D89A834e trys to check provder numbers. Tx successfull with hash: 0x748ce50e9df6c0506375daf238c2426b9ff56488bded2b3929ec55b95d12fee6
+The customer 0x8B3B79F04232694B5D1c635902f87B45C9b82238 trys to check provder numbers. Tx successfull with hash: 0x3ec5e88513fbd40dbabced5520a074504462a6e4cfbe633320657d3b46bee985
+The customer 0x3C4F2638D7c12e86249bF32cE0417542533F4eBa trys to check provder numbers. Tx successfull with hash: 0xb18e60931544b3dc194c496ec91bf458fabcf4f8c193da86c9667f994a9a09aa
+The customer 0x5500fA90D27b7eDCe06E958bD3190b9584F21D3b trys to check provder numbers. Tx successfull with hash: 0x63d7f0439a311c2e5e4ce81b36435eb7b1a78fd7b5638a35a3ed65924bbf3793
+The customer 0x4aAED7cA70d287F2a475aB66D12bc5c0F10ceCBf trys to check provder numbers. Tx successfull with hash: 0x782707a78a9f0c618251a24e6154febd14ca1e265614f6505f8d09b622aa4e38
+The customer 0x4b8415542D49726dCd46A30DceAdBaBe73c2392E trys to check provder numbers. Tx successfull with hash: 0x4a8d12d957b234887f387d7f7cf54a40dee3c61e00e5a5454d3cf51dbd10772b
+--------make-runnable-output--------
+undefined
+------------------------------------
+[01:26:38.874] => [01:26:43.152]; Function name is checkSLAViolation; Player number is 10
+The customer 0xa1eF58670368eCCB27EdC6609dea0fEFC5884f09 withdraw service fee. Tx successfull with hash: 0xd7f6666fc1ddd4beeadf89f3dd613cbc89e641039a0d066edab1906cbca4189b
+The customer 0xc2A3cB7d4BF24e456051E3a710057ac61f5dB133 withdraw service fee. Tx successfull with hash: 0xeb9ebdf7a051330f287f60ec023a4f341496027a52d46d3f2b83677100ea974f
+The customer 0xA99E938CC3Be7c94bB88DDB6B788Fa8A0DC540E0 withdraw service fee. Tx successfull with hash: 0x69e5bd771b766b5fd8ad5143d0a14af1464296f5285077e93b23fb00492092fe
+The customer 0xf318EDEe6c856606814C0DC3d971dceA82bF071c withdraw service fee. Tx successfull with hash: 0x881d8e67e838c1fed0f3e79e80bef21d731afcb2fa301e7503343da7e188c0d6
+The customer 0x3dFd8d8C51C300d8296AadD034F70351D89A834e withdraw service fee. Tx successfull with hash: 0x4314341be6bd147e0e59da1dd25f2d87b519e34d667cfecf5842390c34cd6d4e
+The customer 0x8B3B79F04232694B5D1c635902f87B45C9b82238 withdraw service fee. Tx successfull with hash: 0x52fc44cab2db929d3561f7d7d7f0dee9d95df5413807c089ae2b9810487cd9ba
+The customer 0x3C4F2638D7c12e86249bF32cE0417542533F4eBa withdraw service fee. Tx successfull with hash: 0x5d340846fad93009760f87c0b2721b5a3743d72b981ce8dbadf3bf498dcbc34e
+The customer 0x5500fA90D27b7eDCe06E958bD3190b9584F21D3b withdraw service fee. Tx successfull with hash: 0x35937765e71b5ab555a75a35643112a7e0be0968d1019876c764c389f9d492fb
+The customer 0x4aAED7cA70d287F2a475aB66D12bc5c0F10ceCBf withdraw service fee. Tx successfull with hash: 0xf9c7942ccf405ee2ef416505dfd617d8166d14312c2842d85ef6a496d8547caa
+The customer 0x4b8415542D49726dCd46A30DceAdBaBe73c2392E withdraw service fee. Tx successfull with hash: 0x32e67d8537427faa0dd4dd588892da6d5b6fcbf878684e24f68d507d3d815b0a
+--------make-runnable-output--------
+undefined
+------------------------------------
+[01:26:43.155] => [01:26:47.371]; Function name is customerWithdrawServiceFee; Player number is 10
+The provider 0xa1eF58670368eCCB27EdC6609dea0fEFC5884f09 withdraw service fee. Tx successfull with hash: 0x62d055696cd3d539d5ac380ec3581b4dcfcc43ac6a6b3f01fdc892fae17b723c
+The provider 0xc2A3cB7d4BF24e456051E3a710057ac61f5dB133 withdraw service fee. Tx successfull with hash: 0x7561a442046bfc33323184002b34eee536441e94587facf383309efdef4f1047
+The provider 0xA99E938CC3Be7c94bB88DDB6B788Fa8A0DC540E0 withdraw service fee. Tx successfull with hash: 0xdae1dd9b4d014b2830d76f567531e3c567497c2b0bc2aa4f3cbb92016cd9e33c
+The provider 0xf318EDEe6c856606814C0DC3d971dceA82bF071c withdraw service fee. Tx successfull with hash: 0x72b01cdcd48281819913644a9cce7187bffa7b32cd4a4bfb39feaf2ee4139dcd
+The provider 0x3dFd8d8C51C300d8296AadD034F70351D89A834e withdraw service fee. Tx successfull with hash: 0x991a4cc1647a6f45e2a49849cc66d405e95b624263bdaa6ba353e817af584bf8
+The provider 0x8B3B79F04232694B5D1c635902f87B45C9b82238 withdraw service fee. Tx successfull with hash: 0xfb69bc2c9729ff6bbbb96ddf6633b0e239a6a008bb919e2d639e60f684e04aa3
+The provider 0x3C4F2638D7c12e86249bF32cE0417542533F4eBa withdraw service fee. Tx successfull with hash: 0xc1dee61bbe7d10be667b5ef0d2bf0693b7c328000bb6a3e603a8ecadeda29ab5
+The provider 0x5500fA90D27b7eDCe06E958bD3190b9584F21D3b withdraw service fee. Tx successfull with hash: 0x46ff7eb947b0b9ecb1bef7eda8d37321b0097ebae3a32a0564d122991b0c0031
+The provider 0x4aAED7cA70d287F2a475aB66D12bc5c0F10ceCBf withdraw service fee. Tx successfull with hash: 0x1951935185bd8af96d13fbac960f8b1514977f5d8f51f48e57318091f214a7fb
+The provider 0x4b8415542D49726dCd46A30DceAdBaBe73c2392E withdraw service fee. Tx successfull with hash: 0x7f7782135941043c5c87dde2bd32d37b49e0a1cf294800b0ff2a81c0cb9be012
+--------make-runnable-output--------
+undefined
+------------------------------------
+[01:26:47.372] => [01:26:52.601]; Function name is providerWithdrawServiceFee; Player number is 10
+The customer 0xa1eF58670368eCCB27EdC6609dea0fEFC5884f09 resetSLA. Tx successfull with hash: 0xdb917e46efe7d3c82d4294bd94d63f74304b74fb70fbef06f42efa229ab561bd
+The customer 0xc2A3cB7d4BF24e456051E3a710057ac61f5dB133 resetSLA. Tx successfull with hash: 0x0e244c303670599aef05bf822fed150dc7e78f69dfafd81fcfe5a4013504b08a
+The customer 0xA99E938CC3Be7c94bB88DDB6B788Fa8A0DC540E0 resetSLA. Tx successfull with hash: 0xe553b965271247e864b2bff4739396ecdf1d8947b61499ec8efdedaa667832b8
+The customer 0xf318EDEe6c856606814C0DC3d971dceA82bF071c resetSLA. Tx successfull with hash: 0x4cb0d8d66eb3d4af210586d71728955f52ab1959f319093ec859b6abf2602c93
+The customer 0x3dFd8d8C51C300d8296AadD034F70351D89A834e resetSLA. Tx successfull with hash: 0xf2e4d7e7631fa53f08d6c2314f0cbf0218e8022647e36850290a5c955c3dc20d
+The customer 0x8B3B79F04232694B5D1c635902f87B45C9b82238 resetSLA. Tx successfull with hash: 0x06f186a44ee830edf69acb9994fe881da003546f249e7861ea44a24fb80de195
+The customer 0x3C4F2638D7c12e86249bF32cE0417542533F4eBa resetSLA. Tx successfull with hash: 0x36c8d3eb2d705beb3ecc630bd5bb425e668a99807671741d35afff851a328b69
+The customer 0x5500fA90D27b7eDCe06E958bD3190b9584F21D3b resetSLA. Tx successfull with hash: 0x41be701fb2192c1ff5342be25b7db6be9d3a4fb8a018589259f79842e269f17a
+The customer 0x4aAED7cA70d287F2a475aB66D12bc5c0F10ceCBf resetSLA. Tx successfull with hash: 0xda8d0a801a7d0c1077d3a34fd2f1b5e00fb56481ddce5a7a2b38bb7ef40fc7e3
+The customer 0x4b8415542D49726dCd46A30DceAdBaBe73c2392E resetSLA. Tx successfull with hash: 0x69e4803ce617ca14c66ed18f3b28a454fdfbbd66c2d97edc758fd57efb94b634
+--------make-runnable-output--------
+undefined
+------------------------------------
+[01:26:52.603] => [01:26:57.352]; Function name is resetSLA; Player number is 10

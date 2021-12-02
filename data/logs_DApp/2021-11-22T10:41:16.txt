@@ -1,0 +1,1 @@
+[10:41:16.055] => [10:41:16.970]; Function name is setupAuction; Player number is 1[10:41:16.972] => [10:41:17.856]; Function name is setupAuction; Player number is 20

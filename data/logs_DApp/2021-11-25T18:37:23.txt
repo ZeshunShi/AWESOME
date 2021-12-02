@@ -1,0 +1,35 @@
+The customer 0xa1eF58670368eCCB27EdC6609dea0fEFC5884f09 place bids. Tx successfull with hash: 0xe7146034a619d91f2a3443b1748915a1b0f240d82ea6e56a0efc3d32f26cccd1
+The customer 0xc2A3cB7d4BF24e456051E3a710057ac61f5dB133 place bids. Tx successfull with hash: 0x101809330e1027e160c0d449de89a9a1c1fb18cb7f80aba82f6f3e787c821ac9
+The customer 0xA99E938CC3Be7c94bB88DDB6B788Fa8A0DC540E0 place bids. Tx successfull with hash: 0xb9ac34d0be2f0b7263d1a6b56bbdbccf0e687f421e72838338811125bc3a0cc1
+The customer 0xf318EDEe6c856606814C0DC3d971dceA82bF071c place bids. Tx successfull with hash: 0xd417fb315b5b55f319b7a5ed3a11b5fab2d29e0edac7b7478e52b70f12d89e89
+The customer 0x3dFd8d8C51C300d8296AadD034F70351D89A834e place bids. Tx successfull with hash: 0x5ceb881faf29f125bad86b227eb2cb1ec96093149f4670e3f91601b78c886d55
+The customer 0x8B3B79F04232694B5D1c635902f87B45C9b82238 place bids. Tx successfull with hash: 0x276a00619c20960becc69f8f8773788c56a77f82a35352c2c2bf19680564e233
+The customer 0x3C4F2638D7c12e86249bF32cE0417542533F4eBa place bids. Tx successfull with hash: 0x35d4285a71f7a09dcd7300d03201324068dcfd9d31981316ffde36b244e6bd52
+The customer 0x5500fA90D27b7eDCe06E958bD3190b9584F21D3b place bids. Tx successfull with hash: 0x3071484190e60c53e6bd9a3b50bcc3a0f6603e1feb58347825e0fe14a1b0d77e
+The customer 0x4aAED7cA70d287F2a475aB66D12bc5c0F10ceCBf place bids. Tx successfull with hash: 0x7e7c3783d72497040eb97f56c31507fb5f482934492c9b527feaa09f0e1dc746
+The customer 0x4b8415542D49726dCd46A30DceAdBaBe73c2392E place bids. Tx successfull with hash: 0x834820be00c44c3b24a4f933d0ede5485adbe1e1ea5119d830f1ba5ed2a95fed
+The customer 0xeb6b88399a47795AFeCA9c964791a60De362fcDb place bids. Tx successfull with hash: 0x098d83b298d27cb5cac8323d70fdd6d9abea0a04b5a35b8e1ca336c82ca221eb
+The customer 0x121AbEBCB9A55d2e6f23503E4482F366BEdC3c8A place bids. Tx successfull with hash: 0x443927e6d7e05bc06ceb1c20fcc58a23f1ebe2ad392b3cb4223160b69339039f
+The customer 0x76DFC3Bc19E6b1fbb4CA8526872042a9fC0E20Aa place bids. Tx successfull with hash: 0x77fd6abca37886b3a8979bb017e564293c6a634b41187437130961bc2422c4c2
+The customer 0x05dEacC00B12Dd2510f4666D9f21ead02301CD9c place bids. Tx successfull with hash: 0x955fdd056e67c89f520df7e77c22666b9fd5ee6fa5ad5a8a13a48104f65f1ce1
+The customer 0x5dF6a247422694D03ABF9b81c184Ba405b0Ac6ae place bids. Tx successfull with hash: 0x86ed23ae5ef66908e0ff18fe3dd00634eb7c957e5287f0b6abcd5c9c75238fc8
+The customer 0xF3083bC10f81703b13dAB3E6Ef8059e0BEbb8929 place bids. Tx successfull with hash: 0xb539aa7e6b27c0a80acd7e44e2ef0e8b154becd1099a1047ed8373e895a93acc
+The customer 0x0446aD3B32983Aa491BA0b8843D536e671aEC65d place bids. Tx successfull with hash: 0x7e07c6b91606e58ce5b9dd390ef219e373663cf2589b345c1a9b847438b15afa
+The customer 0x0909d921Dd6DD4B8955006448CF057CBD41a7125 place bids. Tx successfull with hash: 0x3834d61d683f07d61373a5bab86611fab16d5d8c4d71d079e3219a35b996dcce
+The customer 0xead6cB513d6b35C676f48be58ff1CA7051141267 place bids. Tx successfull with hash: 0x5430f7435a10ca5350d5982102137a7e9983e19d61d3457fb300c66b7195e1bb
+The customer 0x5531dA80B84F42DD7613875173D41A7F119E43c5 place bids. Tx successfull with hash: 0xeeea9558573bd075a2a7c4b547da7acb1e350d962019f98556188d7de7b7b69d
+The customer 0xF310CE9114EFD1Eb3928884610860B7FC1e9974A place bids. Tx successfull with hash: 0x8994ddb8ca5e47056e55b0fa192ad7114465fb3cdc9f0aba2f84fafeda909332
+The customer 0x069d533285ccd69e5aEa869a43513EC86d4813E6 place bids. Tx successfull with hash: 0x0a506aebe1b07a93cd58d587f9f3e98ec05eef313b07b04db193245ce38aec73
+The customer 0x6eb4a4feE48a1dD503ec401fdBF3E6f49760BCe6 place bids. Tx successfull with hash: 0xeb11089f79600dd6b205d999bb24e3011fcae5a8a2582ae28e6c3f4a51986d30
+The customer 0x712539CEfC1aBbFa418a3cbD3053d50dFcD099D4 place bids. Tx successfull with hash: 0x966e87a541dc41ed28815be8ebb90590b4d5b1fc514b7d1abe31f1d7a849842c
+The customer 0x7052A2D16f739FF0d17a1f71F449882D9A76B951 place bids. Tx successfull with hash: 0x13247b5ba9fee59e2564ea514e2a21c2486b8e32561cc744097261866ce9bad1
+The customer 0xe3759bd717a33782e7B0b368804032798350FdB2 place bids. Tx successfull with hash: 0x69458a05101263baa587826957773c0deeb2d634de4cdef3ab53225eba1f2bc9
+The customer 0x1f89E13377Ba9965CD59d4628445dE91b7183053 place bids. Tx successfull with hash: 0xd757ca7c502ff1ad62149bb2f89fb3c1487f7f91d846f47453eac9ca50675bbb
+The customer 0xFf53eDf98CFBF539D1E0d3a116620Bf11f676F92 place bids. Tx successfull with hash: 0x7bbd726681c14f2d79d154d39e8fa5e732dd79040a9c0e63de19f7899a8ea4f1
+--------make-runnable-error--------
+Error: Failed to check for transaction receipt:
+{}
+    at Object._fireError (/Users/zeshunshi/node_modules/web3-utils/lib/index.js:49:17)
+    at /Users/zeshunshi/node_modules/web3-core-method/lib/index.js:244:23
+------------------------------------
+[18:37:23.938] => [18:40:16.108]; Function name is placeBids; Player number is 100

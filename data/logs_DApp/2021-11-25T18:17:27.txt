@@ -1,0 +1,8 @@
+The customer 0xa1eF58670368eCCB27EdC6609dea0fEFC5884f09 place bids. Tx successfull with hash: 0x2639d9e24ef79e17c5e7bee577226315fe4f15b2ae4d19de8f0ba6b05aa61ffc
+--------make-runnable-error--------
+Error: Failed to check for transaction receipt:
+{}
+    at Object._fireError (/Users/zeshunshi/node_modules/web3-utils/lib/index.js:49:17)
+    at /Users/zeshunshi/node_modules/web3-core-method/lib/index.js:244:23
+------------------------------------
+[18:17:27.181] => [18:17:39.725]; Function name is placeBids; Player number is 100
