@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../partials/head'); %>
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<body class="container-fluid">
+
+  <div class="header-nav">
+    <div class="container-fluid">
+      <header>
+        <%- include('partials_customer/header'); %>
+      </header>
+    </div>
+  </div>
+
+  <div class="bigDiv" id="bigDiv">
+    <form @submit.prevent="createPost">
+      <div class="container-fluid">
+        <div class="makeAuctionTemplate">
+          <fieldset>
+            <h3>Fill out this form to submit an auction</h3>
+        </div>
+      </div>
+
+      <div class="container-fluid" id="gameRules">
+        <div class="makeAuctionTemplate">
+          <h5>Use this form to define an auction game</h5>
+          <div class="form-group" id="bidType">
+            <label for="chooseBiddingType">Choose Bidding Type</label>
+            <div class="row">
+              <div class="col-10">
+                <select class="form-control" id="chooseBidType" v-model="formData.bidType">
+                  <option name="public" value="public">Public Bids</option>
+                  <option name="sealed" value="sealed">Sealed Bids</option>
+                  <option name="hybrid" value="hybrid">Hybrid Bids</option>
+                </select>
+              </div>
+              <div class="col">
+                <button class="btn btn-outline-dark" type="button" data-toggle="collapse" data-target="#bidTypeHelp" aria-expanded="false" aria-controls="bidTypeHelp">
+                  Help
+                </button>
+              </div>
+              <div class="col-10">
+                <div class="collapse" id="bidTypeHelp">
+                  <div class="card card-body">
+                    The auction bid type defines the type of bids providers can submit onto the platform.
+                    <ul>
+                      <li><b>Public bids</b>: This option means providers can see all other bids submitted
+                        onto this auction, which increases competition.
+                      </li>
+                      <li><b>Sealed bids</b>: This option means providers cannot see the bids of other providers,
+                        meaning that all bids are secret or sealed.
+                      </li>
+                      <li><b>Hybrid bids</b>: This option means providers can choose whether their bids
+                        are public or private.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group" id="auctionVisibility">
+            <label for="chooseAuctionVisibility">Choose Auction Visibility</label>
+            <div class="row">
+              <div class="col-10">
+                <select class="form-control" id="chooseAuctionVisibility" v-model="formData.auctionVisibility">
+                  <option name="providers" value="providers">Only Providers</option>
+                  <option name="all" value="all">Customers and Providers</option>
+                </select>
+              </div>
+              <div class="col">
+                <button class="btn btn-outline-dark" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                  Help
+                </button>
+              </div>
+              <div class="col-10">
+                <div class="collapse" id="collapseExample">
+                  <div class="card card-body">
+                    The auction visibility defines which users are able to see the auction.
+                    <ul>
+                      <li><b>Only Providers</b>: If this option is chosen only service provider,
+                        not service providers will be able to see this auction on their dashboards.</li>
+                      <li><b>All</b>: This means competing customers will be able to see the auction
+                        and accept bids from providers for certain services. They may accept bids for services
+                        before you do. In case this occurs, you are entitled to some compensation
+                        in the form of a finders fee.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="findersFee">
+              <div class="form-group" id="findersFee" style="margin-top:10px">
+                <label for="feeField">Finder's fee</label>
+                <div class="row">
+                  <div class="col-10">
+                    <div class="input-group">
+                      <input type="number" class="form-control" :disabled="formData.auctionVisibility !== 'all'" v-model="formData.feeField">
+                      <div class="input-group-append">
+                        <span class="form-control" name="feeField"> % </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <button class="btn btn-outline-dark" type="button" data-toggle="collapse" data-target="#helpFindersFee" aria-expanded="false" aria-controls="helpFindersFee">
+                      Help
+                    </button>
+                  </div>
+                  <div class="col-10">
+                    <div class="collapse" id="helpFindersFee">
+                      <div class="card card-body">
+                        The auction finder's fee amount is a numerical percentage specified by
+                        the customer initiating the auction. The amount is taken from the service
+                        price paid by the customer accepting the bid to the provider, meaning that
+                        the customer pays the service bid in full to the provider and an extra percentage
+                        of the finder's fee to the auction initializing customer.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <input id="initializer" name="initializer" type="hidden" value="customer">
+        </div>
+      </div>
+
+      <h3 style="margin-top:10px;color:green;text-align:center;">
+        AWESOME Auction
+      </h3>
+      <div class="row">
+        <div class="col">
+          <button type="button" class="btn btn-success" id="addCommodity" v-on:click="addNewService" style="display: block;margin-left: auto;margin-right: auto;justify-content: center;">Add Service</button>
+        </div>
+        <div class="col">
+          <button type="button" class="btn btn-success" id="addBundle" v-on:click="addNewBundle" style="display: block;margin-left: auto;margin-right: auto;justify-content: center;">Add bundle</button>
+        </div>
+      </div>
+      <hr style="color:green; border: 2px solid">
+      <div id="allBids">
+        <div class="container-fluid" v-for="(bundle, index) in formData.bundles">
+          <div class="makeAuctionTemplate">
+            <h4>Bundle {{index + 1}}</h4>
+            <div class="form-group" id="pricing">
+              <label for="pricing">Budget</label>
+              <div class="row">
+                <div class="col-10">
+                  <div class="input-group">
+                    <input type="number" class="form-control" v-model="bundle.pricing.pricingBudget">
+                    <div class="input-group-append">
+                      <select class="form-control" id="pricing" v-model="bundle.pricing.pricingSubscription">
+                        <option name="flatFee" value="flatFee">Flat Fee</option>
+                        <option name="perHour" value="perHour">Per Hour</option>
+                        <option name="perMonth" value="perMonth">Per Month</option>
+                        <option name="perYear" value="perYear">Per Year</option>
+                      </select>
+                    </div>
+                    <div class="input-group-append">
+                      <select class="form-control" id="pricing" v-model="bundle.pricing.pricingCurrency">
+                        <option name="euro" value="euro">€</option>
+                        <option name="yuan" value="yuan">元</option>
+                        <option name="kuna" value="kuna">Kuna</option>
+                        <option name="dollar" value="dollar">$</option>
+                        <option name="btc" value="btc">฿</option>
+                        <option name="eth" value="eth">ETH</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h5>Select Services in bundle:</h5>
+            <div class="container-fluid" v-for="(service, index2) in bundle.services">
+              <div class="form-check" autocomplete="off">
+                <label class="form-check-label" for="exampleCheck1">{{service.serviceNumber}}</label>
+                <input type="checkbox" class="form-check-input" id="check1" v-model="formData.bundles[index].services[index2].included" style="margin-left: 10px;">
+              </div>
+            </div>
+            <button type="button" id="cancel" v-on:click="removeBundle(index)" class="btn btn-success" style="justify-content:center;margin-left:auto;
+                       margin-right:auto; margin-top:10px;">
+              Cancel
+            </button>
+          </div>
+        </div>
+        <div class="container-fluid" id="fullBid" v-for="(service, index) in formData.services">
+          <div class="makeAuctionTemplate">
+            <h4>Service {{index + 1}}</h4>
+            <div class="commodity" id="commodity">
+              <div class="container-fluid">
+                <h5>Use this form to define a commodity</h5>
+                <div class="form-group" id="docTypeForm">
+                  <label for="docType">Define commodity type</label>
+                  <div class="row">
+                    <div class="col-6">
+                      <input type="text" class="form-control" v-model="service.docType" id="docType" placeholder="e.g. vmInstance, blobStorage etc.">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group" id="commoditySpecs">
+                  <label for="commoditySpecs">Add commodity property types and values</label>
+                  <div class="row">
+                    <div class="col-lg-12" style="margin-bottom: 10px">
+                      <button id="addRow1" type="button" class="btn btn-info" v-on:click="addNewProperty(index)">Add property</button>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div v-for="(property, index2) in service.properties">
+                        <div class="input-group mb-3">
+                          <div class="form-row">
+                            <div class="input-group-append">
+                              <div class="col">
+                                <input type="text" v-model="property.commodityKey" class="form-control" placeholder="e.g. Storage capacity">
+                              </div>
+                              <div class="col">
+                                <input type="text" v-model="property.commodityValue" class="form-control" placeholder="e.g. 60GiB">
+                              </div>
+                            </div>
+                            <div class="input-group-append">
+                              <button id="removeRow1" type="button" class="btn btn-danger" v-on:click="removeProperty(index, index2)">Remove</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="slaForm" id="slaForm">
+              <div class="container-fluid">
+                <h5>Use this form to define the SLA payment, rules and violations</h5>
+                <div class="form-group" id="pricing">
+                  <label for="pricing">Budget</label>
+                  <div class="row">
+                    <div class="col-10">
+                      <div class="input-group">
+                        <input type="number" class="form-control" v-model="service.pricing.pricingBudget">
+                        <div class="input-group-append">
+                          <select class="form-control" id="pricing" v-model="service.pricing.pricingSubscription">
+                            <option name="flatFee" value="flatFee">Flat Fee</option>
+                            <option name="perHour" value="perHour">Per Hour</option>
+                            <option name="perMonth" value="perMonth">Per Month</option>
+                            <option name="perYear" value="perYear">Per Year</option>
+                          </select>
+                        </div>
+                        <div class="input-group-append">
+                          <select class="form-control" id="pricing" v-model="service.pricing.pricingCurrency">
+                            <option name="euro" value="euro">€</option>
+                            <option name="yuan" value="yuan">元</option>
+                            <option name="kuna" value="kuna">Kuna</option>
+                            <option name="dollar" value="dollar">$</option>
+                            <option name="btc" value="btc">฿</option>
+                            <option name="eth" value="eth">ETH</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <button class="btn btn-outline-dark" type="button" data-toggle="collapse" data-target="#helpBudget" aria-expanded="false" aria-controls="helpBudget">
+                        Help
+                      </button>
+                    </div>
+                    <div class="col-10">
+                      <div class="collapse" id="helpBudget">
+                        <div class="card card-body">
+                          The auction budget...
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group" id="SLArules">
+                  <label for="SLArules">Add SLA rules and penalties</label>
+                  <div class="row">
+                    <div class="col-lg-12" style="margin-bottom: 10px">
+                      <button id="addRow2" type="button" class="btn btn-info" v-on:click="addNewRule(index)">Add Rule</button>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div v-for="(rule, index2) in service.rules">
+                        <div class="input-group mb-3">
+                          <div class="input-group-append">
+                            <div class="col">
+                              <input type="text" v-model="rule.ruleString" class="form-control" placeholder="Enter rule: eg. Server down" autocomplete="off">
+                            </div>
+                            <div class="col">
+                              <div class="input-group-append">
+                                <input type="number" v-model="rule.ruleFine" class="form-control" placeholder="Fine amount"></div>
+                            </div>
+                            <div class="input-group-append">
+                              <select class="form-control" id="rules" v-model="rule.currency">
+                                <option name="euro" value="euro">€</option>
+                                <option name="yuan" value="yuan">元</option>
+                                <option name="kuna" value="kuna">Kuna</option>
+                                <option name="dollar" value="dollar">$</option>
+                                <option name="pound" value="pound">£</option>
+                                <option name="btc" value="btc">฿</option>
+                                <option name="eth" value="eth">ETH</option>
+                              </select>
+                            </div>
+                            <div class="input-group-append">
+                              <button id="removeRow2" type="button" class="btn btn-danger" v-on:click="removeRule(index, index2)" style="margin-left: 10px">Remove</button>
+                            </div>
+                          </div>
+                          <div class="input-group-append">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button type="button" id="cancel" v-on:click="removeService(index)" class="btn btn-success" style="justify-content:center;margin-left:auto;
+                       margin-right:auto; margin-top:10px;">
+              Cancel
+            </button>
+          </div>
+        </div>
+
+      </div>
+      <hr style="color:green; border: 2px solid">
+      <div class="container-fluid">
+        <div class="makeAuctionTemplate">
+          <button name="submit" type="submit" class="btn btn-outline-dark">Submit Auction</button>
+          </fieldset>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <footer>
+    <%- include('../partials/footer'); %>
+  </footer>
+
+  <script type="text/javascript">
+    window.app = new Vue({
+      el: '#bigDiv',
+      data() {
+        return {
+          formData: {
+            //hardcoded owner
+            owner: 'customer1',
+            bidType: 'public',
+            auctionVisibility: 'providers',
+            feeField: '0',
+            services: [],
+            bundles: []
+          },
+          totalServices: [],
+          totalServices2: []
+        }
+      },
+      methods: {
+        addNewBundle: function() {
+          const result = [];
+          for (var i = 0; i < this.formData.services.length; i++) {
+            j = i + 1;
+            result.push({
+              serviceNumber: 'Service ' + j,
+              included: false
+            });
+          }
+          this.formData.bundles.push({
+            'services': result,
+            pricing: {
+              pricingBudget: '',
+              pricingSubscription: 'flatFee',
+              pricingCurrency: 'euro'
+            }
+          });
+          console.log("postpush");
+          console.log(this.formData.bundles);
+        },
+        removeBundle: function(index) {
+          this.formData.bundles.splice(index, 1);
+        },
+        addNewService() {
+          this.formData.services.push({
+            docType: '',
+            properties: [],
+            pricing: {
+              pricingBudget: '',
+              pricingSubscription: 'flatFee',
+              pricingCurrency: 'euro'
+            },
+            rules: []
+          });
+          //this.updateCurrentBundle();
+        },
+        removeService: function(index) {
+          this.formData.services.splice(index, 1);
+          //this.updateCurrentBundle();
+        },
+        addNewProperty(index) {
+          this.formData.services[index].properties.push({
+            commodityKey: '',
+            commodityValue: ''
+          });
+        },
+        removeProperty: function(index, index2) {
+          this.formData.services[index].properties.splice(index2, 1);
+        },
+        addNewRule(index) {
+          this.formData.services[index].rules.push({
+            ruleString: '',
+            ruleFine: '',
+            currency: 'euro'
+          })
+        },
+        removeRule: function(index, index2) {
+          this.formData.services[index].rules.splice(index2, 1);
+        },
+        createPost() {
+          axios.post('/ui_customer/postFullAuction', this.formData)
+            .then(function(response) {
+              if (response.data.redirect == '/ui_customer/postAuctionThankYou') {
+                window.location = "/ui_customer/postAuctionThankYou"
+              } else if (response.data.redirect == '/ui_customer/postAuctionThankYou') {
+                window.location = "/ui_customer/postAuctionThankYou"
+              }
+              //a catch or something was here
+            })
+            .catch(function(error) {
+              window.location = "/ui_customer/postAuctionThankYou"
+            })
+        },
+        updateCurrentBundle: function() {
+          this.totalServices.splice(0, this.totalServices.length);
+          for (var i = 0; i < this.formData.services.length; i++) {
+            j = i + 1;
+            this.totalServices.push({
+              serviceNumber: 'Service ' + j,
+              included: ''
+            });
+          }
+          console.log(this.totalServices);
+          return this.totalServices;
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

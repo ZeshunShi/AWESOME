@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('partials/head'); %>
+</head>
+<body class="container">
+
+<header>
+  <%- include('partials/header'); %>
+</header>
+
+<main>
+<form action="/loginUser" method="post">
+  <h2>Login:</h2>
+  <label for="role">Login as a:</label>
+  <select id="role" name="role">
+  <option value="Admin" selected="selected">Admin</option>
+  <option value="Customer">Customer</option>
+  <option value="Provider">Provider</option>
+  <option value="Witness">Witness</option>
+</select>
+  <ul>
+    <li><label for="username"><b>User name</b></label>
+    <input type="text" placeholder="Enter User name" name="username" id="username" required></li>
+    <li><label for="password"><b>Password</b></label>
+    <input type="password" placeholder="Enter password" name="password" id="password" required></li>
+  </ul>
+  <input type="submit" value="Login">
+</form>
+</main>
+
+<footer>
+  <%- include('partials/footer'); %>
+</footer>
+
+</body>
+</html>

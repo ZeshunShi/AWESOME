@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('partials/head'); %>
+</head>
+<body class="container">
+
+<header>
+  <%- include('partials/header'); %>
+</header>
+
+<main>
+<form action="/registerUser" method="post">
+  <h2>Register</h2>
+  <p>Please fill this form in to create an account</p>
+  <label for="role">Register as a:</label>
+  <select id="role" name="role">
+  <option value="Admin" selected="selected">Admin</option>
+  <option value="Customer">Customer</option>
+  <option value="Provider">Provider</option>
+  <option value="Witness">Witness</option>
+</select>
+  <ul>
+    <li><label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter email" name="email" id="email" required></li>
+    <li><label for="username"><b>User name</b></label>
+    <input type="text" placeholder="Enter User name" name="username" id="username" required></li>
+    <li><label for="password"><b>Password</b></label>
+    <input type="password" placeholder="Enter password" name="password" id="password" required></li>
+  </ul>
+  <input type="submit" value="Submit">
+</form>
+</main>
+
+<footer>
+  <%- include('partials/footer'); %>
+</footer>
+
+</body>
+</html>

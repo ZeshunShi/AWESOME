@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../partials/head'); %>
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.js"></script>
+<script src="https://unpkg.com/vue-router"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<body>
+
+  <header>
+    <%- include('partials_provider/header'); %>
+  </header>
+
+  <main id="main">
+    <form @submit.prevent="endAuction">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="card border-success mb-3">
+              <div class="card-header">
+                <h5 style="margin-top:10px;color:green;text-align:center;">
+                  {{auctionID.auctionID}}
+                </h5>
+              </div>
+              <div class="card-body">
+                <div v-if="auctionSafe.auctionType === 'english'">
+                  <h5 class="card-title" style="color:green;">English Auction</h5>
+                </div>
+                <div v-else-if="auctionSafe.auctionType === 'dutch'">
+                  <h5 class="card-title" style="color:orange;">Dutch Auction</h5>
+                </div>
+                <div v-else-if="auctionSafe.auctionType === 'fpsb'">
+                  <h5 class="card-title" style="color:green;">First Priced Sealed Bid Auction</h5>
+                </div>
+                <div v-else-if="auctionSafe.auctionType === 'spsb'">
+                  <h5 class="card-title" style="color:green;">Second Priced Sealed Bid Auction</h5>
+                </div>
+                <h6 class="card-subtitle mb-2 text-muted" style="color:green;">Commodity type: {{auctionSafe.service.docType}}</h6>
+                <h6 class="card-subtitle mb-2 text-muted" style="color:green;">Auction owner: {{result.owner}}</h6>
+                <div class="properties">
+                  <h5 style="color: green;">Service Properties</h5>
+                  <ul class="list-group list-group-flush" style="margin-top: 10px;">
+                    <div v-for="property in auctionSafe.service.properties">
+                      <li class="list-group-item"><b>{{property.commodityKey}}: </b>{{property.commodityValue}}</li>
+                    </div>
+                  </ul>
+                </div>
+                <div class="rules">
+                  <h5 style="color: green;">SLA rules</h5>
+                  <ul class="list-group list-group-flush" style="margin-top: 10px;">
+                    <div v-for="rule in auctionSafe.service.rules">
+                      <li class="list-group-item"><b>{{rule.ruleString}}: </b>{{rule.ruleFine}} {{getCurrency(rule.currency)}}</li>
+                    </div>
+                  </ul>
+                </div>
+                <div class="pricing">
+                  <h5 style="color: green;">Auction Pricing</h5>
+                  <ul class="list-group list-group-flush" style="margin-top: 10px;">
+                    <li class="list-group-item"><b>Pricing subscription:</b> {{getSubscription(auctionSafe.pricing.pricingSubscription)}}</li>
+                    <div v-if="auctionSafe.pricing.startPrice">
+                      <li class="list-group-item"><b>Start Price:</b> {{auctionSafe.pricing.startPrice}} {{getCurrency(auctionSafe.pricing.pricingCurrency)}} </li>
+                    </div>
+                    <div v-if="auctionSafe.pricing.pricingReserve">
+                      <li class="list-group-item"><b>Service Reserve price:</b> {{auctionSafe.pricing.pricingReserve}} {{getCurrency(auctionSafe.pricing.pricingCurrency)}} </li>
+                    </div>
+                    <div v-if="auctionSafe.pricing.biddingStep">
+                      <li class="list-group-item"><b>Bidding step:</b> {{auctionSafe.pricing.biddingStep}} {{getCurrency(auctionSafe.pricing.pricingCurrency)}} </li>
+                    </div>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card border-success mb-3">
+              <div class="card-header overflow-auto">
+                <h5 style="margin-top:10px;color:green;text-align:center;">
+                  Auction Bids
+                </h5>
+              </div>
+              <div class="card-body">
+                <div v-if="bids.length">
+                  <h5 style="color: green;">Auction Information</h5>
+                  <ul class="list-group list-group-flush" style="margin-top: 10px;">
+                    <li class="list-group-item border-bottom"><b>Number of bids: </b>{{bids.length}}</li>
+                    <li class="list-group-item border-bottom"><b>Current leader: </b>{{winningBid.owner}}</li>
+                    <li class="list-group-item border-bottom"><b>Price to be paid by leader: </b>{{winningBid.pricing.bidAmount}} {{getCurrency(winningBid.pricing.pricingCurrency)}}</li>
+                  </ul>
+                  <h5 style="color: green; margin-top:10px;">Customer bids</h5>
+                  <ul class="list-group list-group-flush" style="margin-top: 10px;">
+                    <div class="bids" v-for="bid in bidsSafe">
+                      <li class="list-group-item border-bottom"><b>{{bid.owner}}: </b>{{bid.pricing.bidAmount}} {{getCurrency(bid.pricing.pricingCurrency)}}</li>
+                    </div>
+                  </ul>
+                </div>
+                <div v-else>
+                  No bids posted
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div v-if="result.active === true">
+        <div class="card border-success mb-3">
+          <button name="submit" type="submit" class="btn btn-success" style="justify-content:center;margin-left:auto;
+                   margin-right:auto; margin-top: 10px; margin-bottom: 10px;">
+            End Auction
+          </button>
+        </div>
+        </div>
+        <div v-else>
+          <div class="card border-success mb-3">
+            <h5 style="color: green; padding: 20px;">Auction is <u>inactive</u> check: <a href="/ui_provider/mySLAs">SLAs.</h5></a>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class="makeAuctionTemplate">
+      Auction safe
+      {{auctionSafe}}
+    </div>
+    <div class="makeAuctionTemplate">
+      Result
+      {{result}}
+    </div>
+  </main>
+
+  <footer>
+    <%- include('../partials/footer'); %>
+  </footer>
+
+  <script type="text/javascript">
+    var router = new VueRouter({
+      mode: 'history',
+      routes: []
+    });
+    window.app = new Vue({
+      router,
+      el: '#main',
+      data() {
+        return {
+          result: {},
+          auction: {},
+          auctionID: '',
+          bids: [],
+          bidsSafe: [],
+          service: {
+            properties: [],
+            rules: [],
+            pricing: {
+              pricingCurrency: '',
+              pricingSubscription: ''
+            }
+          },
+          auctionSafe: {
+            pricing: {},
+            service: {}
+          },
+          winningBid: ''
+        }
+      },
+      methods: {
+        async parser(result) {
+          //console.log(result);
+          //console.log(this.auctionID);
+          this.auction = JSON.parse(result.auctionInfo);
+          this.auctionSafe = JSON.parse(JSON.stringify(this.auction));
+          this.service = this.auctionSafe.service;
+          for (var i = 0; i < this.result.bids.length; i++) {
+            bidObject = JSON.parse(this.result.bids[i].bid);
+            bidObject.owner = this.result.bids[i].customerID;
+            this.bids.push(
+              bidObject
+            );
+          }
+          this.bids.sort(function(a, b) {
+            return parseFloat(b.pricing.bidAmount) - parseFloat(a.pricing.bidAmount);
+          });
+          //console.log("here");
+          //console.log(this.bids);
+          this.bidsSafe = JSON.stringify(this.bids);
+          this.winningBid = this.getWinningBid(this.bids);
+          this.bidsSafe = JSON.parse(this.bidsSafe);
+          //console.log(this.bidsSafe);
+        },
+        getWinningBid(bids){
+          if (bids.length == 0) {
+            return "No bids posted"
+          }
+          highest = 0;
+          result = {};
+          for (var i = 0; i < bids.length; i++) {
+            bid = bids[i];
+            if(parseInt(bid.pricing.bidAmount)>highest){
+              highest = bid.pricing.bidAmount;
+              result = bid;
+            }
+          }
+          bids.sort(function(a, b) {
+            return parseFloat(b.pricing.bidAmount) - parseFloat(a.pricing.bidAmount);
+          });
+          if(this.auctionSafe.auctionType == 'spsb' && bids.length > 1){
+            result.pricing.bidAmount = bids[1].pricing.bidAmount;
+          }
+          return result;
+        },
+        getCurrency(currency) {
+          if (currency == "euro") {
+            return "€";
+          } else if (currency == "yuan") {
+            return "€";
+          } else if (currency == "kuna") {
+            return "Kuna";
+          } else if (currency == "dollar") {
+            return "$";
+          } else if (currency == "btc") {
+            return "฿";
+          } else if (currency == "eth") {
+            return "ETH";
+          } else {
+            return "€";
+          }
+        },
+        getSubscription(subscription) {
+          if (subscription == "flatFee") {
+            return "Flat fee";
+          } else if (subscription == "perHour") {
+            return "Per Hour";
+          } else if (subscription == "perMonth") {
+            return "Per Month";
+          } else if (subscription == "perYear") {
+            return "Per Year";
+          } else {
+            return "Flat Fee";
+          }
+        },
+        endAuction() {
+          console.log(this.auctionID);
+          axios.post('http://localhost:8080/ui_provider/endAuction', this.auctionID)
+            .then(function(response) {
+              console.log(response);
+              if (response.data.redirect == '/ui_provider/postAuctionThankYou') {
+                window.location = "/ui_provider/postAuctionThankYou"
+              } else if (response.data.redirect == '/ui_provider/postAuctionThankYou') {
+                window.location = "/ui_provider/postAuctionThankYou"
+              }
+              //a catch or something was here
+            })
+            .catch(function(error) {
+              window.location = "/ui_provider/postAuctionThankYou"
+            })
+        }
+      },
+      async created() {
+        q = this.$route.query;
+        console.log(q);
+        console.log(q.auctionID);
+        this.auctionID = q;
+        console.log(this.auctionID);
+        const res = await axios.get("/ui_provider/aCard" + q.auctionID);
+        this.result = res.data;
+        console.log(res.data);
+        this.parser(this.result);
+      }
+    });
+  </script>
+
+</body>
+
+</html>
