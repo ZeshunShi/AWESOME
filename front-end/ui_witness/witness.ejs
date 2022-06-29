@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../partials/head'); %>
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.js"></script>
+<script src="https://unpkg.com/vue-router@3"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<body>
+
+  <header>
+    <%- include('partials_witness/header'); %>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-12 my-2">
+          <div class="card border-success mb-3">
+            <div class="card-header">
+              <h5 style="margin-top:10px;color:green;text-align:center;">
+                Welcome Witness!
+              </h5>
+            </div>
+            <div class="card-body">
+              <p>You can use this webapp to perform the following tasks:</p>
+              <p>View your monitoring jobs of SLAs: <a href="/ui_witness/mySLAs">My Monitoring Jobs</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-12 my-2">
+          <div class="card border-success mb-3">
+            <div class="card-header">
+              <h5 style="margin-top:10px;color:green;text-align:center;">
+                Your details: {{username}}
+              </h5>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title" style="color:green;">UserID: {{userData.witnessID}}</h5>
+              <h5 class="card-title" style="color:green;">Account Balance: {{userData.accountBalance.amount}} zCoins</h5>
+              <div class="form-group row">
+                <label class="col-sm-4 col-form-label" for="deposit">Make deposit:</label>
+                <div class="col-sm-4">
+                  <div class="input-group">
+                    <input type="number" v-model="deposit" class="form-control form-control-sm" name="deposit" id="deposit" style="margin-left:5px;">
+                    <div class="input-group-append">
+                      <span class="input-group-text form-control-sm">zCoins</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <button type="button" v-on:click="changeFunds('deposit')" class="btn btn-sm btn-success" style="display: block;margin-left: auto;margin-right: auto;justify-content: center;">
+                    Deposit funds</button>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-4 col-form-label" for="withdraw">Make withdrawal:</label>
+                <div class="col-sm-4">
+                  <div class="input-group">
+                    <input type="number" v-model="withdrawal" class="form-control form-control-sm" name="withdraw" id="withdraw" style="margin-left:5px;">
+                    <div class="input-group-append">
+                      <span class="input-group-text form-control-sm">zCoins</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <button type="button" v-on:click="changeFunds('withdraw')" class="btn btn-sm btn-success" style="display: block;margin-left: auto;margin-right: auto;justify-content: center;">
+                    Withdraw funds</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <%- include('../partials/footer'); %>
+  </footer>
+  <script type="text/javascript">
+    var router = new VueRouter({
+      mode: 'history',
+      routes: []
+    });
+    window.app = new Vue({
+      router,
+      el: '#main',
+      data() {
+        return {
+          username: '',
+          userData: {
+            accountBalance: {}
+          },
+          deposit: '0',
+          withdrawal: '0'
+        }
+      },
+      methods: {
+        reset() {
+          this.deposit = '0';
+          this.withdrawal = '0';
+        },
+        changeFunds(depWith) {
+          console.log(depWith);
+          const self = this;
+          const token = sessionStorage.getItem("JWT");
+          console.log(token);
+          config = {
+            headers: {
+              Authorization: `Bearer ${token}`
+            }
+          };
+          if (depWith == "deposit") {
+            if (this.deposit == '') {
+              this.deposit = '0';
+            }
+            var body = {
+              "fcn": "addBalance",
+              "args": [this.deposit]
+            }
+          } else if (depWith == "withdraw") {
+            if (this.withdrawal == '') {
+              this.withdrawal = '0';
+            }
+            var body = {
+              "fcn": "withdrawBalance",
+              "args": [this.withdrawal]
+            }
+          } else {
+            return;
+          }
+          axios.post('http://127.0.0.1:8080/api/invoke',
+              body,
+              config)
+            .then(function(response) {
+              console.log(response);
+              if (response.data.result.message == "Successfully changed funds") {
+                //  window.location = "/ui_witness/postAuctionThankYou"
+                self.reset();
+                self.created2();
+              } else {
+                alert(response.data.result);
+                //window.location = "/ui_provider/postAuctionThankYou"
+              }
+              //a catch or something was here
+            })
+            .catch(function(error) {
+              console.log(error);
+              alert(error);
+              //window.location = "/ui_provider/postAuctionThankYou"
+            })
+        },
+        async created2() {
+          const token = sessionStorage.getItem("JWT");
+          const username = sessionStorage.getItem("username");
+          this.username = username;
+          if (token == null) {
+            window.location = "/"
+          }
+          console.log(token);
+          config = {
+            headers: {
+              Authorization: `Bearer ${token}`
+            }
+          };
+          let url = "http://127.0.0.1:8080/api/query?args=[]&fcn=queryUserData";
+          console.log(url);
+          const res = await axios.get(url, config);
+          if (res.data.error != null) {
+            //console.log(res.data.result);
+            alert(res.data.error);
+          } else {
+            this.userData = res.data.result;
+            sessionStorage.setItem("userID", this.userData.witnessID);
+          }
+        }
+      },
+      async created() {
+        this.created2();
+      }
+    });
+  </script>
+</body>
+
+</html>

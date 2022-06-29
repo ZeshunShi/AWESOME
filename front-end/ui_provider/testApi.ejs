@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../partials/head'); %>
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.js"></script>
+<script src="https://unpkg.com/vue-router@3"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<body>
+
+  <header>
+    <%- include('partials_provider/header'); %>
+  </header>
+
+  <main id=main>
+    <div class="container-fluid">
+      <h3 style="margin-top:10px;color:green;text-align:center;">
+        AWESOME testApi
+      </h3>
+      <hr style="color:green; border: 2px solid">
+      <div class="container">
+        <div class="makeAuctionTemplate">
+          {{result}}
+        </div>
+      </div>
+  </main>
+
+  <footer>
+    <%- include('../partials/footer'); %>
+  </footer>
+
+  <script type="text/javascript">
+    var router = new VueRouter({
+      mode: 'history',
+      routes: []
+    });
+    window.app = new Vue({
+      router,
+      el: '#main',
+      data() {
+        return {
+          result: {}
+        }
+      },
+      methods: {
+
+      },
+      async created() {
+        var body = {
+          "username":"zhiming",
+	         "orgName": "Org1"
+        }
+        const res = await axios.post("http://127.0.0.1:8080/users", body);
+        this.result = res.data;
+        console.log(this.result);
+      }
+    });
+  </script>
+
+</body>
+
+</html>

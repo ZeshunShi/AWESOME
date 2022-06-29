@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('partials/head'); %>
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.js"></script>
+<script src="https://unpkg.com/vue-router@3"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<body class="container">
+
+  <header>
+    <%- include('partials/header'); %>
+  </header>
+
+  <main id="main" style="margin-top: 100px;">
+    <div class="container-fluid">
+      <form @submit.prevent="login">
+        <div class="container-fluid">
+          <h1>AWESOME</h1>
+          <p>Welcome to the AWESOME webapp</p>
+          <p>Use the form below to log in!</p>
+          <div class="makeAuctionTemplate">
+            <h5>Use this form to log in</h5>
+            <label for="userOrg">Enter your organization</label>
+            <div class="container">
+              <div class="row">
+                <select class="form-control" id="userOrg" v-model="formData.orgName">
+                  <option name="Org1" value="Org1">Provider Org</option>
+                  <option name="Org2" value="Org2">Customer Org</option>
+                  <option name="Org3" value="Org3">Witness Org</option>
+                </select>
+              </div>
+              <label for="userName" style="margin-top: 10px">Enter your user name</label>
+              <div class="row">
+                <input type="text" class="form-control" id="userName" v-model="formData.username">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid">
+          <div class="makeAuctionTemplate">
+            <button name="submit" type="submit" class="btn btn-outline-dark">Log in</button>
+          </div>
+        </div>
+      </form>
+      <div v-if="errorData !== ''">
+        <div class="makeAuctionTemplate">
+          Error:
+          {{errorData}}
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <%- include('partials/footer'); %>
+  </footer>
+  <script type="text/javascript">
+    var router = new VueRouter({
+      mode: 'history',
+      routes: []
+    });
+    window.app = new Vue({
+      router,
+      el: '#main',
+      data() {
+        return {
+          formData: {
+            orgName: "Org1",
+            username: ""
+          },
+          errorData: ''
+        }
+      },
+      methods: {
+        login() {
+          this.errorData = '';
+          axios.post('http://127.0.0.1:8080/users/login', this.formData)
+            .then((response) => {
+              if (response.data.message.token) {
+                var authToken = response.data.message.token;
+                console.log(response);
+                console.log(authToken);
+                sessionStorage.setItem("JWT", authToken);
+                console.log(response.config.data);
+                var config = JSON.parse(response.config.data);
+                sessionStorage.setItem("orgName", config.orgName);
+                sessionStorage.setItem("username", config.username);
+                console.log(config);
+                if (config.orgName == "Org1" || config.orgName == "org1") {
+                  window.location = "/ui_provider/provider"
+                } else if (config.orgName == "Org2" || config.orgName == "org2") {
+                  window.location = "/ui_customer/customer"
+                }
+                else if (config.orgName == "Org3" || config.orgName == "org3") {
+                  window.location = "/ui_witness/witness"
+                }
+              } else {
+                console.log(response.data);
+                this.errorData = response.data;
+                //this.updateErrorData(response.data);
+                console.log(this.errorData);
+              }
+            })
+            .catch(function(error) {
+              this.errorData = error;
+            })
+        }
+      }
+    });
+  </script>
+
+</body>
+
+</html>

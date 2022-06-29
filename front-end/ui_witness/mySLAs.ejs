@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../partials/head'); %>
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.js"></script>
+<script src="https://unpkg.com/vue-router@3"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<body>
+
+  <header>
+    <%- include('partials_witness/header'); %>
+  </header>
+
+  <main id=main>
+    <div class="container-fluid">
+      <h3 style="margin-top:10px;color:green;text-align:center;">
+        AWESOME SLAs: {{owner}}
+      </h3>
+      <hr style="color:green; border: 2px solid">
+      <div class="container">
+        <button type="button" class="btn btn-success btn-sm" v-on:click="toggleEnded()">{{ended}}</button>
+        <div class="row">
+          <div v-for="sla in slaArr" class="col-md-6 col-12 my-2">
+            <div class="card border-success mb-3">
+              <div class="card-header">
+                <a v-bind:href="'monitoringCard?serviceID='+sla.key">
+                  <h5 style="margin-top:10px;color:green;text-align:center;">
+                    {{sla.key}}
+                    <div v-if="sla.ended">
+                      (Inactive)
+                    </div>
+                  </h5>
+                </a>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title" style="color:green;">{{sla.auctionObject.service.commodity.docType}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted" style="color:green;">Provider: {{sla.provider}}</h6>
+                <h6 class="card-subtitle mb-2 text-muted" style="color:green;">Customer: {{sla.customer}}</h6>
+                <h6 class="card-subtitle mb-2" style="color:green;">SLA deadline: {{getSLADeadline(sla.auctionObject.service.witnessGlobalRules.slaDeadline)}}</h6>
+                <h5 style="color: green;">Pricing</h5>
+                <ul class="list-group list-group-flush" style="margin-top: 10px;">
+                  <li class="list-group-item border-bottom"><b>Service fee: </b>{{sla.biggestBid.pricing.bidAmount}} {{getCurrency(sla.biggestBid.pricing.pricingCurrency)}}</li>
+                  <li class="list-group-item border-bottom"><b>Subscription: </b>{{getSubscription(sla.biggestBid.pricing.pricingSubscription)}}</li>
+                </ul>
+                <br>
+                <button type="button" class="btn btn-success btn-sm" v-on:click="showProperties(sla)">Service Properties</button>
+                <div v-if="sla.showProperties">
+                  <ul class="list-group list-group-flush" style="margin-top: 10px;">
+                    <div v-for="property in sla.auctionObject.service.commodity.properties">
+                      <li class="list-group-item list-group-item-success"><b>{{property.commodityKey}}: </b>{{property.commodityValue}}</li>
+                    </div>
+                  </ul>
+                </div>
+                <br>
+                <button type="button" class="btn btn-success btn-sm" v-on:click="showSLA(sla)" style="margin-top:10px;">SLA rules</button>
+                <div v-if="sla.showSLA">
+                  <ul class="list-group list-group-flush" style="margin-top: 10px;">
+                    <div v-for="(rule, index) in sla.auctionObject.service.sloRulesAndFines">
+                      <li class="list-group-item list-group-item-success">{{index+1}}. {{rule.ruleIdentifier}}: {{rule.ruleFine}} {{getCurrency(sla.auctionObject.service.pricing.pricingCurrency)}}</li>
+                    </div>
+                  </ul>
+                </div>
+                <div class="row">
+                  <div class="col-xs-4" style="margin-top:10px; display: block;margin-left: auto;margin-right: auto;justify-content: center;">
+                    <a v-bind:href="'monitoringCard?serviceID='+sla.key" class="btn btn-success" style="display: block;margin-left: auto;margin-right: auto;justify-content: center;">View SLA</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--<div class="container" v-for="sla in slaArr">
+        <div class="makeAuctionTemplate">
+          {{sla}}
+          <a v-bind:href="'auctionCard?auctionID='+sla.key">{{sla.key}}</a>
+        </div>
+      </div>-->
+  </main>
+
+  <footer>
+    <%- include('../partials/footer'); %>
+  </footer>
+
+  <script type="text/javascript">
+    var router = new VueRouter({
+      mode: 'history',
+      routes: []
+    });
+    window.app = new Vue({
+      router,
+      el: '#main',
+      data() {
+        return {
+          result: [],
+          owner: 'provider1',
+          slaArr: [],
+          ended: 'Ended',
+          endedArr: [],
+          notEndedArr: []
+        }
+      },
+      methods: {
+        toggleEnded() {
+          if (this.ended == "Ended") {
+            this.ended = "Not Ended";
+            this.slaArr = this.endedArr;
+          } else if (this.ended == "Not Ended") {
+            this.ended = "Ended";
+            this.slaArr = this.notEndedArr;
+          }
+        },
+        parser(result) {
+          for (var i = 0; i < result.length; i++) {
+            r = result[i];
+            key = r.Key;
+            biggestBid = r.Record.biggestBid;
+            customer = r.Record.customer;
+            provider = r.Record.provider;
+            auctionObject = r.Record.auctionObject;
+            ended = r.Record.ended;
+            if (ended == true) {
+              this.endedArr.push({
+                key,
+                biggestBid,
+                customer,
+                provider,
+                auctionObject,
+                showProperties: false,
+                showSLA: false,
+                ended
+              })
+            } else {
+              this.notEndedArr.push({
+                key,
+                biggestBid,
+                customer,
+                provider,
+                auctionObject,
+                showProperties: false,
+                showSLA: false,
+                ended
+              })
+            }
+          }
+          this.slaArr = this.notEndedArr;
+        },
+        getSubscription(subscription) {
+          if (subscription == "flatFee") {
+            return "Flat fee";
+          } else if (subscription == "perHour") {
+            return "Per Hour";
+          } else if (subscription == "perMonth") {
+            return "Per Month";
+          } else if (subscription == "perYear") {
+            return "Per Year";
+          } else {
+            return "Flat Fee";
+          }
+        },
+        getSLADeadline(d) {
+          var now = new Date();
+          console.log("now: " + now);
+          var date = new Date(Date.parse(d));
+          console.log(date.toLocaleString());
+          return date.toLocaleString(); //where are the seconds?!?
+        },
+        showProperties(auc) {
+          if (auc.showProperties == true) {
+            auc.showProperties = false;
+          } else {
+            auc.showProperties = true;
+          }
+        },
+        showSLA(auc) {
+          if (auc.showSLA == true) {
+            auc.showSLA = false;
+          } else {
+            auc.showSLA = true;
+          }
+        },
+        getCurrency(currency) {
+          return "zCoins"
+        },
+        async created2() {
+          const token = sessionStorage.getItem("JWT");
+          if (token == null) {
+            window.location = "/"
+          }
+          const owner2 = sessionStorage.getItem("username");
+          this.owner = owner2;
+          console.log(token);
+          config = {
+            headers: {
+              Authorization: `Bearer ${token}`
+            }
+          };
+          const res = await axios.get("http://127.0.0.1:8080/api/query?args=[]&fcn=queryMySLAsAsWitness", config);
+          if (res.data.error != null) {
+            //console.log(res.data.result);
+            alert(res.data.error);
+          } else {
+            console.log(res);
+            this.result = res.data.result;
+            console.log(this.result);
+            this.parser(this.result);
+          }
+        }
+      },
+      async created() {
+        this.created2();
+      }
+    });
+  </script>
+
+</body>
+
+</html>

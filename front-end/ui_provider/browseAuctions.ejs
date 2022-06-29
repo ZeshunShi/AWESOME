@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../partials/head'); %>
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.js"></script>
+<script src="https://unpkg.com/vue-router@3"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<body>
+
+  <header>
+    <%- include('partials_provider/header'); %>
+  </header>
+
+  <main id=main>
+    <div class="container-fluid">
+      <h3 style="margin-top:10px;color:green;text-align:center;">
+        AWESOME Customer Auctions
+      </h3>
+      <hr style="color:green; border: 2px solid">
+      <div class="container">
+        <div class="row">
+          <div v-for="auc in auctionArr" class="col-md-6 col-12 my-2">
+            <div class="card border-success mb-3">
+              <div class="card-header">
+                <a v-bind:href="'biddingCard?serviceID='+auc.key">
+                  <h5 style="margin-top:10px;color:green;text-align:center;">
+                    {{auc.key}}
+                  </h5>
+                </a>
+              </div>
+              <div class="card-body">
+                <div v-if="auc.auctionObject.auctionRules.auctionType === 'english'">
+                  <h5 class="card-title" style="color:green;">English Auction</h5>
+                </div>
+                <div v-else-if="auc.auctionObject.auctionRules.auctionType === 'dutch'">
+                  <h5 class="card-title" style="color:orange;">Dutch Auction</h5>
+                </div>
+                <div v-else-if="auc.auctionObject.auctionRules.auctionType === 'fpsb'">
+                  <h5 class="card-title" style="color:green;">First Priced Sealed Bid Auction</h5>
+                </div>
+                <div v-else-if="auc.auctionObject.auctionRules.auctionType === 'spsb'">
+                  <h5 class="card-title" style="color:green;">Second Priced Sealed Bid Auction</h5>
+                </div>
+                <h6 class="card-subtitle mb-2 text-muted" style="color:green;">Commodity type: {{auc.auctionObject.service.commodity.docType}}</h6>
+                <h6 class="card-subtitle mb-2 text-muted" style="color:green;">Auction owner: {{auc.owner}}</h6><br>
+                <div v-if="auc.auctionObject.auctionRules.auctionType !== 'dutch'">
+                    <h6 class="card-subtitle mb-2" style="color:green;">Auction deadline: {{getAuctionDeadline(auc.auctionObject.auctionRules.deadline)}}</h6>
+                </div>
+                <button type="button" class="btn btn-success btn-sm" v-on:click="showProperties(auc)">Service Properties</button>
+                <div v-if="auc.showProperties">
+                  <ul class="list-group list-group-flush" style="margin-top: 10px;">
+                    <div v-for="property in auc.auctionObject.service.commodity.properties">
+                      <li class="list-group-item list-group-item-success"><b>{{property.commodityKey}}: </b>{{property.commodityValue}}</li>
+                    </div>
+                  </ul>
+                </div>
+                <br>
+                <button type="button" class="btn btn-success btn-sm" v-on:click="showSLA(auc)" style="margin-top:10px;">SLA rules</button>
+                <div v-if="auc.showSLA">
+                  <ul class="list-group list-group-flush" style="margin-top: 10px;">
+                    <div v-for="(rule, index) in auc.auctionObject.service.sloRulesAndFines">
+                      <li class="list-group-item list-group-item-success">{{index+1}}. {{rule.ruleIdentifier}}: {{rule.ruleFine}} {{getCurrency(rule.currency)}}</li>
+                    </div>
+                  </ul>
+                </div>
+                <div class="row">
+                  <div class="col-xs-4" style="margin-top:10px; display: block;margin-left: auto;margin-right: auto;justify-content: center;">
+                    <a v-bind:href="'biddingCard?serviceID='+auc.key" class="btn btn-success" style="display: block;margin-left: auto;margin-right: auto;justify-content: center;">Bid</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr style="color:green; border: 2px solid">
+      <!--<div class="container" v-for="r in result">
+        <div class="makeAuctionTemplate">
+          {{r}}
+          <a v-bind:href="'auctionCard?auctionID='+r.Key">{{r.Key}}</a>
+        </div>
+      </div>-->
+  </main>
+
+  <footer>
+    <%- include('../partials/footer'); %>
+  </footer>
+
+  <script type="text/javascript">
+    var router = new VueRouter({
+      mode: 'history',
+      routes: []
+    });
+    window.app = new Vue({
+      router,
+      el: '#main',
+      data() {
+        return {
+          result: [],
+          auctionArr: []
+        }
+      },
+      methods: {
+        getAuctionDeadline(d) {
+          var date = new Date(Date.parse(d));
+          return date.toLocaleString(); //where are the seconds?!?
+        },
+        parser(result) {
+          for (var i = 0; i < result.length; i++) {
+            auctionObject = JSON.parse(result[i].Record.auctionObject);
+            owner = result[i].Record.owner;
+            key = result[i].Key;
+            this.auctionArr.push({
+              key,
+              owner,
+              auctionObject,
+              showProperties: false,
+              showSLA: false
+            });
+          }
+        },
+        showSLA(auc) {
+          if (auc.showSLA == true) {
+            auc.showSLA = false;
+          } else {
+            auc.showSLA = true;
+          }
+        },
+        closeSLA(auc) {
+          auc.showSLA = false;
+        },
+        showProperties(auc) {
+          if (auc.showProperties == true) {
+            auc.showProperties = false;
+          } else {
+            auc.showProperties = true;
+          }
+        },
+        closeProperties(auc) {
+          auc.showProperties = false;
+        },
+        getCurrency(currency) {
+          return "zCoins"
+        },
+        async created2() {
+          const token = sessionStorage.getItem("JWT");
+          if(token == null){
+            window.location = "/"
+          }
+          console.log(token);
+          config = {
+            headers: {
+              Authorization: `Bearer ${token}`
+            }
+          };
+          const res = await axios.get("http://127.0.0.1:8080/api/query?args=[]&fcn=queryAllServicesAsProvider", config);
+          if (res.data.error != null) {
+            //console.log(res.data.result);
+            alert(res.data.error);
+          } else {
+            console.log(res);
+            this.result = res.data.result;
+            console.log(this.result);
+            this.parser(this.result);
+          }
+        }
+      },
+      async created() {
+        this.created2();
+      }
+    });
+  </script>
+
+</body>
+
+</html>

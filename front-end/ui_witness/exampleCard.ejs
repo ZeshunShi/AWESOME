@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../partials/head'); %>
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.js"></script>
+<script src="https://unpkg.com/vue-router@3"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<body>
+
+  <header>
+    <%- include('partials_witness/header'); %>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <div class="card border-success mb-3">
+        <div class="card-header">
+          <h5 style="margin-top:10px;color:green;text-align:center;">
+            {{slaID.serviceID}}
+          </h5>
+        </div>
+        <div class="card-body">
+          <div v-if="auctionObject.auctionRules.auctionType === 'english'">
+            <h5 class="card-title" style="color:green;">English Auction</h5>
+          </div>
+          <div v-else-if="auctionObject.auctionRules.auctionType === 'dutch'">
+            <h5 class="card-title" style="color:orange;">Dutch Auction</h5>
+          </div>
+          <div v-else-if="auctionObject.auctionRules.auctionType === 'fpsb'">
+            <h5 class="card-title" style="color:green;">First Priced Sealed Bid Auction</h5>
+          </div>
+          <div v-else-if="auctionObject.auctionRules.auctionType === 'spsb'">
+            <h5 class="card-title" style="color:green;">Second Priced Sealed Bid Auction</h5>
+          </div>
+          <h6 class="card-subtitle mb-2 text-muted" style="color:green;">Commodity type: {{auctionObject.service.commodity.docType}}</h6>
+          <h6 class="card-subtitle mb-2 text-muted" style="color:green;">Service Provider: {{auction.provider}}</h6>
+          <h6 class="card-subtitle mb-2 text-muted" style="color:green;">Service Customer: {{auction.customer}}</h6>
+          <div class="properties">
+            <h5 style="color: green;">Service Properties</h5>
+            <ul class="list-group list-group-flush" style="margin-top: 10px;">
+              <div v-for="property in auctionObject.service.commodity.properties">
+                <li class="list-group-item"><b>{{property.commodityKey}}: </b>{{property.commodityValue}}</li>
+              </div>
+            </ul>
+          </div>
+          <div class="slaRules">
+            <h5 style="color: green;">SLA rules</h5>
+            <div v-for="(rule,index) in auctionObject.service.sloRulesAndFines">
+              <button type="button" class="btn btn-success" v-on:click="showRule(index)" style="margin-top:10px; margin-bottom:10px;">SLO {{index+1}}</button>
+              <div v-if="auctionObject.service.sloRulesAndFines[index].showSLARule">
+                <li class="list-group-item"><b>SLO {{index+1}}:</b></li>
+                <li class="list-group-item">Title: {{rule.ruleIdentifier}}</li>
+                <li class="list-group-item">Condition: {{rule.ruleCondition}}</li>
+                <li class="list-group-item">Measurement period: <br>{{rule.measurementPeriod.hours}} hours {{rule.measurementPeriod.minutes}} minutes {{rule.measurementPeriod.seconds}} seconds</li>
+                <li class="list-group-item">Minimal success rate: {{rule.rulePercentage}}%</li>
+                <li class="list-group-item">Violation fine amount: {{rule.ruleFine}} {{getCurrency(rule.currency)}}</li>
+              </div>
+            </div>
+            <!--<button type="button" class="btn btn-success" v-on:click="showMe" style="margin-top:10px; margin-bottom:10px;">SLA rules</button>-->
+            <!--<div v-if="showSLA">
+            </div>-->
+          </div>
+          <div class="pricing" style="margin-top:10px;">
+            <h5 style="color: green;">Pricing</h5>
+            <ul class="list-group list-group-flush" style="margin-top: 10px;">
+              <li class="list-group-item"><b>Service fee:</b> {{biggestBid.pricing.bidAmount}}{{getCurrency(biggestBid.pricing.pricingCurrency)}} </li>
+              <li class="list-group-item"><b>Subscription:</b> {{getSubscription(biggestBid.pricing.pricingSubscription)}} </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="card border-success mb-3">
+        <div class="card-header">
+          <h5 style="margin-top:10px;color:green;text-align:center;">
+            Report monitoring votes
+          </h5>
+        </div>
+        <div class="card-body">
+          <!--<div class="nOfWitnesses">
+            <h5 style="color: green;">Overall witness rules</h5>
+            <div class="form-group" id="pricing" style="margin-left:20px; margin-top:10px;">
+              <h6>Submit the number of witnesses you want monitoring your SLA:</h6>
+              <div class="row" style="margin-bottom:10px">
+                <div class="col-4 input-group d-inline-flex align-items-center w-auto">
+                  <input type="number" id="nOfWitnesses" v-model="witnessObject.nOfWitnesses" class="form-control" placeholder="3" autocomplete="off" step="any">
+                </div>
+              </div>
+              <h6>Submit minimal witness consensus for a violation to occur:</h6>
+              <div class="row">
+                <div class="col-4 input-group d-inline-flex align-items-center w-auto">
+                  <input type="number" id="witnessConsensus" v-model="witnessObject.witnessConsensus" class="form-control" placeholder="66" autocomplete="off" step="any">
+                  <div class="input-group-append">
+                    <span class="input-group-text">%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>-->
+          <div class="slaRules">
+            <h6 style="color: green;">Report your votes for each SLO</h6>
+            <h6><b>Time left:</b> 00:11:37</h6>
+            <div v-for="(rule,index) in auctionObject.service.sloRulesAndFines">
+              <button type="button" class="btn btn-success" v-on:click="showRule(index)" style="margin-top:10px; margin-bottom:10px;">SLO {{index+1}}</button>
+              <div v-if="auctionObject.service.sloRulesAndFines[index].showSLARule">
+                <li class="list-group-item">Title: {{rule.ruleIdentifier}}</li>
+                <li class="list-group-item">Condition: {{rule.ruleCondition}}</li>
+              </div>
+              <br>
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col">
+                    <label class="btn btn-success active">
+                      <input type="radio" :name="index" v-bind:id="index" checked> No violation
+                    </label><br>
+                    Reward if correct: {{dummyData[index].nvrc}}{{getCurrency(euro)}}  <br>
+                    Punishment if wrong: {{dummyData[index].nvpw}}{{getCurrency(euro)}}
+                  </div>
+                  <div class="col">
+                    <label class="btn btn-danger">
+                      <input type="radio" :name="index" v-bind:id="index+1"> Violation
+                    </label><br>
+                    Reward if correct: {{dummyData[index].vrc}}{{getCurrency(euro)}}   <br>
+                    Punishment if wrong: {{dummyData[index].vpw}}{{getCurrency(euro)}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button name="submit" type="submit" class="btn btn-warning" style="justify-content:center;margin-left:auto;
+                 margin-right:auto; margin-top: 10px; margin-bottom: 10px;">
+            Submit votes
+          </button>
+        </div>
+
+      </div>
+      <div class="makeAuctionTemplate">
+        {{result}}
+      </div>
+      <div class="makeAuctionTemplate">
+        {{witnessObject}}
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <%- include('../partials/footer'); %>
+  </footer>
+
+  <script type="text/javascript">
+    var router = new VueRouter({
+      mode: 'history',
+      routes: []
+    });
+    window.app = new Vue({
+      router,
+      el: '#main',
+      data() {
+        return {
+          dummyData:[
+            {
+              nvrc: 1,
+              nvpw: 0,
+              vrc: 10,
+              vpw: 5
+            },
+            {
+              nvrc: 2,
+              nvpw: 1,
+              vrc: 8,
+              vpw: 4
+            }
+          ],
+          witnessObject: {
+            nOfWitnesses: '',
+            consensus: '',
+            pricing: {
+              pricingCurrency: 'euro',
+              noViolationReward: '',
+              noViolationPunishment: '',
+              violationReward: '',
+              violationPunishment: ''
+            }
+          },
+          slaID: '',
+          result: {},
+          auction: {},
+          biggestBid: {
+            pricing: {
+              bidAmount: '',
+              pricingCurrency: '',
+              pricingSubscription: ''
+            }
+          },
+          auctionID: '',
+          bids: [],
+          //showSLA: false,
+          auctionObject: {
+            service: {
+              commodity: {},
+              pricing: {
+                pricingCurrency: '',
+                pricingSubscription: ''
+              },
+              sloRulesAndFines: []
+            },
+            auctionRules: {
+              pricing: {}
+            }
+          },
+          bidsSafe: [],
+          auctionSafe: {
+            pricing: {},
+            service: {}
+          },
+          winningBid: ''
+        }
+      },
+      methods: {
+        async parser(result) {
+          //console.log(result);
+          //console.log(this.auctionID);
+          console.log(result);
+          this.auction = result;
+          this.auctionObject = this.auction.auctionObject;
+          console.log(this.auctionObject);
+          this.biggestBid = this.auction.biggestBid;
+          for (var i = 0; i < this.auctionObject.service.sloRulesAndFines.length; i++) {
+            Vue.set(this.auctionObject.service.sloRulesAndFines[i], 'showSLARule', false);
+          }
+        },
+        showRule(index) {
+          if (this.auctionObject.service.sloRulesAndFines[index].showSLARule == true) {
+            this.auctionObject.service.sloRulesAndFines[index].showSLARule = false;
+          } else {
+            this.auctionObject.service.sloRulesAndFines[index].showSLARule = true;
+          }
+          /*if (this.showSLA == true) {
+            this.showSLA = false;
+          } else {
+            this.showSLA = true;
+          }*/
+          /*console.log(rule.ruleCondition);
+          console.log(rule.showSLARule);
+          if (rule.showSLARule == true) {
+            rule.showSLARule = false;
+          } else {
+            rule.showSLARule = true;
+          }*/
+          //this.showMe();
+        },
+        /*showMe() {
+          this.showSLA = true;
+          if (this.showSLA == true) {
+            this.showSLA = false;
+          } else {
+            this.showSLA = true;
+          }
+        },*/
+        getWinningBid(bids) {
+          if (bids.length == 0) {
+            return "No bids posted"
+          }
+          highest = 0;
+          result = {};
+          for (var i = 0; i < bids.length; i++) {
+            bid = bids[i];
+            if (parseInt(bid.pricing.bidAmount) > highest) {
+              highest = bid.pricing.bidAmount;
+              result = bid;
+            }
+          }
+          bids.sort(function(a, b) {
+            return parseFloat(b.pricing.bidAmount) - parseFloat(a.pricing.bidAmount);
+          });
+          if (this.auctionObject.auctionRules.auctionType == 'spsb' && bids.length > 1) {
+            result.pricing.bidAmount = bids[1].pricing.bidAmount;
+          }
+          return result;
+        },
+        getCurrency(currency) {
+          if (currency == "euro") {
+            return "€";
+          } else if (currency == "yuan") {
+            return "元";
+          } else if (currency == "kuna") {
+            return "Kuna";
+          } else if (currency == "dollar") {
+            return "$";
+          } else if (currency == "btc") {
+            return "฿";
+          } else if (currency == "eth") {
+            return "ETH";
+          } else {
+            return "€";
+          }
+        },
+        getSubscription(subscription) {
+          if (subscription == "flatFee") {
+            return "Flat fee";
+          } else if (subscription == "perHour") {
+            return "Per Hour";
+          } else if (subscription == "perMonth") {
+            return "Per Month";
+          } else if (subscription == "perYear") {
+            return "Per Year";
+          } else {
+            return "Flat Fee";
+          }
+        },
+        async created2() {
+          const token = sessionStorage.getItem("JWT");
+          console.log(token);
+          config = {
+            headers: {
+              Authorization: `Bearer ${token}`
+            }
+          };
+          q = this.$route.query;
+          console.log(q);
+          console.log(q.serviceID);
+          this.serviceID = q;
+          console.log(JSON.stringify(this.serviceID.serviceID));
+          let url = "http://127.0.0.1:8080/api/query?args=[" + JSON.stringify("sla0") + "]&fcn=queryService";
+          console.log(url);
+          const res = await axios.get(url, config);
+          console.log(res);
+          if (res.data.error != null) {
+            //console.log(res.data.result);
+            alert(res.data.error);
+          } else {
+            this.slaID = q;
+            console.log(res);
+            this.result = res.data.result;
+            console.log(this.result);
+            this.parser(this.result);
+          }
+        }
+      },
+      async created() {
+        this.created2();
+      }
+    });
+  </script>
+
+</body>
+
+</html>

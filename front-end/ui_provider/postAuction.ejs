@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../partials/head'); %>
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<body class="container-fluid">
+
+  <div class="header-nav">
+    <div class="container-fluid">
+      <header>
+        <%- include('partials_provider/header'); %>
+      </header>
+    </div>
+  </div>
+  <div class="container">
+    <div class="bigDiv" id="bigDiv">
+      <form @submit.prevent="createPost">
+
+        <h3 style="margin-top:10px;color:green;text-align:center;">
+          Post AWESOME Auction
+        </h3>
+        <hr style="color:green; border: 2px solid">
+
+        <div id="allBids">
+          <div class="container-fluid" id="fullBid">
+            <div class="makeAuctionTemplate">
+              <div class="commodity" id="commodity">
+                <div class="container-fluid">
+                  <h5>Define commodity type and properties</h5>
+                  <div class="form-group" id="docTypeForm">
+                    <label for="docType">Commodity type</label>
+                    <div class="row">
+                      <div class="col-6">
+                        <input type="text" class="form-control" v-model="auctionObject.service.commodity.docType" id="docType" placeholder="e.g. vmInstance, blobStorage etc." required>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group" id="commoditySpecs">
+                    <label for="commoditySpecs">Add commodity property types and values</label>
+                    <div class="row">
+                      <div class="col-lg-12" style="margin-bottom: 10px">
+                        <button id="addRow1" type="button" class="btn btn-info" v-on:click="addNewProperty">Add property</button>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <div v-for="(property, index2) in auctionObject.service.commodity.properties">
+                          <div class="input-group mb-3">
+                            <div class="form-row">
+                              <div class="input-group-append">
+                                <div class="col">
+                                  <input type="text" v-model="property.commodityKey" class="form-control" placeholder="e.g. Storage capacity">
+                                </div>
+                                <div class="col">
+                                  <input type="text" v-model="property.commodityValue" class="form-control" placeholder="e.g. 60GiB">
+                                </div>
+                              </div>
+                              <div class="input-group-append">
+                                <button id="removeRow1" type="button" class="btn btn-danger" v-on:click="removeProperty(index2)">Remove</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- total number n, majority needed m, deposit(customer), deposit(provider), deposit(witness), monitoring duration/period-->
+              <div class="witnessGlobalRules" id="witnessGlobalRules">
+                <div class="container-fluid">
+                  <h5>Define decentralized oracle monitoring rules</h5>
+                  <div class="form-group row">
+                    <label class="col-sm-8 col-form-label" for="n">Total number of witnesses<i>&nbsp;n</i>:</label>
+                    <div class="col-sm-4">
+                      <input type="number" v-model="auctionObject.service.witnessGlobalRules.n" class="form-control form-control-sm" name="n" id="n" style="margin-left:5px;" required>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-8 col-form-label" for="m">Witnesses needed for a violation vote<i>&nbsp;m</i>:</label>
+                    <div class="col-sm-4">
+                      <input type="number" v-model="auctionObject.service.witnessGlobalRules.m" class="form-control form-control-sm" name="m" id="m" style="margin-left:5px;" required>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-8 col-form-label" for="cWitnessFee">Customer share of witness fee payout:</label>
+                    <div class="col-sm-4">
+                      <div class="input-group">
+                        <input type="number" v-model="auctionObject.service.witnessGlobalRules.cFee" class="form-control form-control-sm" name="cWitnessFee" id="cWitnessFee" style="margin-left:5px;" required>
+                        <div class="input-group-append">
+                          <span class="input-group-text form-control-sm">%</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-8 col-form-label" for="pWitnessFee">Provider share of witness fee payout:</label>
+                    <div class="col-sm-4">
+                      <div class="input-group">
+                        <input type="number" v-model="auctionObject.service.witnessGlobalRules.pFee" class="form-control form-control-sm" name="pWitnessFee" id="pWitnessFee" style="margin-left:5px;" required>
+                        <div class="input-group-append">
+                          <span class="input-group-text form-control-sm">%</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-8 col-form-label" for="gamePeriod">SLA duration</label>
+                    <div class="gamePeriod" id="gamePeriod" style="display:flex">
+                      <div class="col input-group d-inline-flex align-items-center w-auto">
+                        <input type="number" id="sloDays" v-model="auctionObject.service.witnessGlobalRules.witnessGamePeriod.days" class="form-control form-control-sm" autocomplete="off" max="24">
+                        <div class="input-group-append">
+                          <span class="input-group-text form-control-sm">Days</span>
+                        </div>
+                      </div>
+                      <div class="col input-group d-inline-flex align-items-center w-auto">
+                        <input type="number" id="sloHours" v-model="auctionObject.service.witnessGlobalRules.witnessGamePeriod.hours" class="form-control form-control-sm" autocomplete="off" max="24">
+                        <div class="input-group-append">
+                          <span class="input-group-text form-control-sm">Hours</span>
+                        </div>
+                      </div>
+                      <div class="col input-group d-inline-flex align-items-center w-auto">
+                        <input type="number" id="sloMinutes" v-model="auctionObject.service.witnessGlobalRules.witnessGamePeriod.minutes" class="form-control form-control-sm" autocomplete="off" max="60">
+                        <div class="input-group-append">
+                          <span class="input-group-text form-control-sm">Minutes</span>
+                        </div>
+                      </div>
+                      <div class="col input-group d-inline-flex align-items-center w-auto">
+                        <input type="number" id="sloSeconds" v-model="auctionObject.service.witnessGlobalRules.witnessGamePeriod.seconds" class="form-control form-control-sm" autocomplete="off" max="60">
+                        <div class="input-group-append">
+                          <span class="input-group-text form-control-sm">Seconds</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- reward(noViolation), reward(violation), punishment(noViolation), punishment(violation), t(report)-->
+              <div class="slaForm" id="slaForm">
+                <div class="container-fluid">
+                  <h5>Define SLA rules and violation penalties</h5>
+                  <div class="form-group" id="SLArules">
+                    <div class="row">
+                      <div class="col-lg-12" style="margin-bottom: 10px">
+                        <button id="addRow2" type="button" class="btn btn-info" v-on:click="addNewRule">Add Rule</button>
+                      </div>
+                    </div>
+                    <div v-for="(rule, index2) in auctionObject.service.sloRulesAndFines">
+                      <div class="makeAuctionTemplate">
+                        <h5>Service Level Objective {{index2 +1}}</h5>
+                        <div class="form-group">
+                          <label for="ruleIdentifier">SLO title</label>
+                          <input type="text" id="ruleIdentifier" v-model="rule.ruleIdentifier" class="form-control" placeholder="Enter rule title: eg. VM availability" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                          <label for="ruleCondition">SLO Condition</label>
+                          <textarea class="form-control" id="ruleCondition" v-model="rule.ruleCondition" rows="2" placeholder="Enter rule condition: eg. It will be possible to ssh into the VM"></textarea>
+                        </div>
+                        <div class="form-group">
+                          <label for="ruleFine">SLO violation fine amount</label>
+                          <div class="row">
+                            <div class="col-4 input-group d-inline-flex align-items-center w-auto">
+                              <input type="number" id="ruleFine" v-model="rule.ruleFine" class="form-control" placeholder="120" autocomplete="off" step="any">
+                              <div class="input-group-append">
+                                <span class="input-group-text">zCoins</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!--reward(noViolation), reward(violation), punishment(noViolation), punishment(violation), t(report)-->
+                        <hr style="color:green; border: 2px solid">
+                        <h5>Witness monitoring configuration</h5>
+                        <p>Rewards and punishments for a witness vote:</p>
+                        <div class="row">
+                          <div class="col-4">
+
+                          </div>
+                          <div class="col-4">
+                            Violation
+                          </div>
+                          <div class="col-4">
+                            No Violation
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-4">
+                            Reward
+                          </div>
+                          <div class="col-4">
+                            <div class="input-group">
+                              <input type="number" v-model="rule.sloWitnessConfig.rewardViolation" class="form-control form-control-sm">
+                              <div class="input-group-append">
+                                <span class="input-group-text form-control-sm">zCoins</span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-4">
+                            <div class="input-group">
+                              <input type="number" v-model="rule.sloWitnessConfig.rewardNoViolation" class="form-control form-control-sm">
+                              <div class="input-group-append">
+                                <span class="input-group-text form-control-sm">zCoins</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-4">
+                            Punishment
+                          </div>
+                          <div class="col-4">
+                            <div class="input-group">
+                              <input type="number" v-model="rule.sloWitnessConfig.punishmentViolation" class="form-control form-control-sm">
+                              <div class="input-group-append">
+                                <span class="input-group-text form-control-sm">zCoins</span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-4">
+                            <div class="input-group">
+                              <input type="number" v-model="rule.sloWitnessConfig.punishmentNoViolation" class="form-control form-control-sm">
+                              <div class="input-group-append">
+                                <span class="input-group-text form-control-sm">zCoins</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div><br>
+                        <div class="form-group row">
+                          <label class="col-sm-8 col-form-label" for="gamePeriod">Time period for violation votes<i>&nbsp;t(period):</i></label>
+                          <div class="gamePeriod" id="gamePeriod" style="display:flex">
+                            <div class="col input-group d-inline-flex align-items-center w-auto">
+                              <input type="number" id="sloHours" v-model="rule.sloWitnessConfig.tPeriod.hours" class="form-control form-control-sm" autocomplete="off" max="24" placeholder="12">
+                              <div class="input-group-append">
+                                <span class="input-group-text form-control-sm">Hours</span>
+                              </div>
+                            </div>
+                            <div class="col input-group d-inline-flex align-items-center w-auto">
+                              <input type="number" id="sloMinutes" v-model="rule.sloWitnessConfig.tPeriod.minutes" class="form-control form-control-sm" autocomplete="off" max="60" placeholder="30">
+                              <div class="input-group-append">
+                                <span class="input-group-text form-control-sm">Minutes</span>
+                              </div>
+                            </div>
+                            <div class="col input-group d-inline-flex align-items-center w-auto">
+                              <input type="number" id="sloSeconds" v-model="rule.sloWitnessConfig.tPeriod.seconds" class="form-control form-control-sm" autocomplete="off" max="60" placeholder="30">
+                              <div class="input-group-append">
+                                <span class="input-group-text form-control-sm">Seconds</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <button id="removeRow2" type="button" class="btn btn-danger" v-on:click="removeRule(index2)" style="margin-left: 10px">Remove</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr style="color:green; border: 2px solid">
+        <div class="container-fluid" id="gameRules">
+          <div class="makeAuctionTemplate">
+            <h5>Use this form to define an auction game</h5>
+            <div class="form-group" id="auctionType">
+              <label for="chooseBiddingType">Choose Bidding Type</label>
+              <div class="row">
+                <div class="col-10">
+                  <select class="form-control" id="chooseBidType" v-model="auctionObject.auctionRules.auctionType" v-on:change="changePricing">
+                    <option name="english" value="english">English Auction</option>
+                    <option name="dutch" value="dutch">Dutch Auction</option>
+                    <option name="fpsb" value="fpsb">First Priced Sealed Bid Auction</option>
+                    <option name="spsb" value="spsb">Second Priced Sealed Bid Auction</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div v-if="auctionObject.auctionRules.auctionType !== 'dutch'">
+              <div class="form-group" id="deadline">
+                <label for="chooseDeadline">Choose the Auction deadline</label>
+                <div class="row">
+                  <div class="col-10">
+                    <input type="datetime-local" id="chooseDeadline" v-model="auctionObject.auctionRules.deadline" step="1" required>
+                  </div>
+                </div>
+              </div>
+            </div>
+              <div v-if="auctionObject.auctionRules.auctionType === 'english'">
+                <div class="auctionRules" style="margin-left:10px">
+                  <h5>English Auction</h5>
+                  <div class="form-group">
+                    <label for="pricing">Reserve Price</label>
+                    <div class="row">
+                      <div class="col-10">
+                        <div class="input-group">
+                          <input type="number" class="form-control" v-model="auctionObject.auctionRules.pricing.pricingReserve" required>
+                          <div class="input-group-append">
+                            <select class="form-control" v-model="auctionObject.service.pricing.pricingSubscription">
+                              <option name="flatFee" value="flatFee">Flat Fee</option>
+                              <option name="perHour" value="perHour">Per Hour</option>
+                              <option name="perMonth" value="perMonth">Per Month</option>
+                              <option name="perYear" value="perYear">Per Year</option>
+                            </select>
+                          </div>
+                          <div class="input-group-append">
+                            <span class="input-group-text">zCoins</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!--<div class="row" style="margin-top:10px">
+                  <div class="col-10">
+                    <div class="form-check" autocomplete="off">
+                      <label class="form-check-label" for="exampleCheck1">Hide Reserve price</label>
+                      <input type="checkbox" class="form-check-input" id="check1" v-model="auctionObject.hideReserve" style="margin-left: 10px;">
+                    </div>
+                  </div>
+                </div>-->
+                  </div>
+                  <!--<div class="form-group">
+                    <label for="pricing">Starting Price</label>
+                    <div class="row">
+                      <div class="col-10">
+                        <div class="input-group">
+                          <input type="number" class="form-control" v-model="auctionObject.auctionRules.pricing.startPrice" required>
+                          <div class="input-group-append">
+                            <select class="form-control" v-model="auctionObject.service.pricing.pricingSubscription">
+                              <option name="flatFee" value="flatFee">Flat Fee</option>
+                              <option name="perHour" value="perHour">Per Hour</option>
+                              <option name="perMonth" value="perMonth">Per Month</option>
+                              <option name="perYear" value="perYear">Per Year</option>
+                            </select>
+                          </div>
+                          <div class="input-group-append">
+                            <span class="input-group-text">zCoins</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>-->
+                  <div class="form-group">
+                    <label for="pricing">Bidding step</label>
+                    <div class="row">
+                      <div class="col-10">
+                        <div class="input-group">
+                          <input type="number" class="form-control" v-model="auctionObject.auctionRules.pricing.biddingStep" required>
+                          <div class="input-group-append">
+                            <select class="form-control" v-model="auctionObject.service.pricing.pricingSubscription">
+                              <option name="flatFee" value="flatFee">Flat Fee</option>
+                              <option name="perHour" value="perHour">Per Hour</option>
+                              <option name="perMonth" value="perMonth">Per Month</option>
+                              <option name="perYear" value="perYear">Per Year</option>
+                            </select>
+                          </div>
+                          <div class="input-group-append">
+                            <span class="input-group-text">zCoins</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div v-else-if="auctionObject.auctionRules.auctionType === 'dutch'">
+                <div class="auctionRules" style="margin-left:10px">
+                  <h5>Dutch Auction</h5>
+                  <div class="form-group">
+                    <label for="pricing">Starting Price</label>
+                    <div class="row">
+                      <div class="col-10">
+                        <div class="input-group">
+                          <input type="number" class="form-control" v-model="auctionObject.auctionRules.pricing.startPrice" required>
+                          <div class="input-group-append">
+                            <select class="form-control" v-model="auctionObject.service.pricing.pricingSubscription">
+                              <option name="flatFee" value="flatFee">Flat Fee</option>
+                              <option name="perHour" value="perHour">Per Hour</option>
+                              <option name="perMonth" value="perMonth">Per Month</option>
+                              <option name="perYear" value="perYear">Per Year</option>
+                            </select>
+                          </div>
+                          <div class="input-group-append">
+                            <span class="input-group-text">zCoins</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="pricing">Bidding step</label>
+                    <div class="row">
+                      <div class="col-10">
+                        <div class="input-group">
+                          <input type="number" class="form-control" v-model="auctionObject.auctionRules.pricing.biddingStep" required>
+                          <div class="input-group-append">
+                            <select class="form-control" v-model="auctionObject.service.pricing.pricingSubscription">
+                              <option name="flatFee" value="flatFee">Flat Fee</option>
+                              <option name="perHour" value="perHour">Per Hour</option>
+                              <option name="perMonth" value="perMonth">Per Month</option>
+                              <option name="perYear" value="perYear">Per Year</option>
+                            </select>
+                          </div>
+                          <div class="input-group-append">
+                            <span class="input-group-text">zCoins</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div v-else-if="auctionObject.auctionRules.auctionType === 'fpsb'">
+                <div class="auctionRules" style="margin-left:10px">
+                  <h5>First Priced Sealed Bid Auction</h5>
+                  <div class="form-group">
+                    <label for="pricing">Reserve Price</label>
+                    <div class="row">
+                      <div class="col-10">
+                        <div class="input-group">
+                          <input type="number" class="form-control" v-model="auctionObject.auctionRules.pricing.pricingReserve" required>
+                          <div class="input-group-append">
+                            <select class="form-control" v-model="auctionObject.service.pricing.pricingSubscription">
+                              <option name="flatFee" value="flatFee">Flat Fee</option>
+                              <option name="perHour" value="perHour">Per Hour</option>
+                              <option name="perMonth" value="perMonth">Per Month</option>
+                              <option name="perYear" value="perYear">Per Year</option>
+                            </select>
+                          </div>
+                          <div class="input-group-append">
+                            <span class="input-group-text">zCoins</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!--<div class="row" style="margin-top:10px">
+                  <div class="col-10">
+                    <div class="form-check" autocomplete="off">
+                      <label class="form-check-label" for="exampleCheck1">Hide Reserve price</label>
+                      <input type="checkbox" class="form-check-input" id="check1" v-model="auctionObject.hideReserve" style="margin-left: 10px;">
+                    </div>
+                  </div>
+                </div>-->
+                  </div>
+                </div>
+              </div>
+              <div v-else="auctionObject.auctionRules.auctionType === 'spsb'">
+                <div class="auctionRules" style="margin-left:10px">
+                  <h5>Second Priced Sealed Bid Auction</h5>
+                  <div class="form-group">
+                    <label for="pricing">Reserve Price</label>
+                    <div class="row">
+                      <div class="col-10">
+                        <div class="input-group">
+                          <input type="number" class="form-control" v-model="auctionObject.auctionRules.pricing.pricingReserve" required>
+                          <div class="input-group-append">
+                            <select class="form-control" v-model="auctionObject.service.pricing.pricingSubscription">
+                              <option name="flatFee" value="flatFee">Flat Fee</option>
+                              <option name="perHour" value="perHour">Per Hour</option>
+                              <option name="perMonth" value="perMonth">Per Month</option>
+                              <option name="perYear" value="perYear">Per Year</option>
+                            </select>
+                          </div>
+                          <div class="input-group-append">
+                            <span class="input-group-text">zCoins</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!--<div class="row" style="margin-top:10px">
+                  <div class="col-10">
+                    <div class="form-check" autocomplete="off">
+                      <label class="form-check-label" for="exampleCheck1">Hide Reserve price</label>
+                      <input type="checkbox" class="form-check-input" id="check1" v-model="auctionObject.hideReserve" style="margin-left: 10px;">
+                    </div>
+                  </div>
+                </div>-->
+                  </div>
+                </div>
+              </div>
+              <!--  <input id="initializer" name="initializer" type="hidden" value="provider">-->
+            </div>
+          </div>
+          <hr style="color:green; border: 2px solid">
+          <div class="container-fluid">
+            <div class="makeAuctionTemplate">
+              <button name="submit" type="submit" class="btn btn-outline-dark">Submit Auction</button>
+            </div>
+          </div>
+      </form>
+    </div>
+  </div>
+  <footer>
+    <%- include('../partials/footer'); %>
+  </footer>
+
+  <script type="text/javascript">
+    window.app = new Vue({
+      el: '#bigDiv',
+      data() {
+        return {
+          auctionObject: {
+            service: {
+              commodity: {
+                docType: 'vmInstance',
+                properties: [{
+                  "commodityKey": "os",
+                  "commodityValue": "Ubuntu 18.04"
+                }]
+              },
+              pricing: {
+                pricingSubscription: 'flatFee'
+              },
+              sloRulesAndFines: [{
+                "ruleIdentifier": "VM availability",
+                "ruleCondition": "We can ssh into the vm",
+                "ruleFine": "100",
+                "sloWitnessConfig": {
+                  "rewardViolation": "5",
+                  "rewardNoViolation": "10",
+                  "punishmentViolation": "15",
+                  "punishmentNoViolation": "20",
+                  "tPeriod": {
+                    "hours": "0",
+                    "minutes": "0",
+                    "seconds": "45"
+                  }
+                }
+              }, {
+                "ruleIdentifier": "VM latency",
+                "ruleCondition": "Less than 3 s",
+                "ruleFine": "50",
+                "sloWitnessConfig": {
+                  "rewardViolation": "25",
+                  "rewardNoViolation": "30",
+                  "punishmentViolation": "35",
+                  "punishmentNoViolation": "40",
+                  "tPeriod": {
+                    "hours": "0",
+                    "minutes": "0",
+                    "seconds": "45"
+                  }
+                }
+              }],
+              witnessGlobalRules: {
+                n: '3',
+                m: '2',
+                cFee: '50',
+                pFee: '50',
+                witnessGamePeriod: {
+                  days: '0',
+                  hours: '1',
+                  minutes: '3',
+                  seconds: '0'
+                },
+                slaDeadline: ''
+              }
+            },
+            auctionRules: {
+              auctionDirection: 'forward',
+              auctionType: 'english',
+              pricing: {
+                startPrice: '',
+                pricingReserve: '',
+                biddingStep: ''
+              },
+              deadline: ""
+            }
+          }
+        }
+      },
+      methods: {
+        changePricing: function() {
+          if (this.auctionObject.auctionRules.auctionType == 'english') {
+            var pricing = {
+              startPrice: '',
+              pricingReserve: '',
+              biddingStep: ''
+            }
+            this.auctionObject.auctionRules.pricing = pricing;
+          } else if (this.auctionObject.auctionRules.auctionType == 'dutch') {
+            var pricing = {
+              startPrice: '',
+              pricingReserve: '',
+              biddingStep: ''
+            }
+            this.auctionObject.auctionRules.pricing = pricing;
+          } else if (this.auctionObject.auctionRules.auctionType == 'fpsb') {
+            var pricing = {
+              pricingReserve: ''
+            }
+            this.auctionObject.auctionRules.pricing = pricing;
+          } else if (this.auctionObject.auctionRules.auctionType == 'spsb') {
+            var pricing = {
+              pricingReserve: ''
+            }
+            this.auctionObject.auctionRules.pricing = pricing;
+          }
+        },
+        addNewProperty() {
+          this.auctionObject.service.commodity.properties.push({
+            commodityKey: '',
+            commodityValue: ''
+          });
+        },
+        removeProperty: function(index2) {
+          this.auctionObject.service.commodity.properties.splice(index2, 1);
+        },
+        addNewRule(index) {
+          this.auctionObject.service.sloRulesAndFines.push({
+            ruleIdentifier: '',
+            ruleCondition: '',
+            ruleFine: '',
+            sloWitnessConfig: {
+              rewardViolation: '',
+              rewardNoViolation: '',
+              punishmentViolation: '',
+              punishmentNoViolation: '',
+              tPeriod: {
+                hours: '',
+                minutes: '',
+                seconds: ''
+              }
+            }
+          })
+        },
+        removeRule: function(index2) {
+          this.auctionObject.service.sloRulesAndFines.splice(index2, 1);
+        },
+        createPost() {
+          const token = sessionStorage.getItem("JWT");
+          if (token == null) {
+            window.location = "/"
+          }
+          config = {
+            headers: {
+              Authorization: `Bearer ${token}`
+            }
+          };
+          console.log(JSON.stringify(this.auctionObject));
+          let body = {
+            "fcn": "submitAuction",
+            "args": [JSON.stringify(this.auctionObject)]
+          }
+          axios.post('http://127.0.0.1:8080/api/invoke',
+              body,
+              config)
+            .then(function(response) {
+              console.log(response);
+              //console.log(response.data.result);
+              if (response.data.result.message == "Successfully submitted auction") {
+                window.location = "/ui_provider/postAuctionThankYou"
+              } else {
+                alert(response.data.result);
+                //window.location = "/ui_provider/postAuctionThankYou"
+              }
+              //a catch or something was here
+            })
+            .catch(function(error) {
+              console.log(error);
+              alert(error);
+              //window.location = "/ui_provider/postAuctionThankYou"
+            })
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

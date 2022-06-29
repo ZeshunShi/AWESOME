@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../partials/head'); %>
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.js"></script>
+<script src="https://unpkg.com/vue-router@3"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<body>
+
+  <header>
+    <%- include('partials_provider/header'); %>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-12 my-2">
+          <div class="card border-success mb-3">
+            <div class="card-header">
+              <h5 style="margin-top:10px;color:green;text-align:center;">
+                {{auctionID.serviceID}}
+              </h5>
+            </div>
+            <div class="card-body">
+              <div v-if="auctionObject.auctionRules.auctionType === 'english'">
+                <h5 class="card-title" style="color:green;">English Auction</h5>
+              </div>
+              <div v-else-if="auctionObject.auctionRules.auctionType === 'dutch'">
+                <h5 class="card-title" style="color:orange;">Dutch Auction</h5>
+              </div>
+              <div v-else-if="auctionObject.auctionRules.auctionType === 'fpsb'">
+                <h5 class="card-title" style="color:green;">First Priced Sealed Bid Auction</h5>
+              </div>
+              <div v-else-if="auctionObject.auctionRules.auctionType === 'spsb'">
+                <h5 class="card-title" style="color:green;">Second Priced Sealed Bid Auction</h5>
+              </div>
+              <h6 class="card-subtitle mb-2 text-muted" style="color:green;">Commodity type: {{auctionObject.service.commodity.docType}}</h6>
+              <h6 class="card-subtitle mb-2 text-muted" style="color:green;">Auction owner: {{auction.owner}}</h6>
+              <div v-if="auctionObject.auctionRules.auctionType !== 'dutch'">
+                <h5 class="card-subtitle mb-2" style="color:green;">Auction deadline: {{getAuctionDeadline(auctionObject.auctionRules.deadline)}}</h5>
+                <h5 class="card-subtitle mb-2" style="color:green;">Time left: {{timerCount}}</h5>
+              </div>
+              <div class="properties">
+                <h5 style="color: green;">Service Properties</h5>
+                <ul class="list-group list-group-flush" style="margin-top: 10px;">
+                  <div v-for="property in auctionObject.service.commodity.properties">
+                    <li class="list-group-item"><b>{{property.commodityKey}}: </b>{{property.commodityValue}}</li>
+                  </div>
+                </ul>
+              </div>
+              <div class="slaRules">
+                <h5 style="color: green;">SLA rules</h5>
+                <div v-for="(rule,index) in auctionObject.service.sloRulesAndFines">
+                  <button type="button" class="btn btn-success" v-on:click="showRule(index)" style="margin-top:10px; margin-bottom:10px;">SLO {{index+1}}</button>
+                  <div v-if="auctionObject.service.sloRulesAndFines[index].showSLARule">
+                    <li class="list-group-item"><b>SLO {{index+1}}:</b></li>
+                    <li class="list-group-item">Title: {{rule.ruleIdentifier}}</li>
+                    <li class="list-group-item">Condition: {{rule.ruleCondition}}</li>
+                    <li class="list-group-item">Violation fine amount: {{rule.ruleFine}} {{getCurrency(rule.currency)}}</li>
+                  </div>
+                </div>
+              </div>
+              <div class="pricing" style="margin-top:10px;">
+                <h5 style="color: green;">Auction Pricing</h5>
+                <ul class="list-group list-group-flush" style="margin-top: 10px;">
+                  <li class="list-group-item"><b>Pricing subscription:</b> {{getSubscription(auctionObject.service.pricing.pricingSubscription)}}</li>
+                  <div v-if="auctionObject.auctionRules.auctionType == 'dutch'">
+                    <div v-if="auctionObject.auctionRules.pricing.startPrice">
+                      <li class="list-group-item"><b>Current Price:</b> {{auctionObject.auctionRules.pricing.startPrice}} {{getCurrency(auctionObject.service.pricing.pricingCurrency)}} </li>
+                    </div>
+                  </div>
+                  <div v-else>
+                    <div v-if="auctionObject.auctionRules.pricing.startPrice">
+                      <li class="list-group-item"><b>Start Price:</b> {{auctionObject.auctionRules.pricing.startPrice}} {{getCurrency(auctionObject.service.pricing.pricingCurrency)}} </li>
+                    </div>
+                  </div>
+                  <div v-if="auctionObject.auctionRules.pricing.pricingReserve">
+                    <li class="list-group-item"><b>Service Reserve price:</b> {{auctionObject.auctionRules.pricing.pricingReserve}} {{getCurrency(auctionObject.service.pricing.pricingCurrency)}} </li>
+                  </div>
+                  <div v-if="auctionObject.auctionRules.pricing.biddingStep">
+                    <li class="list-group-item"><b>Bidding step:</b> {{auctionObject.auctionRules.pricing.biddingStep}} {{getCurrency(auctionObject.service.pricing.pricingCurrency)}} </li>
+                  </div>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-12 my-2">
+          <div class="card border-success mb-3">
+            <div class="card-header overflow-auto">
+              <h5 style="margin-top:10px;color:green;text-align:center;">
+                Auction Bids
+              </h5>
+            </div>
+            <div class="card-body">
+              <div v-if="bids[0]==='hidden'">
+                BIDS ARE HIDDEN
+              </div>
+              <div v-else>
+                <div v-if="bids.length">
+                  <ul class="list-group list-group-flush" style="margin-top: 10px;">
+                    <div class="bids" v-for="bid in bids">
+                      <li class="list-group-item border-bottom"><b>{{bid.owner}}: </b>{{bid.pricing.bidAmount}} {{getCurrency(bid.pricing.pricingCurrency)}}</li>
+                    </div>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div v-if="timerCount!=='Auction is finished'">
+        <div v-if="timerCount!==''">
+          <div v-if="auctionObject.auctionRules.auctionType !== 'dutch'">
+            <div class="card border-success mb-3">
+              <div class="form-group" id="pricing" style="margin-left:20px; margin-top:10px;">
+                <h5>Bid</h5>
+                <h6>Submit your bid amount for the service:</h6>
+                <div class="row" style="padding: 10px;">
+                  <div class="col-10">
+                    <div class="input-group">
+                      <input type="number" class="form-control" v-model="bid.pricing.bidAmount" :min='maximumPrice()'>
+                      <div class="input-group-append">
+                        <select class="form-control" id="pricing" v-model="bid.pricing.pricingSubscription" disabled>
+                          <option name="flatFee" value="flatFee">Flat Fee</option>
+                          <option name="perHour" value="perHour">Per Hour</option>
+                          <option name="perMonth" value="perMonth">Per Month</option>
+                          <option name="perYear" value="perYear">Per Year</option>
+                        </select>
+                      </div>
+                      <div class="input-group-append">
+                        <span class="input-group-text">zCoins</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr style="color:green; border: 2px solid">
+            <div class="card border-success mb-3">
+              <div class="card-body">
+                <button v-on:click="createBid()" class="btn btn-outline-dark">Submit Bid</button>
+              </div>
+            </div>
+          </div>
+          <div v-else>
+            <hr style="color:green; border: 2px solid">
+            <div class="card border-success mb-3">
+              <div class="card-body">
+                <button v-on:click="endDutchAuction()" class="btn btn-outline-dark">Submit Bid</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </main>
+
+  <footer>
+    <%- include('../partials/footer'); %>
+  </footer>
+
+  <script type="text/javascript">
+    var router = new VueRouter({
+      mode: 'history',
+      routes: []
+    });
+    window.app = new Vue({
+      router,
+      el: '#main',
+      data() {
+        return {
+          timerCount: '',
+          //auctionID: '',
+          result: {},
+          bids: [],
+          auction: {},
+          auctionObject: {
+            service: {
+              commodity: {},
+              pricing: {
+                pricingCurrency: '',
+                pricingSubscription: ''
+              },
+              sloRulesAndFines: []
+            },
+            auctionRules: {
+              pricing: {}
+            }
+          },
+          bid: {
+            auctionID: '',
+            pricing: {
+              bidAmount: '',
+              pricingCurrency: '',
+              pricingSubscription: ''
+            }
+          }
+        }
+      },
+      watch: {
+        timerCount: {
+          handler(value) {
+            if (value != "Auction is finished") {
+              setTimeout(() => {
+                //console.log("step");
+                this.getTimeLeft();
+                //this.timerCount--;
+              }, 1000);
+            }
+          },
+          immediate: true // This ensures the watcher is triggered upon creation
+        }
+      },
+      methods: {
+        getTimeLeft() {
+          var now = new Date();
+          var countDownDate = new Date(Date.parse(this.auctionObject.auctionRules.deadline));
+          var distance = countDownDate - now;
+          if (distance < 0) {
+            this.timerCount = "Auction is finished";
+          } else {
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            var string = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+            //console.log(string);
+            this.timerCount = string;
+          }
+        },
+        async parser(result) {
+          console.log(result);
+          this.auction = result;
+          this.auctionObject = JSON.parse(this.auction.auctionObject);
+          console.log(this.auctionObject);
+          this.bid.pricing.pricingCurrency = this.auctionObject.service.pricing.pricingCurrency;
+          this.bid.pricing.pricingSubscription = this.auctionObject.service.pricing.pricingSubscription;
+          if (this.result.bids[0] == "hidden") {
+            //console.log("hereee");
+            this.bids = ["hidden"];
+          } else {
+            for (var i = 0; i < this.result.bids.length; i++) {
+              bidObject = JSON.parse(this.result.bids[i].bid);
+              bidObject.owner = this.result.bids[i].customerID;
+              this.bids.push(
+                bidObject
+              );
+            }
+            //  this.bids.reverse();
+            this.bids.sort(function(a, b) {
+              return parseFloat(a.pricing.bidAmount) - parseFloat(b.pricing.bidAmount);
+            });
+          }
+          for (var i = 0; i < this.auctionObject.service.sloRulesAndFines.length; i++) {
+            Vue.set(this.auctionObject.service.sloRulesAndFines[i], 'showSLARule', false);
+            //rule = this.auctionObject.service.sloRulesAndFines[i];
+            //rule.showSLARule = false;
+            //this.auctionObject.service.sloRulesAndFines[i] = rule;
+          }
+        },
+        getAuctionDeadline(d) {
+          var date = new Date(Date.parse(d));
+          return date.toLocaleString(); //where are the seconds?!?
+        },
+        showRule(index) {
+          if (this.auctionObject.service.sloRulesAndFines[index].showSLARule == true) {
+            this.auctionObject.service.sloRulesAndFines[index].showSLARule = false;
+          } else {
+            this.auctionObject.service.sloRulesAndFines[index].showSLARule = true;
+          }
+        },
+        createBid() {
+          var maximumPrice = this.maximumPrice();
+          console.log(maximumPrice);
+          if (maximumPrice<parseInt(this.bid.pricing.bidAmount)) {
+            console.log(this.maximumPrice());
+            console.log(this.bid.pricing.bidAmount);
+            alert("Maximum bidding price is " + this.maximumPrice())
+            return;
+          }
+          const token = sessionStorage.getItem("JWT");
+          console.log(token);
+          config = {
+            headers: {
+              Authorization: `Bearer ${token}`
+            }
+          };
+          console.log(JSON.stringify(this.bid));
+          let body = {
+            "fcn": "submitBid",
+            "args": [this.auctionID.serviceID, JSON.stringify(this.bid)]
+          }
+          console.log(JSON.stringify(this.auctionID.serviceID));
+          axios.post('http://127.0.0.1:8080/api/invoke',
+              body,
+              config)
+            .then(function(response) {
+              console.log(response);
+              if (response.data.result.message == "Successfully submitted bid") {
+                window.location = "/ui_provider/postAuctionThankYou"
+              } else {
+                alert(response.data.result);
+                //window.location = "/ui_provider/postAuctionThankYou"
+              }
+              //a catch or something was here
+            })
+            .catch(function(error) {
+              console.log(error);
+              alert(error);
+              //window.location = "/ui_provider/postAuctionThankYou"
+            })
+        },
+        endDutchAuction() {
+          console.log("ending dutch auction");
+          const token = sessionStorage.getItem("JWT");
+          console.log(token);
+          config = {
+            headers: {
+              Authorization: `Bearer ${token}`
+            }
+          };
+          console.log(JSON.stringify(this.bid));
+          let body = {
+            "fcn": "endReverseDutchAuction",
+            "args": [this.auctionID.serviceID]
+          }
+          console.log(JSON.stringify(this.auctionID.serviceID));
+          axios.post('http://127.0.0.1:8080/api/invoke',
+              body,
+              config)
+            .then(function(response) {
+              console.log(response);
+              if (response.data.result.message == "Successfully ended auction") {
+                window.location = "/ui_provider/postAuctionThankYou"
+              } else {
+                alert(response.data.result);
+              }
+            })
+            .catch(function(error) {
+              console.log(error);
+              alert(error);
+              //window.location = "/ui_provider/postAuctionThankYou"
+            })
+        },
+        maximumPrice() {
+          if (this.auctionObject.auctionRules.auctionType == 'english') {
+            if (this.bids.length > 0) {
+              maximumPrice = parseInt(this.bids[0].pricing.bidAmount) - parseInt(this.auctionObject.auctionRules.pricing.biddingStep);
+              //console.log(minimumPrice);
+              return maximumPrice;
+            } else {
+              return this.auctionObject.auctionRules.pricing.pricingReserve;
+            }
+          } else if (this.auctionObject.auctionType == 'dutch') {
+            return 0;
+          } else if (this.auctionObject.auctionRules.auctionType == 'fpsb') {
+            return this.auctionObject.auctionRules.pricing.pricingReserve;
+          } else if (this.auctionObject.auctionRules.auctionType == 'spsb') {
+            return this.auctionObject.auctionRules.pricing.pricingReserve;
+          } else {
+            return 0;
+          }
+        },
+        getCurrency(currency) {
+          return "zCoins"
+        },
+        getSubscription(subscription) {
+          console.log(subscription);
+          if (subscription == "flatFee") {
+            return "Flat fee";
+          } else if (subscription == "perHour") {
+            return "Per Hour";
+          } else if (subscription == "perMonth") {
+            return "Per Month";
+          } else if (subscription == "perYear") {
+            return "Per Year";
+          } else {
+            return "Flat Fee";
+          }
+        },
+        async created2() {
+          const token = sessionStorage.getItem("JWT");
+          if (token == null) {
+            window.location = "/"
+          }
+          console.log(token);
+          config = {
+            headers: {
+              Authorization: `Bearer ${token}`
+            }
+          };
+          q = this.$route.query;
+          console.log(q);
+          console.log(q.serviceID);
+          this.auctionID = q;
+          console.log(JSON.stringify(this.auctionID.serviceID));
+          let url = "http://127.0.0.1:8080/api/query?args=[" + JSON.stringify(this.auctionID.serviceID) + "]&fcn=queryServiceAsProvider";
+          console.log(url);
+          const res = await axios.get(url, config);
+          if (res.data.error != null) {
+            //console.log(res.data.result);
+            alert(res.data.error);
+          } else {
+            console.log(res);
+            this.result = res.data.result;
+            console.log(this.result);
+            this.parser(this.result);
+          }
+        }
+      },
+      async created() {
+        this.created2();
+        //q = this.$route.query;
+        //console.log(q.serviceID);
+        //this.bid.auctionID = q.serviceID;
+        //const res = await axios.get("/ui_customer/cCard" + q.serviceID);
+        //this.result = res.data;
+        //this.parser(this.result);
+      }
+    });
+  </script>
+
+</body>
+
+</html>
